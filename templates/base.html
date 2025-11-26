@@ -1,0 +1,73 @@
+<!doctype html>
+{% load static %}
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>Cheche Coding - Home</title>
+    <meta name="author" content="Did Coding Limited & James Granger Design">
+    <link rel="canonical" href="" />
+    <link rel="home" href="" />
+    <meta name="description" content="">
+    <meta name="keywords" content="">
+
+    <link rel="shortcut icon" type="image/x-icon" href="images/icon.jpg">
+    <link rel="apple-touch-icon" type="image/jpg" href="images/icon.jpg">
+
+    <!-- ================================
+    Start CSS
+    ================================= -->
+    <link href="{% static 'css/bootstrap.min.css' %}" rel="stylesheet">
+    <link href="{% static 'css/swiper-bundle.min.css' %}" rel="stylesheet">
+    <link href="{% static 'css/style.css' %}" rel="stylesheet">
+    <link href="{% static 'css/toastr.css' %}" rel="stylesheet">
+    <!-- ================================
+    End CSS
+    ================================= -->
+    <!--Font Awesome Icons-->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css">
+
+</head>
+
+<body>
+
+
+{% include 'inc/nav/navbar.html' %}
+  
+
+    <!-- ================================
+    Start Content
+    ================================= -->
+    {% block content %}
+    {% endblock %}
+    <!-- ================================
+    End Content
+    ================================= -->
+    
+
+    <!-- ================================
+    Start Footer
+    ================================= -->
+    {% include 'inc/footer/footer.html' %}
+    <!-- ================================
+    End Footer
+    ================================= -->
+
+    <!-- ================================
+    Start Scripts
+    ================================= -->
+    <script src="{% static 'js/global.min.js' %}"></script>
+    <script src="{% static 'js/bootstrap.bundle.min.js' %}"></script>
+    <script src="{% static 'js/swiper-bundle.min.js' %}"></script>
+    <script src="{% static 'js/script.js' %}"></script>
+    <script src="{% static 'js/toastr.js' %}"></script>
+    <script src="{% static 'js/alert.js' %}"></script>
+    <script src="{% static 'js/main.js' %}"></script>
+    <!-- ================================
+    End Scripts
+    ================================= -->
+</body>
+
+</html>

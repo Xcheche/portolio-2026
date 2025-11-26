@@ -1,0 +1,180 @@
+{% extends 'base.html' %}
+{% load static %}
+{%  block title %}Shop - Cheche Coding{% endblock %}
+{% block content %}
+
+  <!-- ================================
+    Start Content
+    ================================= -->
+  <section>
+    <div class="innerPageBannerCol">
+      <div class="container">
+        <div class="row g-4 g-md-3 align-items-center">
+          <div class="col-md-8">
+            <div class="bannerContent">
+              <h1 class="xlTitle pb-md-3">Browse through your choice of digital items and non-digital items below</h1>
+              <!-- <p class="lead mb-0">Digital products, templates and resources from Did Coding.</p> -->
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="lightBg">
+      <div class="container">
+        <div class="portfolioContentMain">
+
+          <!-- Shop grid -->
+          <div class="row g-3 g-md-4 g-lg-5 portfolioRow">
+
+            <div class="col-12">
+              <div class="d-flex justify-content-end align-items-center mb-3">
+                <label for="categoryFilter" class="me-2 visually-hidden">Filter by category</label>
+                <select id="categoryFilter" class="form-select form-select-sm w-auto"
+                  aria-label="Filter shop by category">
+                  <option value="all" selected>All categories</option>
+                  <option value="templates">Partner</option>
+                  <option value="ui-kits">IT</option>
+                  <option value="courses">Books</option>
+                  <option value="resources">Health</option>
+                </select>
+              </div>
+            </div>
+
+            <!-- Product 1 (New + Affiliate) -->
+            <!-- Product 1 (New + Affiliate) -->
+            <div class="col-md-6 col-lg-4 mb-4">
+              <div class="card h-100 border-0 shadow-sm">
+                <img src="{% static 'images/user-img.jpg' %}" class="card-img-top" alt="Landing page template preview">
+                <div class="card-body d-flex flex-column">
+                  <h3 class="h5 card-title mb-1">SaaS Landing Page Template</h3>
+                  <p class="small text-muted mb-2">
+                    Clean, conversion-focused landing page for SaaS and launches.
+                  </p>
+                  <p class="fw-semibold mb-2">£39.00</p>
+                  <p class="mb-2">
+                    <span class="badge bg-success me-1">New</span>
+                    <span class="badge bg-warning text-dark">Affiliate</span>
+                  </p>
+                  <div class="mt-auto pt-2">
+                    <a href="shop-detail.html?saas-landing" class="btn btnPrimary btn-sm w-100">
+                      View details
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </div>
+            
+            <!-- Product 2 (New) -->
+            <div class="col-md-6 col-lg-4 mb-4">
+              <div class="card h-100 border-0 shadow-sm">
+                <img src="{% static 'images/user-img.jpg' %}" class="card-img-top" alt="Portfolio website starter kit">
+                <div class="card-body d-flex flex-column">
+                  <h3 class="h5 card-title mb-1">Developer Portfolio Starter Kit</h3>
+                  <p class="small text-muted mb-2">
+                    Modern portfolio layout ideal for freelancers and small studios.
+                  </p>
+                  <p class="fw-semibold mb-2">£29.00</p>
+                  <p class="mb-2">
+                    <span class="badge bg-success">New</span>
+                  </p>
+                  <div class="mt-auto pt-2">
+                    <a href="shop-detail.html?dev-portfolio" class="btn btnPrimary btn-sm w-100">
+                      View details
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </div>
+            
+            <!-- Product 3 (Affiliate only) -->
+            <div class="col-md-6 col-lg-4 mb-4">
+              <div class="card h-100 border-0 shadow-sm">
+                <img src="{% static 'images/user-img.jpg' %}" class="card-img-top" alt="Course bundle illustration">
+                <div class="card-body d-flex flex-column">
+                  <h3 class="h5 card-title mb-1">Frontend &amp; UI Course Bundle</h3>
+                  <p class="small text-muted mb-2">
+                    Hand-picked video courses on modern frontend workflows and UX.
+                  </p>
+                  <p class="fw-semibold mb-2">From £59.00</p>
+                  <p class="mb-2">
+                    <span class="badge bg-warning text-dark">Affiliate</span>
+                  </p>
+                  <div class="mt-auto pt-2">
+                    <a href="shop-detail.html?frontend-course-bundle" class="btn btnPrimary btn-sm w-100">
+                      View details
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </div>
+            
+            <!-- Product 4 -->
+            <div class="col-md-6 col-lg-4 mb-4">
+              <div class="card h-100 border-0 shadow-sm">
+                <img src="{% static 'images/user-img.jpg' %}" class="card-img-top" alt="Ecommerce UI kit">
+                <div class="card-body d-flex flex-column">
+                  <h3 class="h5 card-title mb-1">eCommerce UI Kit</h3>
+                  <p class="small text-muted mb-2">
+                    Reusable cards, grids and checkout patterns in Figma.
+                  </p>
+                  <p class="fw-semibold mb-2">£24.00</p>
+                  <div class="mt-auto pt-2">
+                    <a href="shop-detail.html?commerce-ui-kit" class="btn btnPrimary btn-sm w-100">
+                      View details
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </div>
+            
+            <!-- Product 5 -->
+            <div class="col-md-6 col-lg-4 mb-4">
+              <div class="card h-100 border-0 shadow-sm">
+                <img src="{% static 'images/user-img.jpg' %}" class="card-img-top" alt="Client onboarding template">
+                <div class="card-body d-flex flex-column">
+                  <h3 class="h5 card-title mb-1">Client Onboarding Pack</h3>
+                  <p class="small text-muted mb-2">
+                    Proposals, questionnaires and checklists to smooth new projects.
+                  </p>
+                  <p class="fw-semibold mb-2">£19.00</p>
+                  <div class="mt-auto pt-2">
+                    <a href="shop-detail.html?client-onboarding-pack" class="btn btnPrimary btn-sm w-100">
+                      View details
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </div>
+            
+            <!-- Product 6 -->
+            <div class="col-md-6 col-lg-4 mb-4">
+              <div class="card h-100 border-0 shadow-sm">
+                <img src="{% static 'images/user-img.jpg' %}" class="card-img-top" alt="Email template set">
+                <div class="card-body d-flex flex-column">
+                  <h3 class="h5 card-title mb-1">Transactional Email Templates</h3>
+                  <p class="small text-muted mb-2">
+                    Clean, responsive templates for receipts, notifications and updates.
+                  </p>
+                  <p class="fw-semibold mb-2">£17.00</p>
+                  <div class="mt-auto pt-2">
+                    <a href="shop-detail.html?email-templates" class="btn btnPrimary btn-sm w-100">
+                      View details
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </div>
+            
+
+          </div> <!-- /.row -->
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- ================================
+    End Content
+    ================================= -->
+{% endblock %}

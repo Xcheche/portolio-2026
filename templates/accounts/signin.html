@@ -1,0 +1,77 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}Sign Up{% endblock %}
+{% block content %}
+
+  <!-- ================================
+    Start Content
+    ================================= -->
+  <section>
+    <div class="innerPageBannerCol">
+      <div class="container">
+        <div class="row g-4 g-md-3 align-items-center">
+          <div class="col-md-6">
+            <div class="bannerContent">
+              <h1 class="xlTitle pb-md-3">Sign in below</h1>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="lightBg">
+      <div class="container">
+        <div class="row justify-content-center">
+          <div class="col-md-6 col-lg-5 mt-3">
+            <form class="w-100" id="signinForm" action="#" method="post" novalidate role="form">
+              <div class="mb-3">
+
+                <input type="email" id="signin-email" name="email" class="form-control text-center" placeholder="you@example.com"
+                  required autocomplete="email" autofocus aria-describedby="emailHelp">
+                <div class="invalid-feedback">Please enter a valid email address.</div>
+              </div>
+
+              <div class="mb-3">
+                <input type="password" id="signin-password" name="password" class="form-control text-center" placeholder="Password"
+                  required minlength="8" autocomplete="current-password" aria-describedby="passwordHelp">
+                <div id="passwordHelp" class="form-text text-center">Minimum 8 characters.</div>
+                <div class="invalid-feedback">Please enter your password.</div>
+              </div>
+
+              <div class="d-flex justify-content-between align-items-center mb-3">
+                <div class="form-check">
+                  <input class="form-check-input" type="checkbox" value="1" id="remember" name="remember">
+                  <label class="form-check-label" for="remember">Remember me</label>
+                </div>
+                <a href="forgotten-password.html">Forgotten your password?</a>
+              </div>
+
+              <button type="submit" class="btn btnPrimary w-100">Sign in</button>
+
+              <!-- Social login -->
+              <div class="text-center socialLogin d-flex flex-column align-items-center mt-3">
+                <p class="mb-2">Or sign in with:</p>
+                <div class="d-flex gap-2">
+                  <a href="javascript:void(0)" class="btn btn-outline-secondary btn-sm"
+                    aria-label="Sign in with GitHub" rel="nofollow">Github</a>
+                  <a href="javascript:void(0)" class="btn btn-outline-secondary btn-sm" aria-label="Sign in with Google"
+                    rel="nofollow">Google</a>
+                </div>
+              </div>
+            </form>
+
+            <p class="mt-3 text-center">
+              Don't have an account? <a href="{% url 'signup' %}">Sign-up</a>
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- ================================
+    End Content
+    ================================= -->
+
+{% endblock %}

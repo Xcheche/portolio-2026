@@ -1,0 +1,170 @@
+{% load static %}
+<header>
+    <div class="headerCol">
+        <div class="container-fluid">
+            <div class="row align-items-center">
+                <div class="col-auto">
+                    <div class="logoCol"><a href="/">
+                        <style>
+                        .briefcase-updown{
+                            display:inline-block;
+                            animation: briefcaseUpDown 1.2s ease-in-out infinite;
+                        }
+                        @keyframes briefcaseUpDown{
+                            0%,100%{ transform: translateY(0); }
+                            50%{ transform: translateY(-6px); }
+                        }
+                        </style>
+                        <span class="nav-item__icon"><i class="fas fa-briefcase briefcase-updown" aria-hidden="true" ></i></span>
+                    </a></div>
+                </div>
+                <div class="col">
+                    <div class="d-md-none">
+                        <button class="navToggle">
+                            <span class="navToggle__text">Toggle Menu</span>
+                        </button>
+                    </div>
+                    <div class="navCollapseCol">
+                        <div class="navCol">
+                            <style>
+                                /* keep labels centered under the icons without changing overall design */
+                                .nav-item-link,
+                                .nav-cart .cart-link {
+                                    display: inline-flex;
+                                    flex-direction: column;
+                                    align-items: center;
+                                    text-align: center;
+                                    color: inherit;
+                                    text-decoration: none;
+                                    padding: 6px 8px;
+                                }
+                                .nav-label {
+                                    display: block;
+                                    margin-top: 6px;
+                                    font-size: 0.85rem;
+                                    line-height: 1;
+                                }
+                                /* small adjustments for the language switch compactness */
+                                .language-switch .form-select {
+                                    height: calc(1.75rem + 2px);
+                                    font-size: 0.85rem;
+                                }
+                                .language-switch .btn {
+                                    margin-left: 0.5rem;
+                                    padding: 0.2rem 0.5rem;
+                                }
+                                .cart-count {
+                                    font-size: 0.75rem;
+                                    background: #e53;
+                                    color: #fff;
+                                    border-radius: 10px;
+                                    padding: 2px 6px;
+                                    margin-top: 6px;
+                                }
+                            </style>
+
+                            <ul>
+                                <!--Language switch-->
+                                <li class="language-switch">
+                                    <div class="d-inline-flex align-items-center" style="margin-left: 1rem;">
+                                        <select name="language" class="form-select form-select-sm" style="width: auto; padding-right: 2rem;">
+                                            <option value="en" selected>English</option>
+                                            <option value="es">Español</option>
+                                            <option value="fr">Français</option>
+                                            <option value="de">Deutsch</option>
+                                            <option value="zh">中文</option>
+                                        </select>
+                                        <button class="btn btn-sm ">
+                                            <i class="fas fa-globe fa-spin" aria-hidden="true"></i>
+                                        </button>
+                                    </div>
+                                </li>
+
+                                <li class="active">
+                                    <a href="/" class="nav-item-link">
+                                        <span class="nav-item__icon"><i class="fas fa-home"></i></span>
+                                        <span class="nav-label">Home</span>
+                                    </a>
+                                </li>
+
+                                <li>
+                                    <a href="{% url 'portfolio' %}" class="nav-item-link">
+                                        <span class="nav-item__icon"><i class="fas fa-briefcase"></i></span>
+                                        <span class="nav-label">Portfolio</span>
+                                    </a>
+                                </li>
+
+                                <li>
+                                    <a href="blog.html" class="nav-item-link">
+                                        <span class="nav-item__icon"><i class="fas fa-blog"></i></span>
+                                        <span class="nav-label">Blog</span>
+                                    </a>
+                                </li>
+
+                                <li>
+                                    <a href="{% url 'contact' %}" class="nav-item-link">
+                                        <span class="nav-item__icon"><i class="fas fa-envelope"></i></span>
+                                        <span class="nav-label">Contact</span>
+                                    </a>
+                                </li>
+
+                                <li>
+                                    <a href="policies.html" class="nav-item-link">
+                                        <span class="nav-item__icon"><i class="fas fa-file-alt"></i></span>
+                                        <span class="nav-label">Policies</span>
+                                    </a>
+                                </li>
+
+                                <li>
+                                    <a href="{% url 'shop' %}" class="nav-item-link">
+                                        <span class="nav-item__icon"><i class="fas fa-shopping-cart"></i></span>
+                                        <span class="nav-label">Shop</span>
+                                    </a>
+                                </li>
+
+                                <li>
+                                    <a href="" class="nav-item-link">
+                                        <span class="nav-item__icon"><i class="fas fa-tachometer-alt"></i></span>
+                                        <span class="nav-label">Dashboard</span>
+                                    </a>
+                                </li>
+
+                                <li>
+                                    <a href="{% url 'signup' %}" class="nav-item-link">
+                                        <span class="nav-item__icon"><i class="fas fa-user-plus"></i></span>
+                                        <span class="nav-label">Sign-up</span>
+                                    </a>
+                                </li>
+
+                                <li class="nav-item">
+                                    <a href="{% url 'login' %}" class="nav-item-link">
+                                        <span class="nav-item__icon"><i class="fas fa-user"></i></span>
+                                        <span class="nav-label">Sign-in</span>
+                                    </a>
+                                </li>
+
+                                <li class="nav-cart">
+                                    <a href="cart.html" class="cart-link" aria-haspopup="true" aria-expanded="false" title="View cart">
+                                        <!-- simple inline cart icon so design stays consistent -->
+                                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg">
+                                            <path d="M6 6H21L19 14H8L6 6Z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+                                            <circle cx="10" cy="19" r="1.5" fill="currentColor" />
+                                            <circle cx="18" cy="19" r="1.5" fill="currentColor" />
+                                        </svg>
+                                        <span class="cart-count" aria-live="polite">2</span>
+                                        <span class="nav-label">Cart</span>
+                                    </a>
+
+                                    <!-- lightweight mini-cart (hidden by default; show with CSS/JS on hover or click) -->
+                                    <div class="cart-dropdown" role="menu" aria-hidden="true"></div>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+<!-- ================================
+End Navigation Bar

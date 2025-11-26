@@ -1,0 +1,314 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>Did Coding - Shop Detail</title>
+    <meta name="author" content="Did Coding Limited & James Granger Design">
+    <link rel="canonical" href=""/>
+    <link rel="home" href=""/>
+    <meta name="description" content="">
+    <meta name="keywords" content="">
+
+    <!-- ================================
+    Start CSS
+    ================================= -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/swiper-bundle.min.css" rel="stylesheet">
+    <link href="css/style.css" rel="stylesheet">
+    <link href="css/toastr.css" rel="stylesheet">
+    <!-- ================================
+    End CSS
+    ================================= -->
+
+  </head>
+  <body>
+
+    <!-- ================================
+    Start Navigation Bar
+    ================================= -->
+    <header>
+      <div class="headerCol">
+        <div class="container-fluid">
+          <div class="row align-items-center">
+            <div class="col-auto">
+              <div class="logoCol"><a href="index.html"><img src="images/logo.png" alt="..."></a></div>
+            </div>
+            <div class="col">
+              <div class="d-md-none">
+                <button class="navToggle">
+                  <span class="navToggle__text">Toggle Menu</span>
+                </button>
+              </div>
+              <div class="navCollapseCol">
+                <div class="navCol">
+                  <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="portfolio.html">Portfolio</a></li>
+                    <li><a href="blog.html">Blog</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                    <li><a href="policies.html">Policies</a></li>
+                    <li><a href="shop.html">Shop</a></li>
+                    <li><a href="signup.html">Sign-up</a></li>
+                    <!-- <li><a href="signin.html">Sign-in</a></li>
+                    <li><a href="cart.html">Cart</a></li>-->
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </header>
+    <!-- ================================
+    End Navigation Bar
+    ================================= -->
+
+    <!-- ================================
+    Start Content
+    ================================= -->
+    <section>
+      <div class="innerPageBannerCol">
+        <div class="container">
+          <div class="row g-4 g-md-3  align-items-center">
+            <div class="col-md-6">
+              <div class="bannerContent">
+                <h1 class="xlTitle pb-md-3">Product title</h1>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="sectionSpaceSm">
+        <div class="container">
+          <div class="row row--50">
+            <div class="col-lg-6 mb--40">
+                <div class="h-100">
+                    <div class="position-sticky sticky-top">
+                        <div class="single-product-thumbnail axil-product"> 
+                            <div class="thumbnail">
+                                <img src="images/user-img.jpg" alt="Product Images">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-6 mb--40">
+                <h2>Bored Ape Yacht Club</h2>
+                <p>$5000.00</p>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
+                  Aenean congue imperdiet lorem ut posuere. Maecenas nec accumsan 
+                  risus, quis luctus libero. Morbi a nulla ac felis scelerisque 
+                  feugiat quis vitae turpis. Vivamus nec augue vel enim scelerisque 
+                  cursus. Curabitur efficitur ipsum quis turpis bibendum egestas. 
+                  Nunc ac euismod dolor. Vestibulum nec ipsum fermentum, semper 
+                  quam eu, porttitor elit. Maecenas efficitur ex eget augue euismod 
+                  semper. Curabitur pharetra tortor vel orci volutpat semper. 
+                  Donec feugiat mauris ante. In hac habitasse platea dictumst.
+                </p>
+                <!--Product variation-->
+                <div class="product-variation">
+                    <h4>Choose your option</h4>
+                    <select class="form-select">
+                        <option value="option1">Option 1</option>
+                        <option value="option2">Option 2</option>
+                        <option value="option3">Option 3</option>
+                    </select>
+                </div>
+                <a href="#" class="btn btnPrimary">Add to cart</a>
+                <a href="#" class="btn btnDanger">Out of stock</a>&nbsp;&nbsp;
+
+                <a href="#" class="btn btnPrimary mt-3" role="button" aria-label="Purchase from our trusted partner">Purchase from <span class="text-danger">Partner</span></a>
+            </div>
+            <!--Reviews-->
+            <div class="col-12"></div>
+              <div class="product-reviews">
+                <h3 class="mb-3">Customer reviews</h3>
+
+                <!-- Review submission form -->
+                <form id="reviewForm" class="review-form mb-4">
+                  <div class="row g-2 align-items-center">
+                    <div class="col-md-4">
+                      <input type="text" id="reviewerName" class="form-control" placeholder="Your name" required>
+                    </div>
+                    <div class="col-md-3">
+                      <select id="reviewRating" class="form-select" required>
+                        <option value="">Rating</option>
+                        <option value="5">★★★★★ 5</option>
+                        <option value="4">★★★★☆ 4</option>
+                        <option value="3">★★★☆☆ 3</option>
+                        <option value="2">★★☆☆☆ 2</option>
+                        <option value="1">★☆☆☆☆ 1</option>
+                      </select>
+                    </div>
+                    <div class="col-md-5">
+                      <button type="submit" class="btn btnPrimary w-100">Submit review</button>
+                    </div>
+                  </div>
+                  <div class="mt-2">
+                    <textarea id="reviewText" class="form-control" rows="3" placeholder="Write your review..." required></textarea>
+                  </div>
+                </form>
+
+                <!-- Reviews list -->
+                <div id="reviewsList" class="reviews-list">
+                  <div class="review mb-3 p-3 border rounded">
+                    <div class="d-flex justify-content-between align-items-start">
+                      <div>
+                        <strong>Jane Doe</strong>
+                        <div class="text-muted small">★★★★★</div>
+                      </div>
+                      <div>
+                        <button type="button" class="btn btn-sm btn-outline-secondary reply-toggle">Reply</button>
+                      </div>
+                    </div>
+                    <p class="mb-1 mt-2">Amazing product — well packed and described. Highly recommend!</p>
+
+                    <!-- Reply area (hidden by default) -->
+                    <div class="reply-area mt-2 d-none">
+                      <form class="reply-form d-flex gap-2">
+                        <input type="text" class="form-control form-control-sm reply-input" placeholder="Write a reply..." required>
+                        <button type="button" class="btn btn-sm btnPrimary send-reply">Send</button>
+                      </form>
+                      <div class="replies mt-2"></div>
+                    </div>
+                  </div>
+
+                  <div class="review mb-3 p-3 border rounded">
+                    <div class="d-flex justify-content-between align-items-start">
+                      <div>
+                        <strong>Sam R.</strong>
+                        <div class="text-muted small">★★★★☆</div>
+                      </div>
+                      <div>
+                        <button type="button" class="btn btn-sm btn-outline-secondary reply-toggle">Reply</button>
+                      </div>
+                    </div>
+                    <p class="mb-1 mt-2">Great value. Delivery was slightly delayed but product quality is good.</p>
+
+                    <div class="reply-area mt-2 d-none">
+                      <form class="reply-form d-flex gap-2">
+                        <input type="text" class="form-control form-control-sm reply-input" placeholder="Write a reply..." required>
+                        <button type="button" class="btn btn-sm btnPrimary send-reply">Send</button>
+                      </form>
+                      <div class="replies mt-2"></div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <script>
+            document.addEventListener('click', function(e) {
+              // Toggle reply area
+              if (e.target.matches('.reply-toggle')) {
+                var review = e.target.closest('.review');
+                var area = review.querySelector('.reply-area');
+                area.classList.toggle('d-none');
+              }
+
+              // Send reply (adds inline reply entry)
+              if (e.target.matches('.send-reply')) {
+                var form = e.target.closest('.reply-form');
+                var input = form.querySelector('.reply-input');
+                var text = input.value.trim();
+                if (!text) return;
+                var replies = form.parentElement.querySelector('.replies');
+                var div = document.createElement('div');
+                div.className = 'p-2 mt-2 bg-light rounded';
+                div.textContent = text;
+                replies.appendChild(div);
+                input.value = '';
+              }
+            });
+
+            // Submit new review (adds review to list)
+            document.getElementById('reviewForm').addEventListener('submit', function(ev) {
+              ev.preventDefault();
+              var name = document.getElementById('reviewerName').value.trim();
+              var rating = document.getElementById('reviewRating').value;
+              var text = document.getElementById('reviewText').value.trim();
+              if (!name || !rating || !text) return;
+
+              var container = document.getElementById('reviewsList');
+              var review = document.createElement('div');
+              review.className = 'review mb-3 p-3 border rounded';
+              review.innerHTML = ''
+                + '<div class="d-flex justify-content-between align-items-start">'
+                +   '<div><strong>' + escapeHtml(name) + '</strong><div class="text-muted small">' + '★'.repeat(rating) + '</div></div>'
+                +   '<div><button type="button" class="btn btn-sm btn-outline-secondary reply-toggle">Reply</button></div>'
+                + '</div>'
+                + '<p class="mb-1 mt-2">' + escapeHtml(text) + '</p>'
+                + '<div class="reply-area mt-2 d-none">'
+                +   '<form class="reply-form d-flex gap-2">'
+                +     '<input type="text" class="form-control form-control-sm reply-input" placeholder="Write a reply..." required>'
+                +     '<button type="button" class="btn btn-sm btnPrimary send-reply">Send</button>'
+                +   '</form>'
+                +   '<div class="replies mt-2"></div>'
+                + '</div>';
+              container.insertBefore(review, container.firstChild);
+
+              // reset form
+              this.reset();
+            });
+
+            // Basic text escaping
+            function escapeHtml(str) {
+              return str.replace(/[&<>"']/g, function (m) { return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":"&#39;"}[m]; });
+            }
+            </script>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- ================================
+    End Content
+    ================================= -->
+    
+    <!-- ================================
+    Start Footer
+    ================================= -->
+    <footer>
+      <div class="footerCol">
+        <div class="container">
+          <ul class="socialCol">
+            <li><a href="javascript:void(0)"><img src="images/fb.svg" alt="..."></a></li>
+            <li><a href="javascript:void(0)"><img src="images/insta.svg" alt="..."></a></li>
+            <li><a href="javascript:void(0)"><img src="images/twitter.svg" alt="..."></a></li>
+            <li><a href="javascript:void(0)"><img src="images/linkedin.svg" alt="..."></a></li>
+          </ul>
+          <div class="copyrightCol">
+            <form id="newsletterForm">
+              <input type="email" id="email" name="email" placeholder="Add your email to subscribe to our newsletter..">
+              <input class='btn btnPrimary' type="submit" value="Submit">
+            </form>
+          </div> 
+          <div class="copyrightCol">
+            <p>Copyright @2023 All rights reserved. Designed by <a href="https://jamesgrangerdesign.co.uk/" target="_blank">James Granger Design</a></p>
+          </div>
+        </div>
+      </div>
+    </footer>
+    <!-- ================================
+    End Footer
+    ================================= -->
+
+    <!-- ================================
+    Start Scripts
+    ================================= -->
+    <script src="js/global.min.js"></script>
+    <script src="js/bootstrap.bundle.min.js"></script>
+    <script src="js/swiper-bundle.min.js"></script>
+    <script src="js/script.js"></script>
+    <script src="js/toastr.js"></script>
+    <script src="js/alert.js"></script>
+    <script src="js/main.js"></script>
+    <!-- ================================
+    End Scripts
+    ================================= -->
+  </body>
+</html>

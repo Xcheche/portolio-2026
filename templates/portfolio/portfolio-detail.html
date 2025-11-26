@@ -1,0 +1,193 @@
+{% extends "base.html" %}
+{% load static %}
+{%  block title %}Portfolio Detail - Cheche Coding{% endblock %}
+{% block content %}
+
+  <!-- ================================
+    Start Content
+    ================================= -->
+  <!-- Banner / Title -->
+  <section>
+    <div class="innerPageBannerCol">
+      <div class="container">
+        <div class="row g-4 g-md-3 align-items-center">
+          <div class="col-md-8">
+            <div class="bannerContent">
+              <!-- Project title -->
+              <h1 class="xlTitle pb-md-3">Boutique eCommerce Platform</h1>
+              <p class="lead mb-0">
+                Conversion-focused headless Shopify build with a React storefront and custom checkout flow.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Main Content -->
+  <section>
+    <div class="sectionSpaceSm">
+      <div class="container">
+        <div class="row g-4 g-lg-5">
+
+          <!-- Left: case study / description -->
+          <div class="col-lg-8">
+            <figure class="mb-4">
+              <img src="{% static 'images/user-img.jpg' %}" class="img-fluid rounded"
+                alt="Screens from the boutique eCommerce platform interface">
+            </figure>
+
+            <h2 class="h4 mb-3">Overview</h2>
+            <p>
+              This boutique eCommerce platform was designed to prioritise speed, clarity and conversion.
+              We paired a headless Shopify backend with a React storefront, enabling fast page loads and a
+              highly customised shopping experience.
+            </p>
+            <p>
+              We ran multiple A/B tests across the landing page, product detail views and checkout steps
+              to understand what actually moved the needle for the client’s customers.
+            </p>
+
+            <h3 class="h5 mt-4 mb-2">Objectives</h3>
+            <ul>
+              <li>Improve mobile conversion rate without sacrificing brand feel.</li>
+              <li>Reduce checkout abandonment using a streamlined flow.</li>
+              <li>Give the client a maintainable way to launch new campaigns.</li>
+            </ul>
+
+            <h3 class="h5 mt-4 mb-2">What we delivered</h3>
+            <ul>
+              <li>Headless Shopify setup with React front-end.</li>
+              <li>Reusable components for landing pages and campaigns.</li>
+              <li>Analytics and event tracking across the funnel.</li>
+              <li>Documentation and handover for the in-house team.</li>
+            </ul>
+          </div>
+
+          <!-- Right: project info + testimonial box -->
+          <div class="col-lg-4">
+            <!-- Project Info Card -->
+            <aside class="mb-4">
+              <div class="card shadow-sm border-0">
+                <div class="card-body">
+                  <div class="d-flex justify-content-between align-items-center mb-2">
+                    <h2 class="h5 mb-0">Project info</h2>
+                    <!-- Status badge: change text & class as needed -->
+                    <!-- Possible: badge-success for Finished, badge-warning for In production, depending on your CSS -->
+                    <span class="badge bg-success">Finished</span>
+                  </div>
+                  <dl class="mb-0 small">
+                    <div class="d-flex justify-content-between mb-2">
+                      <dt class="me-2 text-muted">Client</dt>
+                      <dd class="mb-0 text-end">Independent retail brand</dd>
+                    </div>
+                    <div class="d-flex justify-content-between mb-2">
+                      <dt class="me-2 text-muted">Category</dt>
+                      <dd class="mb-0 text-end">eCommerce</dd>
+                    </div>
+                    <div class="d-flex justify-content-between mb-2">
+                      <dt class="me-2 text-muted">Date</dt>
+                      <dd class="mb-0 text-end">
+                        <time datetime="2024-06-01">June 2024</time>
+                      </dd>
+                    </div>
+                    <div class="d-flex justify-content-between mb-2">
+                      <dt class="me-2 text-muted">Status</dt>
+                      <dd class="mb-0 text-end">Live</dd>
+                    </div>
+                    <div class="mb-2">
+                      <dt class="me-2 text-muted">Tech stack</dt>
+                      <dd class="mb-0">
+                        <ul class="pTags mb-0">
+                          <li>Shopify</li>
+                          <li>React</li>
+                          <li>Stripe</li>
+                          <li>Analytics</li>
+                        </ul>
+                      </dd>
+                    </div>
+                    <div class="mt-3">
+                      <dt class="me-2 text-muted">Links</dt>
+                      <dd class="mb-0">
+                        <a href="#" target="_blank" rel="noopener" class="d-block">Live site</a>
+                        <a href="#" target="_blank" rel="noopener" class="d-block">GitHub (if public)</a>
+                      </dd>
+                    </div>
+                  </dl>
+                </div>
+              </div>
+            </aside>
+
+            <!-- Testimonial form (only box to submit, does NOT display existing testimonials) -->
+            <aside>
+              <div class="card shadow-sm border-0">
+                <div class="card-body">
+                  <h2 class="h6 mb-2">Share your experience</h2>
+                  <p class="small text-muted mb-3">
+                    Already worked with us on this project? Leave a quick rating and short testimonial.
+                    (Selected testimonials are displayed on the home page.)
+                  </p>
+
+                  <form id="projectTestimonialForm">
+                    <div class="mb-3">
+                      <label for="testimonialName" class="form-label small">Your name</label>
+                      <input type="text" class="form-control" id="testimonialName" name="name"
+                        placeholder="e.g. Jane Doe" required>
+                    </div>
+
+                    <div class="mb-3">
+                      <label for="testimonialRole" class="form-label small">Role / Company</label>
+                      <input type="text" class="form-control" id="testimonialRole" name="role"
+                        placeholder="e.g. Founder, Boutique Brand">
+                    </div>
+
+                    <!-- Star rating -->
+                    <div class="mb-3">
+                      <span class="form-label small d-block mb-1">Rating</span>
+                      <div class="ratingStars d-flex flex-row-reverse justify-content-start">
+                        <!-- You can style .ratingStars input/label in your CSS -->
+                        <input type="radio" id="star5" name="rating" value="5">
+                        <label for="star5" title="5 stars">★</label>
+
+                        <input type="radio" id="star4" name="rating" value="4">
+                        <label for="star4" title="4 stars">★</label>
+
+                        <input type="radio" id="star3" name="rating" value="3">
+                        <label for="star3" title="3 stars">★</label>
+
+                        <input type="radio" id="star2" name="rating" value="2">
+                        <label for="star2" title="2 stars">★</label>
+
+                        <input type="radio" id="star1" name="rating" value="1">
+                        <label for="star1" title="1 star">★</label>
+                      </div>
+                    </div>
+
+                    <div class="mb-3">
+                      <label for="testimonialMessage" class="form-label small">Testimonial</label>
+                      <textarea class="form-control" id="testimonialMessage" name="message" rows="3"
+                        placeholder="A few words about what it was like working together..." required></textarea>
+                    </div>
+
+                    <button type="submit" class="btn btnPrimary w-100">
+                      Submit testimonial
+                    </button>
+                  </form>
+                </div>
+              </div>
+            </aside>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- ================================
+    End Content
+    ================================= -->
+
+
+
+
+  {% endblock %}  

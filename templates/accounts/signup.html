@@ -1,0 +1,77 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Sign Up{% endblock %}
+{% block content %}
+  <!-- ================================
+    Start Content
+    ================================= -->
+  <section>
+    <div class="innerPageBannerCol">
+      <div class="container">
+        <div class="row g-4 g-md-3 align-items-center">
+          <div class="col-md-6">
+            <div class="bannerContent">
+              <h1 class="xlTitle pb-md-3 ">Sign up below</h1>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="lightBg">
+      <div class="container">
+        <div class="row justify-content-center">
+          <div class="col-md-6 col-lg-5">
+            <form id="signupForm" class="w-100 mt-3" action="#" method="post" novalidate role="form">
+
+              <div class="mb-3">
+                
+                <input type="text" id="first_name" name="first_name" class="form-control text-center" placeholder="Your first name"
+                  required>
+                <div class="invalid-feedback">Please enter your first name.</div>
+              </div>
+
+              <div class="mb-3">
+                <input type="text" id="last_name" name="last_name" class="form-control text-center" placeholder="Your last name"
+                  required>
+                <div class="invalid-feedback">Please enter your last name.</div>
+              </div>
+
+              <div class="mb-3">
+                <input type="email" id="signup-email" name="email" class="form-control text-center" placeholder="you@example.com"
+                  required autocomplete="email">
+                <div class="invalid-feedback">Please enter a valid email address.</div>
+              </div>
+
+              <div class="mb-3">
+                <input type="password" id="password1" name="password1" class="form-control  text-center"
+                  placeholder="Create a password" required minlength="8" autocomplete="new-password">
+                <div class="form-text text-center">Minimum 8 characters.</div>
+                <div class="invalid-feedback text-center">Please enter a password (at least 8 characters).</div>
+              </div>
+
+              <div class="mb-3">
+                <input type="password" id="password2" name="password2" class="form-control  text-center"
+                  placeholder="Repeat your password" required minlength="8" autocomplete="new-password">
+                <div class="invalid-feedback">Please repeat the same password.</div>
+              </div>
+
+              <button class="btn btnPrimary w-100" type="submit">Create account</button>
+            </form>
+
+            <p class="mt-3 text-center">
+              Already have an account? <a href="signin.html">Sign-in</a>
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- ================================
+    End Content
+    ================================= -->
+
+{% endblock %}  

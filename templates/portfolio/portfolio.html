@@ -1,0 +1,201 @@
+{% extends "base.html" %}
+{% load static %}
+{%  block title %}Portfolio - Cheche Coding{% endblock %}
+{% block content %}
+
+  <!-- ================================
+    Start Content
+    ================================= -->
+  <section>
+    <div class="innerPageBannerCol">
+      <div class="container">
+        <div class="row g-4 g-md-3  align-items-center">
+          <div class="col-md-6">
+            <div class="bannerContent">
+              <h1 class="xlTitle pb-md-3">Selected projects — design &amp; engineering</h1>
+              <p class="lead">Hand-picked case studies showing design rationale, tech choices and outcomes.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="lightBg">
+      <div class="container">
+        <div class="portfolioContentMain">
+
+          <!-- Filter / Category dropdown -->
+          <div class="row mb-4">
+            <div class="col-md-6">
+              <h2 class="h4 mb-2">Projects</h2>
+              <p class="text-muted mb-0">Browse by category and open full project details.</p>
+            </div>
+            <div class="col-md-6 text-md-end">
+              <label for="categoryFilter" class="me-2 fw-semibold">Filter by category:</label>
+              <select id="categoryFilter" class="form-select d-inline-block w-auto">
+                <option value="all">All categories</option>
+                <option value="ecommerce">eCommerce</option>
+                <option value="webapp">Web App</option>
+                <option value="marketing">Marketing / Microsite</option>
+                <option value="saas">SaaS</option>
+                <option value="branding">Branding</option>
+                <option value="nonprofit">Non-profit</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="row g-3 g-md-4 g-lg-5 portfolioRow">
+
+            <!-- Project 1 -->
+            <div class="col-md-6 mb-4" data-category="ecommerce">
+              <article class="card h-100 border-0 shadow-sm" role="article" aria-labelledby="proj-1-title">
+                <img src="{% static 'images/user-img.jpg' %}" alt="Boutique eCommerce platform interface"
+                  class="card-img-top img-fluid">
+                <div class="card-body d-flex flex-column">
+                  <h3 id="proj-1-title" class="h5 card-title">Boutique eCommerce Platform</h3>
+                  <p class="small text-muted mb-2">
+                    <span class="me-2">Category: <strong>eCommerce</strong></span>
+                    <span>Completed: <time datetime="2024-06-01">June 2024</time></span>
+                  </p>
+                  <p class="card-text">
+                    A headless Shopify store with a React storefront, optimised for conversion and performance.
+                    Includes A/B tested landing flows and custom checkout UX.
+                  </p>
+                  <p class="mt-auto pt-2 mb-0">
+                    <a href="portfolio-detail.html?project=boutique-ecommerce" class="case">View details</a> &bull;
+                    <a href="https://demo.example.com/boutique-ecommerce" class="live" title="Open live demo"
+                      target="_blank" rel="noopener">Live demo</a> &bull;
+                    <a href="https://github.com/didcoding/boutique-ecommerce" class="code" title="Source on GitHub"
+                      target="_blank" rel="noopener">GitHub</a>
+                  </p>
+                </div>
+              </article>
+            </div>
+
+            <!-- Project 2 -->
+            <div class="col-md-6 mb-4" data-category="webapp">
+              <article class="card h-100 border-0 shadow-sm" role="article" aria-labelledby="proj-2-title">
+                <img src="{% static 'images/user-img.jpg' %}" alt="Client portal and booking dashboard" class="card-img-top img-fluid">
+                <div class="card-body d-flex flex-column">
+                  <h3 id="proj-2-title" class="h5 card-title">Client Portal &amp; Booking</h3>
+                  <p class="small text-muted mb-2">
+                    <span class="me-2">Category: <strong>Web App</strong></span>
+                    <span>Completed: <time datetime="2023-11-01">November 2023</time></span>
+                  </p>
+                  <p class="card-text">
+                    Secure client portal with bookings, invoicing and file-sharing. Built with Django for reliability
+                    and a responsive UI for desktop and mobile.
+                  </p>
+                  <p class="mt-auto pt-2 mb-0">
+                    <a href="portfolio-detail.html?project=client-portal-booking" class="case">View details</a> &bull;
+                    <a href="#" class="live" target="_blank" rel="noopener">Live</a> &bull;
+                    <a href="#" class="code" target="_blank" rel="noopener">Code</a>
+                  </p>
+                </div>
+              </article>
+            </div>
+
+            <!-- Project 3 -->
+            <div class="col-md-6 mb-4" data-category="marketing">
+              <article class="card h-100 border-0 shadow-sm" role="article" aria-labelledby="proj-3-title">
+                <img src="{% static 'images/user-img.jpg' %}" alt="Campaign microsite layout" class="card-img-top img-fluid">
+                <div class="card-body d-flex flex-column">
+                  <h3 id="proj-3-title" class="h5 card-title">Campaign Microsite &amp; Analytics</h3>
+                  <p class="small text-muted mb-2">
+                    <span class="me-2">Category: <strong>Marketing</strong></span>
+                    <span>Completed: <time datetime="2023-09-01">September 2023</time></span>
+                  </p>
+                  <p class="card-text">
+                    A fast, accessible microsite used for a seasonal campaign. Emphasis on SEO, analytics and a simple
+                    CMS for content editors.
+                  </p>
+                  <p class="mt-auto pt-2 mb-0">
+                    <a href="{% url 'portfolio_detail' %}?project=campaign-microsite" class="case">View details</a> &bull;
+                    <a href="#" class="live" target="_blank" rel="noopener">Live demo</a>
+                  </p>
+                </div>
+              </article>
+            </div>
+
+            <!-- Project 4 -->
+            <div class="col-md-6 mb-4" data-category="saas">
+              <article class="card h-100 border-0 shadow-sm" role="article" aria-labelledby="proj-4-title">
+                <img src="{% static 'images/user-img.jpg' %}" alt="SaaS dashboard and reporting screens"
+                  class="card-img-top img-fluid">
+                <div class="card-body d-flex flex-column">
+                  <h3 id="proj-4-title" class="h5 card-title">SaaS Dashboard &amp; Reporting</h3>
+                  <p class="small text-muted mb-2">
+                    <span class="me-2">Category: <strong>SaaS</strong></span>
+                    <span>Completed: <time datetime="2024-02-01">February 2024</time></span>
+                  </p>
+                  <p class="card-text">
+                    A multi-tenant dashboard with real-time metrics and CSV exports. Focus on performance,
+                    permissions and developer-friendly APIs.
+                  </p>
+                  <p class="mt-auto pt-2 mb-0">
+                    <a href="{% url 'portfolio_detail' %}?project=saas-dashboard" class="case">View details</a> &bull;
+                    <a href="#" class="live" target="_blank" rel="noopener">Live</a> &bull;
+                    <a href="#" class="code" target="_blank" rel="noopener">Repo</a>
+                  </p>
+                </div>
+              </article>
+            </div>
+
+            <!-- Project 5 -->
+            <div class="col-md-6 mb-4" data-category="branding">
+              <article class="card h-100 border-0 shadow-sm" role="article" aria-labelledby="proj-5-title">
+                <img src="{% static 'images/user-img.jpg' %}" alt="Branding and marketing collateral" class="card-img-top img-fluid">
+                <div class="card-body d-flex flex-column">
+                  <h3 id="proj-5-title" class="h5 card-title">Brand Refresh &amp; Collateral</h3>
+                  <p class="small text-muted mb-2">
+                    <span class="me-2">Category: <strong>Branding</strong></span>
+                    <span>Completed: <time datetime="2022-08-01">August 2022</time></span>
+                  </p>
+                  <p class="card-text">
+                    Full brand refresh including logos, iconography and marketing templates. Delivered guidelines for
+                    consistent rollout across assets.
+                  </p>
+                  <p class="mt-auto pt-2 mb-0">
+                    <a href="portfolio-detail.html?project=brand-refresh" class="case">View details</a> &bull;
+                    <a href="#" class="live" target="_blank" rel="noopener">Preview</a>
+                  </p>
+                </div>
+              </article>
+            </div>
+
+            <!-- Project 6 -->
+            <div class="col-md-6 mb-4" data-category="nonprofit">
+              <article class="card h-100 border-0 shadow-sm" role="article" aria-labelledby="proj-6-title">
+                <img src="{% static 'images/user-img.jpg' %}" alt="Non-profit donation platform and CMS"
+                  class="card-img-top img-fluid">
+                <div class="card-body d-flex flex-column">
+                  <h3 id="proj-6-title" class="h5 card-title">Non-profit Donation Platform</h3>
+                  <p class="small text-muted mb-2">
+                    <span class="me-2">Category: <strong>Non-profit</strong></span>
+                    <span>Completed: <time datetime="2023-03-01">March 2023</time></span>
+                  </p>
+                  <p class="card-text">
+                    Accessible donation flows and lightweight CMS so non-technical staff can update campaigns.
+                    Optimised for low-bandwidth users.
+                  </p>
+                  <p class="mt-auto pt-2 mb-0">
+                    <a href="portfolio-detail.html?project=nonprofit-donations" class="case">View details</a> &bull;
+                    <a href="#" class="live" target="_blank" rel="noopener">Live site</a>
+                  </p>
+                </div>
+              </article>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================================
+    End Content
+    ================================= -->
+
+{% endblock %}
