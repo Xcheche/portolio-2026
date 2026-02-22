@@ -117,7 +117,8 @@
         <div class="swiper certificatesSlider">
           <div class="swiper-wrapper">
             <div class="swiper-slide">
-              <div class="cardStyle1">
+              <div class="cardStyle1 certificate-card">
+                <img src="{% static 'images/user-img.jpg' %}" alt="Certificate" class="certificate-thumb">
                 <h4 class="mdTitle cs1Title">
                   <a href="javascript:void(0)">HTML, CSS, and Javascript for Web Developers</a>
                 </h4>
@@ -131,7 +132,8 @@
               </div>
             </div>
             <div class="swiper-slide">
-              <div class="cardStyle1">
+              <div class="cardStyle1 certificate-card">
+                <img src="{% static 'images/user-img.jpg' %}" alt="Certificate" class="certificate-thumb">
                 <h4 class="mdTitle cs1Title">
                   <a href="javascript:void(0)">IBM Full Stack Cloud Developer</a>
                 </h4>
@@ -145,7 +147,8 @@
               </div>
             </div>
             <div class="swiper-slide">
-              <div class="cardStyle1">
+              <div class="cardStyle1 certificate-card">
+                <img src="{% static 'images/user-img.jpg' %}" alt="Certificate" class="certificate-thumb">
                 <h4 class="mdTitle cs1Title">
                   <a href="javascript:void(0)">IBM Full Stack Cloud Developer</a>
                 </h4>
@@ -188,7 +191,7 @@
           <div class="row g-4 align-items-center">
             <div class="col-md-auto">
               <div class="portfolioImgCol">
-                <a href="javascript:void(0)"><img src="{% static 'images/work-img.jpg' %}" alt="..."></a>
+                <a href="javascript:void(0)" class="portfolio-img-link"><img src="{% static 'images/work-img.jpg' %}" alt="Portfolio option 1" class="js-image-lightbox"></a>
               </div>
             </div>
             <div class="col-md">
@@ -208,7 +211,7 @@
           <div class="row g-4 align-items-center">
             <div class="col-md-auto">
               <div class="portfolioImgCol">
-                <a href="javascript:void(0)"><img src="{% static 'images/work-img.jpg' %}" alt="..."></a>
+                <a href="javascript:void(0)" class="portfolio-img-link"><img src="{% static 'images/work-img.jpg' %}" alt="Portfolio option 2" class="js-image-lightbox"></a>
               </div>
             </div>
             <div class="col-md">
@@ -229,7 +232,7 @@
           <div class="row g-4 align-items-center">
             <div class="col-md-auto">
               <div class="portfolioImgCol">
-                <a href="javascript:void(0)"><img src="{% static 'images/work-img.jpg' %}" alt="..."></a>
+                <a href="javascript:void(0)" class="portfolio-img-link"><img src="{% static 'images/work-img.jpg' %}" alt="Portfolio option 3" class="js-image-lightbox"></a>
               </div>
             </div>
             <div class="col-md">
@@ -319,6 +322,7 @@
       <div class="row g-3">
         <div class="col-lg-6">
           <div class="cardStyle1">
+            <span class="badge bg-success mb-2">Free</span>
             <h4 class="mdTitle cs1Title"><a href="javascript:void(0)">How to implement Django into your
                 project</a></h4>
             <ul class="cardOptionCol">
@@ -331,6 +335,7 @@
         </div>
         <div class="col-lg-6">
           <div class="cardStyle1">
+            <span class="badge bg-warning text-dark mb-2">Premium</span>
             <h4 class="mdTitle cs1Title"><a href="javascript:void(0)">Using code to structure your
                 marketplace</a></h4>
             <ul class="cardOptionCol">
@@ -345,4 +350,51 @@
     </div>
   </div>
 </section>
+
+<!-- Certificate full-size lightbox (hover/click to expand) -->
+<div id="certificate-lightbox" class="certificate-lightbox" aria-hidden="true" role="dialog" aria-label="Image full size">
+  <div class="certificate-lightbox-backdrop"></div>
+  <div class="certificate-lightbox-content">
+    <button type="button" class="certificate-lightbox-close" aria-label="Close">&times;</button>
+    <img src="" alt="Full size" class="certificate-lightbox-img">
+  </div>
+</div>
+
+<script>
+(function() {
+  var lb = document.getElementById('certificate-lightbox');
+  var lbImg = lb && lb.querySelector('.certificate-lightbox-img');
+  var backdrop = lb && lb.querySelector('.certificate-lightbox-backdrop');
+  var closeBtn = lb && lb.querySelector('.certificate-lightbox-close');
+
+  function open(src) {
+    if (!lb || !lbImg) return;
+    lbImg.src = src;
+    lb.classList.add('is-open');
+    lb.setAttribute('aria-hidden', 'false');
+    document.body.style.overflow = 'hidden';
+  }
+  function close() {
+    if (!lb) return;
+    lb.classList.remove('is-open');
+    lb.setAttribute('aria-hidden', 'true');
+    document.body.style.overflow = '';
+  }
+
+  document.addEventListener('click', function(e) {
+    var thumb = e.target && e.target.closest && (e.target.closest('.certificate-thumb') || e.target.closest('.js-image-lightbox'));
+    if (thumb && thumb.tagName === 'IMG') {
+      e.preventDefault();
+      open(thumb.src);
+    }
+    if (e.target === backdrop || e.target === closeBtn) {
+      e.preventDefault();
+      close();
+    }
+  });
+  document.addEventListener('keydown', function(e) {
+    if (e.key === 'Escape' && lb && lb.classList.contains('is-open')) close();
+  });
+})();
+</script>
 {% endblock %}

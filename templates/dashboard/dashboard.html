@@ -1,0 +1,188 @@
+{% extends "base.html" %}
+{% load static %}
+{% block content %}
+<!-- Dashboard v1: Card-based, clean grid. Theme switch is in navbar via base.html. -->
+
+<section>
+  <div class="innerPageBannerCol">
+    <div class="container">
+      <div class="row g-4 g-md-3 align-items-center">
+        <div class="col-md-8">
+          <div class="bannerContent">
+            <h1 class="xlTitle pb-md-3">Dashboard</h1>
+            <p class="lead mb-0">Your portfolio hub — projects, blog, and shop in one place.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="sectionSpace pt-0">
+    <div class="container">
+      <!-- Stats row -->
+      <div class="row g-3 g-md-4 mb-5">
+        <div class="col-sm-6 col-lg-4">
+          <div class="card border-0 shadow-sm h-100 dashboard-stat-card">
+            <div class="card-body d-flex align-items-center">
+              <div class="dashboard-stat-icon me-3">
+                <i class="fas fa-briefcase fa-2x primaryColor"></i>
+              </div>
+              <div>
+                <span class="d-block fs-4 fw-bold">12</span>
+                <span class="text-muted small">Portfolio items</span>
+              </div>
+            </div>
+            <div class="card-footer bg-transparent border-0 pt-0">
+              <a href="{% url 'portfolio' %}" class="btn btnPrimary btn-sm">View portfolio</a>
+            </div>
+          </div>
+        </div>
+        <div class="col-sm-6 col-lg-4">
+          <div class="card border-0 shadow-sm h-100 dashboard-stat-card">
+            <div class="card-body d-flex align-items-center">
+              <div class="dashboard-stat-icon me-3">
+                <i class="fas fa-blog fa-2x primaryColor"></i>
+              </div>
+              <div>
+                <span class="d-block fs-4 fw-bold">8</span>
+                <span class="text-muted small">Blog posts</span>
+              </div>
+            </div>
+            <div class="card-footer bg-transparent border-0 pt-0">
+              <a href="/blog/" class="btn btnOutline btn-sm">View blog</a>
+            </div>
+          </div>
+        </div>
+        <div class="col-sm-6 col-lg-4">
+          <div class="card border-0 shadow-sm h-100 dashboard-stat-card">
+            <div class="card-body d-flex align-items-center">
+              <div class="dashboard-stat-icon me-3">
+                <i class="fas fa-shopping-cart fa-2x primaryColor"></i>
+              </div>
+              <div>
+                <span class="d-block fs-4 fw-bold">3</span>
+                <span class="text-muted small">Orders</span>
+              </div>
+            </div>
+            <div class="card-footer bg-transparent border-0 pt-0">
+              <a href="{% url 'shop' %}" class="btn btnOutline btn-sm">View shop</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Blog: Free vs Premium (UI distinction only) -->
+      <div class="row mb-4">
+        <div class="col">
+          <h2 class="lgTitle mb-2">Blog</h2>
+          <p class="text-muted mb-0">Free articles and premium content — integration with Django &amp; Stripe coming later.</p>
+        </div>
+      </div>
+      <div class="row g-4 mb-5">
+        <div class="col-lg-6">
+          <div class="card border-0 shadow-sm h-100">
+            <div class="card-header bg-transparent border-bottom d-flex align-items-center">
+              <i class="fas fa-unlock me-2 primaryColor"></i>
+              <strong>Free posts</strong>
+            </div>
+            <div class="card-body">
+              <p class="small text-muted mb-3">Public articles available to everyone.</p>
+              <ul class="list-unstyled mb-0">
+                <li class="d-flex align-items-start mb-2">
+                  <i class="fas fa-file-alt me-2 mt-1 primaryColor"></i>
+                  <span>How to implement Django in your project</span>
+                </li>
+                <li class="d-flex align-items-start mb-2">
+                  <i class="fas fa-file-alt me-2 mt-1 primaryColor"></i>
+                  <span>Using code to structure your marketplace</span>
+                </li>
+                <li class="d-flex align-items-start">
+                  <i class="fas fa-file-alt me-2 mt-1 primaryColor"></i>
+                  <span>Getting started with REST APIs</span>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-6">
+          <div class="card border-0 shadow-sm h-100 dashboard-premium-card">
+            <div class="card-header bg-transparent border-bottom d-flex align-items-center">
+              <i class="fas fa-crown me-2 text-warning"></i>
+              <strong>Premium posts</strong>
+              <span class="badge bg-warning text-dark ms-2">Paid</span>
+            </div>
+            <div class="card-body">
+              <p class="small text-muted mb-3">Exclusive content for subscribers — Stripe integration coming soon.</p>
+              <ul class="list-unstyled mb-0">
+                <li class="d-flex align-items-start mb-2">
+                  <i class="fas fa-lock me-2 mt-1 text-muted"></i>
+                  <span>Advanced Django patterns (premium)</span>
+                </li>
+                <li class="d-flex align-items-start mb-2">
+                  <i class="fas fa-lock me-2 mt-1 text-muted"></i>
+                  <span>Stripe integration deep-dive (premium)</span>
+                </li>
+                <li class="d-flex align-items-start">
+                  <i class="fas fa-lock me-2 mt-1 text-muted"></i>
+                  <span>Scaling Django in production (premium)</span>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Quick links -->
+      <div class="row">
+        <div class="col">
+          <h2 class="lgTitle mb-3">Quick links</h2>
+        </div>
+      </div>
+      <div class="row g-3">
+        <div class="col-md-6 col-lg-3">
+          <a href="{% url 'portfolio' %}" class="card border-0 shadow-sm text-decoration-none dashboard-quick-link h-100">
+            <div class="card-body d-flex align-items-center">
+              <i class="fas fa-briefcase fa-lg primaryColor me-3"></i>
+              <span class="fw-medium">Portfolio</span>
+            </div>
+          </a>
+        </div>
+        <div class="col-md-6 col-lg-3">
+          <a href="/blog/" class="card border-0 shadow-sm text-decoration-none dashboard-quick-link h-100">
+            <div class="card-body d-flex align-items-center">
+              <i class="fas fa-blog fa-lg primaryColor me-3"></i>
+              <span class="fw-medium">Blog</span>
+            </div>
+          </a>
+        </div>
+        <div class="col-md-6 col-lg-3">
+          <a href="{% url 'shop' %}" class="card border-0 shadow-sm text-decoration-none dashboard-quick-link h-100">
+            <div class="card-body d-flex align-items-center">
+              <i class="fas fa-store fa-lg primaryColor me-3"></i>
+              <span class="fw-medium">Shop</span>
+            </div>
+          </a>
+        </div>
+        <div class="col-md-6 col-lg-3">
+          <a href="{% url 'contact' %}" class="card border-0 shadow-sm text-decoration-none dashboard-quick-link h-100">
+            <div class="card-body d-flex align-items-center">
+              <i class="fas fa-envelope fa-lg primaryColor me-3"></i>
+              <span class="fw-medium">Contact</span>
+            </div>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+.dashboard-stat-card .card-body { padding-bottom: 0.5rem; }
+.dashboard-premium-card .card-header { border-color: rgba(249, 176, 0, 0.3); }
+.dashboard-quick-link { color: inherit; transition: transform 0.2s ease, box-shadow 0.2s ease; }
+.dashboard-quick-link:hover { transform: translateY(-2px); box-shadow: 0 8px 24px rgba(0,0,0,0.1) !important; color: var(--primaryColor); }
+[data-theme="dark"] .dashboard-quick-link:hover { box-shadow: 0 8px 24px rgba(0,0,0,0.3) !important; }
+</style>
+{% endblock %}

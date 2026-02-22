@@ -6,6 +6,17 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
+    <script>
+      (function() {
+        var k = 'portolio-theme';
+        var s = null;
+        try { s = localStorage.getItem(k); } catch (e) {}
+        var dark = typeof window !== 'undefined' && window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+        var theme = (s === 'light' || s === 'dark') ? s : (dark ? 'dark' : 'light');
+        document.documentElement.setAttribute('data-theme', theme);
+      })();
+    </script>
+
     <title>Cheche Coding - Home</title>
     <meta name="author" content="Did Coding Limited & James Granger Design">
     <link rel="canonical" href="" />
@@ -32,9 +43,23 @@
 </head>
 
 <body>
+  <!-- Decorative wave (CSS-only, GPU-accelerated, pointer-events: none) -->
+  <div class="wave-bg" aria-hidden="true">
+    <svg class="wave-svg" viewBox="0 0 1200 120" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <path id="wave-path" d="M0,60 Q150,20 300,60 T600,60 T900,60 T1200,60 L1200,120 L0,120 Z"/>
+        <path id="wave-path-2" d="M0,75 Q150,35 300,75 T600,75 T900,75 T1200,75 L1200,120 L0,120 Z"/>
+      </defs>
+      <g class="wave-layer wave-layer-1">
+        <use href="#wave-path"/><use href="#wave-path" transform="translate(1200,0)"/>
+      </g>
+      <g class="wave-layer wave-layer-2">
+        <use href="#wave-path-2"/><use href="#wave-path-2" transform="translate(1200,0)"/>
+      </g>
+    </svg>
+  </div>
 
-
-{% include 'inc/nav/navbar.html' %}
+  {% include 'inc/nav/navbar.html' %}
   
 
     <!-- ================================
@@ -65,9 +90,11 @@
     <script src="{% static 'js/toastr.js' %}"></script>
     <script src="{% static 'js/alert.js' %}"></script>
     <script src="{% static 'js/main.js' %}"></script>
+    <script src="{% static 'js/theme.js' %}"></script>
     <!-- ================================
     End Scripts
     ================================= -->
 </body>
 
 </html>
+

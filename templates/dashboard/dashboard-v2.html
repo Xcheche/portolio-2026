@@ -1,0 +1,138 @@
+{% extends "base.html" %}
+{% load static %}
+{% block content %}
+<!-- Dashboard v2: Bento-style layout, gradient accent, more visual. Theme switch is in navbar via base.html. -->
+
+<section class="dashboard-v2-hero">
+  <div class="container">
+    <div class="row align-items-center py-5">
+      <div class="col-lg-7">
+        <h1 class="xlTitle mb-3 text-white">Dashboard</h1>
+        <p class="lead mb-0 dashboard-v2-hero-text">Portfolio, blog, and shop — one place to manage your presence.</p>
+      </div>
+      <div class="col-lg-5 text-lg-end mt-4 mt-lg-0">
+        <div class="d-inline-flex flex-wrap gap-2">
+          <a href="{% url 'portfolio' %}" class="btn btn-light btn-sm">Portfolio</a>
+          <a href="/blog/" class="btn btn-outline-light btn-sm">Blog</a>
+          <a href="{% url 'shop' %}" class="btn btn-outline-light btn-sm">Shop</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="sectionSpace pt-0">
+  <div class="container">
+    <!-- Bento grid -->
+    <div class="row g-4 dashboard-v2-bento">
+      <div class="col-12">
+        <h2 class="lgTitle mb-4">Overview</h2>
+      </div>
+
+      <div class="col-md-6 col-lg-4">
+        <div class="dashboard-v2-card h-100 p-4 rounded-3">
+          <div class="d-flex align-items-center mb-3">
+            <span class="dashboard-v2-card-icon rounded-2 me-3"><i class="fas fa-briefcase"></i></span>
+            <h3 class="mdTitle mb-0">Portfolio</h3>
+          </div>
+          <p class="mb-3 text-muted small">12 projects</p>
+          <a href="{% url 'portfolio' %}" class="btn btnPrimary btn-sm">View all</a>
+        </div>
+      </div>
+
+      <div class="col-md-6 col-lg-4">
+        <div class="dashboard-v2-card h-100 p-4 rounded-3">
+          <div class="d-flex align-items-center mb-3">
+            <span class="dashboard-v2-card-icon rounded-2 me-3"><i class="fas fa-blog"></i></span>
+            <h3 class="mdTitle mb-0">Blog</h3>
+          </div>
+          <p class="mb-3 text-muted small">Free &amp; premium posts</p>
+          <a href="/blog/" class="btn btnOutline btn-sm">View blog</a>
+        </div>
+      </div>
+
+      <div class="col-md-6 col-lg-4">
+        <div class="dashboard-v2-card h-100 p-4 rounded-3">
+          <div class="d-flex align-items-center mb-3">
+            <span class="dashboard-v2-card-icon rounded-2 me-3"><i class="fas fa-shopping-cart"></i></span>
+            <h3 class="mdTitle mb-0">Shop</h3>
+          </div>
+          <p class="mb-3 text-muted small">3 orders</p>
+          <a href="{% url 'shop' %}" class="btn btnOutline btn-sm">View shop</a>
+        </div>
+      </div>
+
+      <!-- Blog: Free vs Premium - full width bento row -->
+      <div class="col-12">
+        <h3 class="mdTitle mb-3">Blog — Free &amp; Premium</h3>
+        <p class="text-muted small mb-4">UI distinction for free vs premium content. Django &amp; Stripe integration later.</p>
+      </div>
+      <div class="col-lg-6">
+        <div class="dashboard-v2-card p-4 rounded-3 h-100 border-start border-4 border-success">
+          <h4 class="xsTitle bold mb-2"><i class="fas fa-unlock me-2 primaryColor"></i> Free posts</h4>
+          <p class="small text-muted mb-3">Public articles.</p>
+          <ul class="list-unstyled mb-0">
+            <li class="py-1"><i class="fas fa-check text-success me-2"></i> How to implement Django in your project</li>
+            <li class="py-1"><i class="fas fa-check text-success me-2"></i> Using code to structure your marketplace</li>
+            <li class="py-1"><i class="fas fa-check text-success me-2"></i> Getting started with REST APIs</li>
+          </ul>
+        </div>
+      </div>
+      <div class="col-lg-6">
+        <div class="dashboard-v2-card p-4 rounded-3 h-100 border-start border-4 border-warning">
+          <h4 class="xsTitle bold mb-2"><i class="fas fa-crown me-2 text-warning"></i> Premium posts <span class="badge bg-warning text-dark">Paid</span></h4>
+          <p class="small text-muted mb-3">Exclusive content — Stripe coming soon.</p>
+          <ul class="list-unstyled mb-0">
+            <li class="py-1"><i class="fas fa-lock text-muted me-2"></i> Advanced Django patterns</li>
+            <li class="py-1"><i class="fas fa-lock text-muted me-2"></i> Stripe integration deep-dive</li>
+            <li class="py-1"><i class="fas fa-lock text-muted me-2"></i> Scaling Django in production</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- CTA row -->
+      <div class="col-12">
+        <div class="dashboard-v2-cta rounded-3 p-4 p-md-5 text-center">
+          <h3 class="mdTitle mb-2">Need help?</h3>
+          <p class="mb-3 text-muted">Get in touch for projects or collaboration.</p>
+          <a href="{% url 'contact' %}" class="btn btnPrimary">Contact</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+.dashboard-v2-hero {
+  background: linear-gradient(135deg, var(--primaryDarkColor) 0%, var(--primaryColor) 50%, var(--primaryHoverColor) 100%);
+  margin-top: 0;
+  padding-top: 120px;
+  padding-bottom: 60px;
+}
+.dashboard-v2-hero-text { opacity: 0.95; }
+.dashboard-v2-card {
+  background: var(--theme-card-bg, #fff);
+  border: 1px solid var(--theme-border, #E0E0E0);
+  transition: box-shadow 0.2s ease, transform 0.2s ease;
+}
+.dashboard-v2-card:hover {
+  box-shadow: 0 8px 32px rgba(156, 7, 182, 0.12);
+  transform: translateY(-2px);
+}
+.dashboard-v2-card-icon {
+  width: 48px;
+  height: 48px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(156, 7, 182, 0.12);
+  color: var(--primaryColor);
+}
+.dashboard-v2-cta {
+  background: var(--theme-surface, #F1F1F1);
+  border: 1px dashed var(--theme-border, #E0E0E0);
+}
+[data-theme="dark"] .dashboard-v2-hero { background: linear-gradient(135deg, #0d0d1a 0%, var(--primaryDarkColor) 50%, var(--primaryColor) 100%); }
+[data-theme="dark"] .dashboard-v2-card:hover { box-shadow: 0 8px 32px rgba(156, 7, 182, 0.25); }
+</style>
+{% endblock %}

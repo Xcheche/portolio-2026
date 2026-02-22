@@ -1,5 +1,8 @@
 {% load static %}
-<header>
+<!-- ================================
+Start Navigation Bar (inc/nav/navbar.html)
+================================= -->
+<header class="site-header" role="banner">
     <div class="headerCol">
         <div class="container-fluid">
             <div class="row align-items-center">
@@ -44,14 +47,15 @@
                                     font-size: 0.85rem;
                                     line-height: 1;
                                 }
-                                /* small adjustments for the language switch compactness */
-                                .language-switch .form-select {
+                                /* language switch: compact and aligned with nav row */
+                                .navCol .language-switch .form-select {
                                     height: calc(1.75rem + 2px);
                                     font-size: 0.85rem;
+                                    margin: 0;
                                 }
-                                .language-switch .btn {
-                                    margin-left: 0.5rem;
-                                    padding: 0.2rem 0.5rem;
+                                .navCol .language-switch .btn {
+                                    margin-left: 0.35rem;
+                                    padding: 0.25rem 0.5rem;
                                 }
                                 .cart-count {
                                     font-size: 0.75rem;
@@ -66,7 +70,7 @@
                             <ul>
                                 <!--Language switch-->
                                 <li class="language-switch">
-                                    <div class="d-inline-flex align-items-center" style="margin-left: 1rem;">
+                                    <div class="d-inline-flex align-items-center">
                                         <select name="language" class="form-select form-select-sm" style="width: auto; padding-right: 2rem;">
                                             <option value="en" selected>English</option>
                                             <option value="es">Español</option>
@@ -78,6 +82,14 @@
                                             <i class="fas fa-globe fa-spin" aria-hidden="true"></i>
                                         </button>
                                     </div>
+                                </li>
+
+                                <!-- Theme switch (light/dark) -->
+                                <li class="theme-switch-li">
+                                    <button type="button" id="theme-toggle-btn" class="theme-switch js-theme-toggle" aria-label="Toggle light/dark theme" title="Toggle theme">
+                                        <span class="icon-sun" aria-hidden="true"><i class="fas fa-sun"></i></span>
+                                        <span class="icon-moon" aria-hidden="true"><i class="fas fa-moon"></i></span>
+                                    </button>
                                 </li>
 
                                 <li class="active">
@@ -123,7 +135,7 @@
                                 </li>
 
                                 <li>
-                                    <a href="" class="nav-item-link">
+                                    <a href="/dashboard/" class="nav-item-link">
                                         <span class="nav-item__icon"><i class="fas fa-tachometer-alt"></i></span>
                                         <span class="nav-label">Dashboard</span>
                                     </a>
@@ -167,4 +179,5 @@
     </div>
 </header>
 <!-- ================================
-End Navigation Bar
+End Navigation Bar (inc/nav/navbar.html)
+================================= -->
