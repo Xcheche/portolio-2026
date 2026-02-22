@@ -6,3 +6,5 @@ from django.shortcuts import render
 #------------------- Shop Page-------------------
 def shop(request):
     return render(request, 'shop/shop.html')
+
+#shoppage    
