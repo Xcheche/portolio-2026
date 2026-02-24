@@ -19,12 +19,12 @@
             <div class="bannerBtnCol">
               <div class="row">
                 <div class="col-auto">
-                  <a download href="javascript:void(0)" class="btn btnPrimary">
+                  <a download href="#" class="btn btnPrimary">
                     <span class="nav-item__icon"><i class="fas fa-download"></i></span>
                     Download Resume</a>
                 </div>
                 <div class="col-auto">
-                  <a href="contact.html" class="btn btnOutline">
+                  <a href="{% url 'contact' %}" class="btn btnOutline">
                     <span class="nav-item__icon"><i class="fas fa-envelope"></i></span>
                     Contact</a>
                 </div>
@@ -41,61 +41,60 @@
   <div class="sectionSpace pt-0">
     <div class="container">
       <div class="row">
-        <div class="col-12"></div>
-        <h4 class="smTitle pb-3">
-          <span>
-            <i class="fas fa-code"></i>
-          </span>
-          Skills — Backend (Python / Django) & UI</h4>
+        <div class="col-12">
+          <h4 class="smTitle pb-3">
+            <span>
+              <i class="fas fa-code"></i>
+            </span>
+            Skills — Backend (Python / Django) & UI</h4>
+        </div>
 
-        <div class="table-responsive">
-          <table class="table align-middle table-borderless">
-            <tbody>
-              <tr>
-                <th scope="row" style="width: 30%; vertical-align: top;">
-                  <strong>Backend — Python / Django</strong>
-                  <p class="mb-0">Experienced with Django & Django REST Framework — API design,
-                    authentication and migrations. Currently exploring FastAPI for
-                    high-performance async services.</p>
-                </th>
-                <td>
-                  <ul class="mb-0" style="list-style: none; padding-left: 0;"></ul>
-                  <li>• Django & Django REST Framework — API design, serializers, viewsets</li>
-                  <li>• Python (3.8+) — idiomatic code, typing, async where appropriate</li>
-                  <li>• RESTful API patterns — versioning, authentication, pagination</li>
-                  <li>• PostgreSQL — schema design, indexes, migrations</li>
-                  <li>• Background processing — Celery, Redis</li>
-                  <li>• Containerisation & deployments — Docker, Docker Compose</li>
-                  <li>• Testing & quality — pytest/unittest, CI pipelines, code coverage</li>
-                  <li>• Observability — logging, metrics, basic performance tuning</li>
-                  </ul>
-                </td>
-              </tr>
+        <div class="col-lg-6">
+          <div class="skillCard" style="padding: 2rem; border-radius: 8px; background-color: rgba(156, 7, 182, 0.05); border: 1px solid rgba(156, 7, 182, 0.1);">
+            <div style="display: flex; align-items: center; margin-bottom: 1rem;">
+              <i class="fas fa-server" style="font-size: 1.5rem; color: var(--primaryColor, #9c07b6); margin-right: 0.75rem;"></i>
+              <h5 style="margin: 0; font-weight: 600; color: #333;">Backend — Python / Django</h5>
+            </div>
+            <p style="margin: 0 0 1rem 0; color: #666; font-size: 0.95rem; line-height: 1.5;">
+              Django is my main focus for building robust, scalable APIs. Also experienced with FastAPI for high-performance async services.
+            </p>
+            <ul style="list-style: none; padding: 0; margin: 0;">
+              <li style="padding: 0.4rem 0; color: #555; font-size: 0.9rem;">Django & Django REST Framework — API design, serializers, viewsets</li>
+              <li style="padding: 0.4rem 0; color: #555; font-size: 0.9rem;">Python (3.8+) — idiomatic code, typing, async where appropriate</li>
+              <li style="padding: 0.4rem 0; color: #555; font-size: 0.9rem;">RESTful API patterns — versioning, authentication, pagination</li>
+              <li style="padding: 0.4rem 0; color: #555; font-size: 0.9rem;">PostgreSQL — schema design, indexes, migrations</li>
+              <li style="padding: 0.4rem 0; color: #555; font-size: 0.9rem;">Background processing — Celery, Redis</li>
+              <li style="padding: 0.4rem 0; color: #555; font-size: 0.9rem;">Web scraping — BeautifulSoup, Scrapy, Selenium</li>
+              <li style="padding: 0.4rem 0; color: #555; font-size: 0.9rem;">Containerisation & deployments — Docker, Docker Compose, Kubernetes</li>
+              <li style="padding: 0.4rem 0; color: #555; font-size: 0.9rem;">Cloud platforms — AWS, Digital Ocean, Render, PythonAnywhere, Vercel</li>
+              <li style="padding: 0.4rem 0; color: #555; font-size: 0.9rem;">Cloud platforms — AWS, Digital Ocean, Render, PythonAnywhere, Vercel</li>
+              <li style="padding: 0.4rem 0; color: #555; font-size: 0.9rem;">Testing & quality — pytest/unittest, CI pipelines, code coverage</li>
+              <li style="padding: 0.4rem 0; color: #555; font-size: 0.9rem;">Observability — logging, metrics, basic performance tuning</li>
+            </ul>
+          </div>
+        </div>
 
-              <tr>
-                <th scope="row" style="vertical-align: top;">
-                  <strong>
-                    <span><i class="fas fa-code"></i></span>
-                    Frontend / UI (select)</strong>
-                </th>
-                <td>
-                  <ul class="mb-0" style="list-style: none; padding-left: 0;">
-                    <li>• HTML5 & semantic markup</li>
-                    <li>• CSS3, responsive layouts and Bootstrap 5</li>
-                    <li>• Vanilla JS (ES6+) — progressive enhancement</li>
-                    <li>• Basic React component work (when needed)</li>
-                    <li>• Accessibility & mobile-first responsive design</li>
-                  </ul>
-                </td>
-              </tr>
-            </tbody>
-          </table>
+        <div class="col-lg-6">
+          <div class="skillCard" style="padding: 2rem; border-radius: 8px; background-color: rgba(156, 7, 182, 0.05); border: 1px solid rgba(156, 7, 182, 0.1);">
+            <div style="display: flex; align-items: center; margin-bottom: 1rem;">
+              <i class="fas fa-palette" style="font-size: 1.5rem; color: var(--primaryColor, #9c07b6); margin-right: 0.75rem;"></i>
+              <h5 style="margin: 0; font-weight: 600; color: #333;">Frontend / UI (select)</h5>
+            </div>
+            <p style="margin: 0 0 1rem 0; color: #666; font-size: 0.95rem; line-height: 1.5;">
+              Very knowledgeable of frontend tools and frameworks for building modern, responsive web applications.
+            </p>
+            <ul style="list-style: none; padding: 0; margin: 0;">
+              <li style="padding: 0.4rem 0; color: #555; font-size: 0.9rem;">HTML5 & CSS3 — semantic markup, responsive layouts</li>
+              <li style="padding: 0.4rem 0; color: #555; font-size: 0.9rem;">Bootstrap 5 & Tailwind CSS — utility-first styling</li>
+              <li style="padding: 0.4rem 0; color: #555; font-size: 0.9rem;">React — component architecture, hooks, state management</li>
+              <li style="padding: 0.4rem 0; color: #555; font-size: 0.9rem;">Next.js — full-stack applications, SSR, static generation</li>
+              <li style="padding: 0.4rem 0; color: #555; font-size: 0.9rem;">Vanilla JS (ES6+) — progressive enhancement, DOM manipulation</li>
+            </ul>
+          </div>
         </div>
 
       </div>
     </div>
-  </div>
-  </div>
 </section>
 
 <section>
@@ -108,7 +107,7 @@
             Certificates</h4>
         </div>
         <div class="col-auto">
-          <a href="javascript:void(0)" class="simpleLink">
+          <a href="#" class="simpleLink">
          
             View all</a>
         </div>
@@ -120,7 +119,7 @@
               <div class="cardStyle1 certificate-card">
                 <img src="{% static 'images/user-img.jpg' %}" alt="Certificate" class="certificate-thumb">
                 <h4 class="mdTitle cs1Title">
-                  <a href="javascript:void(0)">HTML, CSS, and Javascript for Web Developers</a>
+                  <a href="#">HTML, CSS, and Javascript for Web Developers</a>
                 </h4>
                 <ul class="cardOptionCol">
                   <li>08 Oct 2021</li>
@@ -135,7 +134,7 @@
               <div class="cardStyle1 certificate-card">
                 <img src="{% static 'images/user-img.jpg' %}" alt="Certificate" class="certificate-thumb">
                 <h4 class="mdTitle cs1Title">
-                  <a href="javascript:void(0)">IBM Full Stack Cloud Developer</a>
+                  <a href="#">IBM Full Stack Cloud Developer</a>
                 </h4>
                 <ul class="cardOptionCol">
                   <li>08 Oct 2021</li>
@@ -150,7 +149,7 @@
               <div class="cardStyle1 certificate-card">
                 <img src="{% static 'images/user-img.jpg' %}" alt="Certificate" class="certificate-thumb">
                 <h4 class="mdTitle cs1Title">
-                  <a href="javascript:void(0)">IBM Full Stack Cloud Developer</a>
+                  <a href="#">IBM Full Stack Cloud Developer</a>
                 </h4>
                 <ul class="cardOptionCol">
                   <li>08 Oct 2021</li>
@@ -182,7 +181,7 @@
               Featured Work</h4>
           </div>
           <div class="col-auto">
-            <a href="javascript:void(0)" class="simpleLink">
+            <a href="{% url 'portfolio' %}" class="simpleLink">
              
               View all</a>
           </div>
@@ -191,12 +190,12 @@
           <div class="row g-4 align-items-center">
             <div class="col-md-auto">
               <div class="portfolioImgCol">
-                <a href="javascript:void(0)" class="portfolio-img-link"><img src="{% static 'images/work-img.jpg' %}" alt="Portfolio option 1" class="js-image-lightbox"></a>
+                <a href="{% url 'portfolio_detail' %}" class="portfolio-img-link"><img src="{% static 'images/work-img.jpg' %}" alt="Portfolio option 1" class="js-image-lightbox"></a>
               </div>
             </div>
             <div class="col-md">
               <div class="portfolioContentCol">
-                <h4 class="lgTitle"><a href="javascript:void(0)">Portfolio option 1</a></h4>
+                <h4 class="lgTitle"><a href="{% url 'portfolio_detail' %}">Portfolio option 1</a></h4>
                 <ul class="portfolioOption">
                   <li><span class="dateLbl">2021</span></li>
                 </ul>
@@ -211,12 +210,12 @@
           <div class="row g-4 align-items-center">
             <div class="col-md-auto">
               <div class="portfolioImgCol">
-                <a href="javascript:void(0)" class="portfolio-img-link"><img src="{% static 'images/work-img.jpg' %}" alt="Portfolio option 2" class="js-image-lightbox"></a>
+                <a href="{% url 'portfolio_detail' %}" class="portfolio-img-link"><img src="{% static 'images/work-img.jpg' %}" alt="Portfolio option 2" class="js-image-lightbox"></a>
               </div>
             </div>
             <div class="col-md">
               <div class="portfolioContentCol">
-                <h4 class="lgTitle"><a href="javascript:void(0)">Portfolio option 2</a></h4>
+                <h4 class="lgTitle"><a href="{% url 'portfolio_detail' %}">Portfolio option 2</a></h4>
                 <ul class="portfolioOption">
                   <li><span class="dateLbl">2021</span></li>
                   <li>Django</li>
@@ -232,12 +231,12 @@
           <div class="row g-4 align-items-center">
             <div class="col-md-auto">
               <div class="portfolioImgCol">
-                <a href="javascript:void(0)" class="portfolio-img-link"><img src="{% static 'images/work-img.jpg' %}" alt="Portfolio option 3" class="js-image-lightbox"></a>
+                <a href="{% url 'portfolio_detail' %}" class="portfolio-img-link"><img src="{% static 'images/work-img.jpg' %}" alt="Portfolio option 3" class="js-image-lightbox"></a>
               </div>
             </div>
             <div class="col-md">
               <div class="portfolioContentCol">
-                <h4 class="lgTitle"><a href="javascript:void(0)">Portfolio option 3</a></h4>
+                <h4 class="lgTitle"><a href="{% url 'portfolio_detail' %}">Portfolio option 3</a></h4>
                 <ul class="portfolioOption">
                   <li><span class="dateLbl">2021</span></li>
                   <li>Marketplace</li>

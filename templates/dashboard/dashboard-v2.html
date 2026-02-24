@@ -1,20 +1,29 @@
-{% extends "base.html" %}
-{% load static %}
-{% block content %}
-<!-- Dashboard v2: Bento-style layout, gradient accent, more visual. Theme switch is in navbar via base.html. -->
+{% extends "base.html" %} {% load static %} {% block content %}
+<!-- Admin dashboard: management, analytics, and client controls (UI only). -->
 
-<section class="dashboard-v2-hero">
+<section class="admin-hero">
   <div class="container">
     <div class="row align-items-center py-5">
       <div class="col-lg-7">
-        <h1 class="xlTitle mb-3 text-white">Dashboard</h1>
-        <p class="lead mb-0 dashboard-v2-hero-text">Portfolio, blog, and shop — one place to manage your presence.</p>
+        <div class="admin-hero-icon" aria-hidden="true">
+          <i class="fas fa-hand-holding-pen"></i>
+        </div>
+        <h1 class="xlTitle mb-2 text-white">Admin Dashboard</h1>
+        <p class="lead mb-0 admin-hero-text">
+          Manage products, posts, portfolio, and clients from one place.
+        </p>
       </div>
       <div class="col-lg-5 text-lg-end mt-4 mt-lg-0">
         <div class="d-inline-flex flex-wrap gap-2">
-          <a href="{% url 'portfolio' %}" class="btn btn-light btn-sm">Portfolio</a>
-          <a href="/blog/" class="btn btn-outline-light btn-sm">Blog</a>
-          <a href="{% url 'shop' %}" class="btn btn-outline-light btn-sm">Shop</a>
+          <button class="btn btn-light btn-sm">
+            <i class="fas fa-plus me-1"></i>New product
+          </button>
+          <button class="btn btn-outline-light btn-sm">
+            <i class="fas fa-pen me-1"></i>New post
+          </button>
+          <button class="btn btn-outline-light btn-sm">
+            <i class="fas fa-briefcase me-1"></i>New portfolio
+          </button>
         </div>
       </div>
     </div>
@@ -23,79 +32,331 @@
 
 <section class="sectionSpace pt-0">
   <div class="container">
-    <!-- Bento grid -->
-    <div class="row g-4 dashboard-v2-bento">
-      <div class="col-12">
-        <h2 class="lgTitle mb-4">Overview</h2>
-      </div>
-
-      <div class="col-md-6 col-lg-4">
-        <div class="dashboard-v2-card h-100 p-4 rounded-3">
-          <div class="d-flex align-items-center mb-3">
-            <span class="dashboard-v2-card-icon rounded-2 me-3"><i class="fas fa-briefcase"></i></span>
-            <h3 class="mdTitle mb-0">Portfolio</h3>
+    <div class="row g-3 g-md-4 admin-stats">
+      <div class="col-sm-6 col-lg-3">
+        <div class="card border-0 shadow-sm h-100">
+          <div class="card-body">
+            <div class="d-flex align-items-center justify-content-between">
+              <span class="text-muted small">Total sales</span>
+              <i class="fas fa-chart-line text-success"></i>
+            </div>
+            <div class="fs-3 fw-bold mt-2">$24,830</div>
+            <div class="text-success small">+12% this month</div>
           </div>
-          <p class="mb-3 text-muted small">12 projects</p>
-          <a href="{% url 'portfolio' %}" class="btn btnPrimary btn-sm">View all</a>
         </div>
       </div>
-
-      <div class="col-md-6 col-lg-4">
-        <div class="dashboard-v2-card h-100 p-4 rounded-3">
-          <div class="d-flex align-items-center mb-3">
-            <span class="dashboard-v2-card-icon rounded-2 me-3"><i class="fas fa-blog"></i></span>
-            <h3 class="mdTitle mb-0">Blog</h3>
+      <div class="col-sm-6 col-lg-3">
+        <div class="card border-0 shadow-sm h-100">
+          <div class="card-body">
+            <div class="d-flex align-items-center justify-content-between">
+              <span class="text-muted small">Orders</span>
+              <i class="fas fa-shopping-bag text-primary"></i>
+            </div>
+            <div class="fs-3 fw-bold mt-2">128</div>
+            <div class="text-muted small">18 pending</div>
           </div>
-          <p class="mb-3 text-muted small">Free &amp; premium posts</p>
-          <a href="/blog/" class="btn btnOutline btn-sm">View blog</a>
         </div>
       </div>
-
-      <div class="col-md-6 col-lg-4">
-        <div class="dashboard-v2-card h-100 p-4 rounded-3">
-          <div class="d-flex align-items-center mb-3">
-            <span class="dashboard-v2-card-icon rounded-2 me-3"><i class="fas fa-shopping-cart"></i></span>
-            <h3 class="mdTitle mb-0">Shop</h3>
+      <div class="col-sm-6 col-lg-3">
+        <div class="card border-0 shadow-sm h-100">
+          <div class="card-body">
+            <div class="d-flex align-items-center justify-content-between">
+              <span class="text-muted small">Blogs written</span>
+              <i class="fas fa-blog text-warning"></i>
+            </div>
+            <div class="fs-3 fw-bold mt-2">42</div>
+            <div class="text-muted small">6 premium</div>
           </div>
-          <p class="mb-3 text-muted small">3 orders</p>
-          <a href="{% url 'shop' %}" class="btn btnOutline btn-sm">View shop</a>
+        </div>
+      </div>
+      <div class="col-sm-6 col-lg-3">
+        <div class="card border-0 shadow-sm h-100">
+          <div class="card-body">
+            <div class="d-flex align-items-center justify-content-between">
+              <span class="text-muted small">Visitors</span>
+              <i class="fas fa-users text-info"></i>
+            </div>
+            <div class="fs-3 fw-bold mt-2">6,240</div>
+            <div class="text-muted small">1,140 new</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="row g-4 mt-1">
+      <div class="col-lg-8">
+        <div class="card border-0 shadow-sm h-100">
+          <div
+            class="card-header bg-transparent border-bottom d-flex align-items-center justify-content-between"
+          >
+            <h2 class="mdTitle mb-0">Management center</h2>
+            <span class="badge bg-light text-dark">UI only</span>
+          </div>
+          <div class="card-body">
+            <div class="row g-3">
+              <div class="col-md-6">
+                <div class="admin-tile">
+                  <div class="d-flex align-items-center mb-2">
+                    <i class="fas fa-boxes-stacked text-primary me-2"></i>
+                    <strong>Products</strong>
+                  </div>
+                  <p class="text-muted small">Add, update, and delete items.</p>
+                  <button class="btn btnPrimary btn-sm">Manage products</button>
+                </div>
+              </div>
+              <div class="col-md-6">
+                <div class="admin-tile">
+                  <div class="d-flex align-items-center mb-2">
+                    <i class="fas fa-pen-to-square text-warning me-2"></i>
+                    <strong>Blog posts</strong>
+                  </div>
+                  <p class="text-muted small">
+                    Write, edit, and publish posts.
+                  </p>
+                  <button class="btn btnPrimary btn-sm">Manage posts</button>
+                </div>
+              </div>
+              <div class="col-md-6">
+                <div class="admin-tile">
+                  <div class="d-flex align-items-center mb-2">
+                    <i class="fas fa-briefcase text-success me-2"></i>
+                    <strong>Portfolio</strong>
+                  </div>
+                  <p class="text-muted small">
+                    Create and update portfolio work.
+                  </p>
+                  <button class="btn btnPrimary btn-sm">
+                    Manage portfolio
+                  </button>
+                </div>
+              </div>
+              <div class="col-md-6">
+                <div class="admin-tile">
+                  <div class="d-flex align-items-center mb-2">
+                    <i class="fas fa-user-gear text-danger me-2"></i>
+                    <strong>Client control</strong>
+                  </div>
+                  <p class="text-muted small">
+                    Flag or delete client accounts.
+                  </p>
+                  <div class="d-flex flex-wrap gap-2">
+                    <button class="btn btnOutline btn-sm">Flag client</button>
+                    <button class="btn btnOutline btn-sm">
+                      Delete account
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="admin-divider"></div>
+
+            <div class="row g-3">
+              <div class="col-md-6">
+                <h3 class="smTitle mb-2">Premium readers</h3>
+                <ul class="list-unstyled mb-0">
+                  <li
+                    class="d-flex align-items-center justify-content-between py-2 border-bottom"
+                  >
+                    <span>Amaka Bello</span>
+                    <span class="badge bg-success">Active</span>
+                  </li>
+                  <li
+                    class="d-flex align-items-center justify-content-between py-2 border-bottom"
+                  >
+                    <span>James Stone</span>
+                    <span class="badge bg-warning text-dark">Trial</span>
+                  </li>
+                  <li
+                    class="d-flex align-items-center justify-content-between py-2"
+                  >
+                    <span>Aisha L.</span>
+                    <span class="badge bg-info text-dark">Monthly</span>
+                  </li>
+                </ul>
+              </div>
+              <div class="col-md-6">
+                <h3 class="smTitle mb-2">Sales overview</h3>
+                <div class="mb-2">
+                  <div class="d-flex justify-content-between small text-muted">
+                    <span>Digital products</span>
+                    <span>72%</span>
+                  </div>
+                  <div class="progress" style="height: 6px">
+                    <div
+                      class="progress-bar bg-primary"
+                      style="width: 72%"
+                    ></div>
+                  </div>
+                </div>
+                <div class="mb-2">
+                  <div class="d-flex justify-content-between small text-muted">
+                    <span>Subscriptions</span>
+                    <span>18%</span>
+                  </div>
+                  <div class="progress" style="height: 6px">
+                    <div
+                      class="progress-bar bg-success"
+                      style="width: 18%"
+                    ></div>
+                  </div>
+                </div>
+                <div>
+                  <div class="d-flex justify-content-between small text-muted">
+                    <span>Services</span>
+                    <span>10%</span>
+                  </div>
+                  <div class="progress" style="height: 6px">
+                    <div
+                      class="progress-bar bg-warning"
+                      style="width: 10%"
+                    ></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
 
-      <!-- Blog: Free vs Premium - full width bento row -->
-      <div class="col-12">
-        <h3 class="mdTitle mb-3">Blog — Free &amp; Premium</h3>
-        <p class="text-muted small mb-4">UI distinction for free vs premium content. Django &amp; Stripe integration later.</p>
-      </div>
-      <div class="col-lg-6">
-        <div class="dashboard-v2-card p-4 rounded-3 h-100 border-start border-4 border-success">
-          <h4 class="xsTitle bold mb-2"><i class="fas fa-unlock me-2 primaryColor"></i> Free posts</h4>
-          <p class="small text-muted mb-3">Public articles.</p>
-          <ul class="list-unstyled mb-0">
-            <li class="py-1"><i class="fas fa-check text-success me-2"></i> How to implement Django in your project</li>
-            <li class="py-1"><i class="fas fa-check text-success me-2"></i> Using code to structure your marketplace</li>
-            <li class="py-1"><i class="fas fa-check text-success me-2"></i> Getting started with REST APIs</li>
-          </ul>
+      <div class="col-lg-4">
+        <div class="card border-0 shadow-sm mb-4">
+          <div class="card-header bg-transparent border-bottom">
+            <h3 class="mdTitle mb-0">Admin profile</h3>
+          </div>
+          <div class="card-body text-center">
+            <img
+              src="{% static 'images/user-img.jpg' %}"
+              alt="Admin"
+              class="admin-avatar mb-3"
+            />
+            <h4 class="smTitle mb-1">Cheche Admin</h4>
+            <p class="text-muted small mb-3">Update your photo or info.</p>
+            <button class="btn btnOutline btn-sm">Update photo</button>
+          </div>
         </div>
-      </div>
-      <div class="col-lg-6">
-        <div class="dashboard-v2-card p-4 rounded-3 h-100 border-start border-4 border-warning">
-          <h4 class="xsTitle bold mb-2"><i class="fas fa-crown me-2 text-warning"></i> Premium posts <span class="badge bg-warning text-dark">Paid</span></h4>
-          <p class="small text-muted mb-3">Exclusive content — Stripe coming soon.</p>
-          <ul class="list-unstyled mb-0">
-            <li class="py-1"><i class="fas fa-lock text-muted me-2"></i> Advanced Django patterns</li>
-            <li class="py-1"><i class="fas fa-lock text-muted me-2"></i> Stripe integration deep-dive</li>
-            <li class="py-1"><i class="fas fa-lock text-muted me-2"></i> Scaling Django in production</li>
-          </ul>
-        </div>
-      </div>
 
-      <!-- CTA row -->
+        <div class="card border-0 shadow-sm mb-4">
+          <div
+            class="card-header bg-transparent border-bottom d-flex align-items-center justify-content-between"
+          >
+            <h3 class="mdTitle mb-0">Notifications</h3>
+            <span class="badge bg-danger">3</span>
+          </div>
+          <div class="card-body">
+            <div class="admin-note">
+              <strong>New order received</strong>
+              <div class="text-muted small">Order #ORD-2294 needs review.</div>
+            </div>
+            <div class="admin-note">
+              <strong>New premium subscriber</strong>
+              <div class="text-muted small">Trial converted to monthly.</div>
+            </div>
+            <div class="admin-note">
+              <strong>Portfolio update request</strong>
+              <div class="text-muted small">Client sent new assets.</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="card border-0 shadow-sm">
+          <div class="card-header bg-transparent border-bottom">
+            <h3 class="mdTitle mb-0">Newsletter</h3>
+          </div>
+          <div class="card-body">
+            <div class="mb-3">
+              <label class="form-label">Subject</label>
+              <input
+                class="form-control"
+                type="text"
+                placeholder="Monthly update"
+              />
+            </div>
+            <div class="mb-3">
+              <label class="form-label">Message</label>
+              <textarea
+                class="form-control"
+                rows="4"
+                placeholder="Write a newsletter..."
+              ></textarea>
+            </div>
+            <button class="btn btnPrimary w-100">Send newsletter</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="row g-4 mt-1">
       <div class="col-12">
-        <div class="dashboard-v2-cta rounded-3 p-4 p-md-5 text-center">
-          <h3 class="mdTitle mb-2">Need help?</h3>
-          <p class="mb-3 text-muted">Get in touch for projects or collaboration.</p>
-          <a href="{% url 'contact' %}" class="btn btnPrimary">Contact</a>
+        <div class="card border-0 shadow-sm">
+          <div
+            class="card-header bg-transparent border-bottom d-flex align-items-center justify-content-between"
+          >
+            <h3 class="mdTitle mb-0">Client accounts</h3>
+            <button class="btn btnOutline btn-sm">Export list</button>
+          </div>
+          <div class="card-body">
+            <div class="table-responsive">
+              <table class="table align-middle">
+                <thead>
+                  <tr class="text-muted small">
+                    <th scope="col">Client</th>
+                    <th scope="col">Plan</th>
+                    <th scope="col">Status</th>
+                    <th scope="col">Last active</th>
+                    <th scope="col" class="text-end">Actions</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>
+                      <strong>Amaka Bello</strong>
+                      <div class="text-muted small">amaka@email.com</div>
+                    </td>
+                    <td><span class="badge bg-success">Premium</span></td>
+                    <td>
+                      <span class="badge bg-light text-dark">Active</span>
+                    </td>
+                    <td class="text-muted small">Today</td>
+                    <td class="text-end">
+                      <button class="btn btnOutline btn-sm">Flag</button>
+                      <button class="btn btnOutline btn-sm">Delete</button>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <strong>James Stone</strong>
+                      <div class="text-muted small">james@email.com</div>
+                    </td>
+                    <td>
+                      <span class="badge bg-warning text-dark">Trial</span>
+                    </td>
+                    <td>
+                      <span class="badge bg-light text-dark">Active</span>
+                    </td>
+                    <td class="text-muted small">Yesterday</td>
+                    <td class="text-end">
+                      <button class="btn btnOutline btn-sm">Flag</button>
+                      <button class="btn btnOutline btn-sm">Delete</button>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <strong>Eric Miles</strong>
+                      <div class="text-muted small">eric@email.com</div>
+                    </td>
+                    <td><span class="badge bg-info text-dark">Free</span></td>
+                    <td><span class="badge bg-danger">Flagged</span></td>
+                    <td class="text-muted small">3 days ago</td>
+                    <td class="text-end">
+                      <button class="btn btnOutline btn-sm">Review</button>
+                      <button class="btn btnOutline btn-sm">Delete</button>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
         </div>
       </div>
     </div>
@@ -103,36 +364,65 @@
 </section>
 
 <style>
-.dashboard-v2-hero {
-  background: linear-gradient(135deg, var(--primaryDarkColor) 0%, var(--primaryColor) 50%, var(--primaryHoverColor) 100%);
-  margin-top: 0;
-  padding-top: 120px;
-  padding-bottom: 60px;
-}
-.dashboard-v2-hero-text { opacity: 0.95; }
-.dashboard-v2-card {
-  background: var(--theme-card-bg, #fff);
-  border: 1px solid var(--theme-border, #E0E0E0);
-  transition: box-shadow 0.2s ease, transform 0.2s ease;
-}
-.dashboard-v2-card:hover {
-  box-shadow: 0 8px 32px rgba(156, 7, 182, 0.12);
-  transform: translateY(-2px);
-}
-.dashboard-v2-card-icon {
-  width: 48px;
-  height: 48px;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  background: rgba(156, 7, 182, 0.12);
-  color: var(--primaryColor);
-}
-.dashboard-v2-cta {
-  background: var(--theme-surface, #F1F1F1);
-  border: 1px dashed var(--theme-border, #E0E0E0);
-}
-[data-theme="dark"] .dashboard-v2-hero { background: linear-gradient(135deg, #0d0d1a 0%, var(--primaryDarkColor) 50%, var(--primaryColor) 100%); }
-[data-theme="dark"] .dashboard-v2-card:hover { box-shadow: 0 8px 32px rgba(156, 7, 182, 0.25); }
+  .admin-hero {
+    background: linear-gradient(
+      135deg,
+      #0f172a 0%,
+      var(--primaryDarkColor) 45%,
+      var(--primaryColor) 100%
+    );
+    margin-top: 0;
+    padding-top: 120px;
+    padding-bottom: 60px;
+  }
+  .admin-hero-text {
+    opacity: 0.9;
+  }
+  .admin-hero-icon {
+    width: 54px;
+    height: 54px;
+    border-radius: 16px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(255, 255, 255, 0.14);
+    color: #fff;
+    margin-bottom: 12px;
+    box-shadow: 0 16px 28px rgba(15, 23, 42, 0.35);
+  }
+  .admin-stats .card {
+    border-radius: 18px;
+  }
+  .admin-tile {
+    padding: 16px;
+    border-radius: 14px;
+    border: 1px solid var(--theme-border, #e7e7e7);
+    background: var(--theme-card-bg, #fff);
+  }
+  .admin-divider {
+    height: 1px;
+    background: rgba(0, 0, 0, 0.08);
+    margin: 20px 0;
+  }
+  .admin-avatar {
+    width: 96px;
+    height: 96px;
+    border-radius: 22px;
+    object-fit: cover;
+    box-shadow: 0 14px 28px rgba(15, 23, 42, 0.2);
+  }
+  .admin-note {
+    padding: 12px 0;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+  }
+  .admin-note:last-child {
+    border-bottom: 0;
+  }
+  [data-theme="dark"] .admin-divider {
+    background: rgba(255, 255, 255, 0.12);
+  }
+  [data-theme="dark"] .admin-note {
+    border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+  }
 </style>
 {% endblock %}

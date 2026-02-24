@@ -22,3 +22,12 @@ def portfolio(request):
 
 def portfolio_detail(request):
     return render(request, 'portfolio/portfolio-detail.html')
+
+
+#-------------------Dashboard Pages-------------------
+def dashboard(request):
+    return render(request, 'dashboard/dashboard.html')
+
+
+def dashboard_v2(request):
+    return render(request, 'dashboard/dashboard-v2.html')

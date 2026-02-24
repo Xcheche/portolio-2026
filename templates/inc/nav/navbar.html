@@ -3,180 +3,460 @@
 Start Navigation Bar (inc/nav/navbar.html)
 ================================= -->
 <header class="site-header" role="banner">
-    <div class="headerCol">
-        <div class="container-fluid">
-            <div class="row align-items-center">
-                <div class="col-auto">
-                    <div class="logoCol"><a href="/">
-                        <style>
-                        .briefcase-updown{
-                            display:inline-block;
-                            animation: briefcaseUpDown 1.2s ease-in-out infinite;
-                        }
-                        @keyframes briefcaseUpDown{
-                            0%,100%{ transform: translateY(0); }
-                            50%{ transform: translateY(-6px); }
-                        }
-                        </style>
-                        <span class="nav-item__icon"><i class="fas fa-briefcase briefcase-updown" aria-hidden="true" ></i></span>
-                    </a></div>
-                </div>
-                <div class="col">
-                    <div class="d-md-none">
-                        <button class="navToggle">
-                            <span class="navToggle__text">Toggle Menu</span>
-                        </button>
-                    </div>
-                    <div class="navCollapseCol">
-                        <div class="navCol">
-                            <style>
-                                /* keep labels centered under the icons without changing overall design */
-                                .nav-item-link,
-                                .nav-cart .cart-link {
-                                    display: inline-flex;
-                                    flex-direction: column;
-                                    align-items: center;
-                                    text-align: center;
-                                    color: inherit;
-                                    text-decoration: none;
-                                    padding: 6px 8px;
-                                }
-                                .nav-label {
-                                    display: block;
-                                    margin-top: 6px;
-                                    font-size: 0.85rem;
-                                    line-height: 1;
-                                }
-                                /* language switch: compact and aligned with nav row */
-                                .navCol .language-switch .form-select {
-                                    height: calc(1.75rem + 2px);
-                                    font-size: 0.85rem;
-                                    margin: 0;
-                                }
-                                .navCol .language-switch .btn {
-                                    margin-left: 0.35rem;
-                                    padding: 0.25rem 0.5rem;
-                                }
-                                .cart-count {
-                                    font-size: 0.75rem;
-                                    background: #e53;
-                                    color: #fff;
-                                    border-radius: 10px;
-                                    padding: 2px 6px;
-                                    margin-top: 6px;
-                                }
-                            </style>
-
-                            <ul>
-                                <!--Language switch-->
-                                <li class="language-switch">
-                                    <div class="d-inline-flex align-items-center">
-                                        <select name="language" class="form-select form-select-sm" style="width: auto; padding-right: 2rem;">
-                                            <option value="en" selected>English</option>
-                                            <option value="es">Español</option>
-                                            <option value="fr">Français</option>
-                                            <option value="de">Deutsch</option>
-                                            <option value="zh">中文</option>
-                                        </select>
-                                        <button class="btn btn-sm ">
-                                            <i class="fas fa-globe fa-spin" aria-hidden="true"></i>
-                                        </button>
-                                    </div>
-                                </li>
-
-                                <!-- Theme switch (light/dark) -->
-                                <li class="theme-switch-li">
-                                    <button type="button" id="theme-toggle-btn" class="theme-switch js-theme-toggle" aria-label="Toggle light/dark theme" title="Toggle theme">
-                                        <span class="icon-sun" aria-hidden="true"><i class="fas fa-sun"></i></span>
-                                        <span class="icon-moon" aria-hidden="true"><i class="fas fa-moon"></i></span>
-                                    </button>
-                                </li>
-
-                                <li class="active">
-                                    <a href="/" class="nav-item-link">
-                                        <span class="nav-item__icon"><i class="fas fa-home"></i></span>
-                                        <span class="nav-label">Home</span>
-                                    </a>
-                                </li>
-
-                                <li>
-                                    <a href="{% url 'portfolio' %}" class="nav-item-link">
-                                        <span class="nav-item__icon"><i class="fas fa-briefcase"></i></span>
-                                        <span class="nav-label">Portfolio</span>
-                                    </a>
-                                </li>
-
-                                <li>
-                                    <a href="blog.html" class="nav-item-link">
-                                        <span class="nav-item__icon"><i class="fas fa-blog"></i></span>
-                                        <span class="nav-label">Blog</span>
-                                    </a>
-                                </li>
-
-                                <li>
-                                    <a href="{% url 'contact' %}" class="nav-item-link">
-                                        <span class="nav-item__icon"><i class="fas fa-envelope"></i></span>
-                                        <span class="nav-label">Contact</span>
-                                    </a>
-                                </li>
-
-                                <li>
-                                    <a href="policies.html" class="nav-item-link">
-                                        <span class="nav-item__icon"><i class="fas fa-file-alt"></i></span>
-                                        <span class="nav-label">Policies</span>
-                                    </a>
-                                </li>
-
-                                <li>
-                                    <a href="{% url 'shop' %}" class="nav-item-link">
-                                        <span class="nav-item__icon"><i class="fas fa-shopping-cart"></i></span>
-                                        <span class="nav-label">Shop</span>
-                                    </a>
-                                </li>
-
-                                <li>
-                                    <a href="/dashboard/" class="nav-item-link">
-                                        <span class="nav-item__icon"><i class="fas fa-tachometer-alt"></i></span>
-                                        <span class="nav-label">Dashboard</span>
-                                    </a>
-                                </li>
-
-                                <li>
-                                    <a href="{% url 'signup' %}" class="nav-item-link">
-                                        <span class="nav-item__icon"><i class="fas fa-user-plus"></i></span>
-                                        <span class="nav-label">Sign-up</span>
-                                    </a>
-                                </li>
-
-                                <li class="nav-item">
-                                    <a href="{% url 'login' %}" class="nav-item-link">
-                                        <span class="nav-item__icon"><i class="fas fa-user"></i></span>
-                                        <span class="nav-label">Sign-in</span>
-                                    </a>
-                                </li>
-
-                                <li class="nav-cart">
-                                    <a href="cart.html" class="cart-link" aria-haspopup="true" aria-expanded="false" title="View cart">
-                                        <!-- simple inline cart icon so design stays consistent -->
-                                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg">
-                                            <path d="M6 6H21L19 14H8L6 6Z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
-                                            <circle cx="10" cy="19" r="1.5" fill="currentColor" />
-                                            <circle cx="18" cy="19" r="1.5" fill="currentColor" />
-                                        </svg>
-                                        <span class="cart-count" aria-live="polite">2</span>
-                                        <span class="nav-label">Cart</span>
-                                    </a>
-
-                                    <!-- lightweight mini-cart (hidden by default; show with CSS/JS on hover or click) -->
-                                    <div class="cart-dropdown" role="menu" aria-hidden="true"></div>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-            </div>
+  <div class="headerCol">
+    <div class="container-fluid">
+      <div class="row align-items-center">
+        <div class="col-auto">
+          <div class="logoCol">
+            <a href="/">
+              <style>
+                .briefcase-updown {
+                  display: inline-block;
+                  animation: briefcaseUpDown 1.2s ease-in-out infinite;
+                }
+                @keyframes briefcaseUpDown {
+                  0%,
+                  100% {
+                    transform: translateY(0);
+                  }
+                  50% {
+                    transform: translateY(-6px);
+                  }
+                }
+              </style>
+              <span class="nav-item__icon"
+                ><i
+                  class="fas fa-briefcase briefcase-updown"
+                  aria-hidden="true"
+                ></i
+              ></span>
+            </a>
+          </div>
         </div>
+        <div class="col">
+          <div class="d-md-none">
+            <button class="navToggle">
+              <span class="navToggle__text">Toggle Menu</span>
+            </button>
+          </div>
+          <div class="navCollapseCol">
+            <div class="navCol">
+              <style>
+                /* keep labels centered under the icons without changing overall design */
+                .nav-item-link,
+                .nav-cart .cart-link {
+                  display: inline-flex;
+                  flex-direction: column;
+                  align-items: center;
+                  text-align: center;
+                  color: inherit;
+                  text-decoration: none;
+                  padding: 6px 8px;
+                }
+                .nav-label {
+                  display: block;
+                  margin-top: 6px;
+                  font-size: 0.85rem;
+                  line-height: 1;
+                }
+                /* language switch: compact and aligned with nav row */
+                .navCol .language-switch .form-select {
+                  height: calc(1.75rem + 2px);
+                  font-size: 0.85rem;
+                  margin: 0;
+                }
+                .navCol .language-switch .btn {
+                  margin-left: 0.35rem;
+                  padding: 0.25rem 0.5rem;
+                }
+                .cart-count {
+                  font-size: 0.75rem;
+                  background: #e53;
+                  color: #fff;
+                  border-radius: 10px;
+                  padding: 2px 6px;
+                  margin-top: 6px;
+                }
+              </style>
+
+              <ul>
+                <!--Language switch-->
+                <li class="language-switch">
+                  <div class="d-inline-flex align-items-center">
+                    <select
+                      name="language"
+                      class="form-select form-select-sm"
+                      style="width: auto; padding-right: 2rem"
+                    >
+                      <option value="en" selected>English</option>
+                      <option value="es">Español</option>
+                      <option value="fr">Français</option>
+                      <option value="de">Deutsch</option>
+                      <option value="zh">中文</option>
+                    </select>
+                    <button class="btn btn-sm">
+                      <i class="fas fa-globe fa-spin" aria-hidden="true"></i>
+                    </button>
+                  </div>
+                </li>
+
+                <!-- Theme switch (light/dark) -->
+                <li class="theme-switch-li">
+                  <button
+                    type="button"
+                    id="theme-toggle-btn"
+                    class="theme-switch js-theme-toggle"
+                    aria-label="Toggle light/dark theme"
+                    title="Toggle theme"
+                  >
+                    <span class="icon-sun" aria-hidden="true"
+                      ><i class="fas fa-sun"></i
+                    ></span>
+                    <span class="icon-moon" aria-hidden="true"
+                      ><i class="fas fa-moon"></i
+                    ></span>
+                  </button>
+                </li>
+
+                <li class="active">
+                  <a href="/" class="nav-item-link">
+                    <span class="nav-item__icon"
+                      ><i class="fas fa-home"></i
+                    ></span>
+                    <span class="nav-label">Home</span>
+                  </a>
+                </li>
+
+                <li>
+                  <a href="{% url 'portfolio' %}" class="nav-item-link">
+                    <span class="nav-item__icon"
+                      ><i class="fas fa-briefcase"></i
+                    ></span>
+                    <span class="nav-label">Portfolio</span>
+                  </a>
+                </li>
+
+                <li>
+                  <a href="{% url 'blog' %}" class="nav-item-link">
+                    <span class="nav-item__icon"
+                      ><i class="fas fa-blog"></i
+                    ></span>
+                    <span class="nav-label">Blog</span>
+                  </a>
+                </li>
+
+                <li>
+                  <a href="{% url 'contact' %}" class="nav-item-link">
+                    <span class="nav-item__icon"
+                      ><i class="fas fa-envelope"></i
+                    ></span>
+                    <span class="nav-label">Contact</span>
+                  </a>
+                </li>
+
+                <li>
+                  <a href="#" class="nav-item-link">
+                    <span class="nav-item__icon"
+                      ><i class="fas fa-file-alt"></i
+                    ></span>
+                    <span class="nav-label">Policies</span>
+                  </a>
+                </li>
+
+                <li>
+                  <a href="{% url 'shop' %}" class="nav-item-link">
+                    <span class="nav-item__icon"
+                      ><i class="fas fa-shopping-cart"></i
+                    ></span>
+                    <span class="nav-label">Shop</span>
+                  </a>
+                </li>
+
+                <li>
+                  <a href="{% url 'dashboard' %}" class="nav-item-link">
+                    <span class="nav-item__icon"
+                      ><i class="fas fa-tachometer-alt"></i
+                    ></span>
+                    <span class="nav-label">Client Dashboard</span>
+                  </a>
+                </li>
+
+                <li>
+                  <a href="{% url 'dashboard_v2' %}" class="nav-item-link">
+                    <span class="nav-item__icon"
+                      ><i class="fas fa-layer-group"></i
+                    ></span>
+                    <span class="nav-label">Admin Dashboard</span>
+                  </a>
+                </li>
+
+                <li>
+                  <a href="{% url 'signup' %}" class="nav-item-link">
+                    <span class="nav-item__icon"
+                      ><i class="fas fa-user-plus"></i
+                    ></span>
+                    <span class="nav-label">Sign-up</span>
+                  </a>
+                </li>
+
+                <li class="nav-item">
+                  <a href="{% url 'login' %}" class="nav-item-link">
+                    <span class="nav-item__icon"
+                      ><i class="fas fa-user"></i
+                    ></span>
+                    <span class="nav-label">Sign-in</span>
+                  </a>
+                </li>
+
+                <li class="nav-cart">
+                  <a
+                    href="/cart/"
+                    class="cart-link"
+                    aria-haspopup="true"
+                    aria-expanded="false"
+                    title="View cart"
+                  >
+                    <!-- simple inline cart icon so design stays consistent -->
+                    <svg
+                      width="20"
+                      height="20"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      aria-hidden="true"
+                      focusable="false"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        d="M6 6H21L19 14H8L6 6Z"
+                        stroke="currentColor"
+                        stroke-width="1.5"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                      />
+                      <circle cx="10" cy="19" r="1.5" fill="currentColor" />
+                      <circle cx="18" cy="19" r="1.5" fill="currentColor" />
+                    </svg>
+                    <span class="cart-count" aria-live="polite">3</span>
+                    <span class="nav-label">Cart</span>
+                  </a>
+
+                  <!-- Cart items dropdown -->
+                  <div class="cart-items-dropdown">
+                    <div class="cart-items-header">
+                      <h6 class="mb-0">Shopping Cart</h6>
+                      <span class="badge bg-primary">3</span>
+                    </div>
+
+                    <div class="cart-items-body">
+                      <!-- Item 1: Casual Denim Dress -->
+                      <div class="cart-item mb-3 pb-3 border-bottom">
+                        <div class="d-flex gap-2">
+                          <img
+                            src="{% static 'images/user-img.jpg' %}"
+                            alt="Casual Denim Dress"
+                            class="cart-item-img"
+                            style="
+                              width: 50px;
+                              height: 50px;
+                              object-fit: cover;
+                              border-radius: 4px;
+                            "
+                          />
+                          <div class="flex-grow-1 mini">
+                            <p
+                              class="mb-1 fw-semibold small"
+                              style="font-size: 0.85rem"
+                            >
+                              Casual Denim Dress
+                            </p>
+                            <div
+                              class="d-flex justify-content-between align-items-center"
+                            >
+                              <small class="text-muted">Qty: 1</small>
+                              <span class="fw-semibold small">$49.99</span>
+                            </div>
+                            <small class="text-muted d-block"
+                              >Medium | Blue</small
+                            >
+                          </div>
+                        </div>
+                      </div>
+
+                      <!-- Item 2: White Sneaker Shoes -->
+                      <div class="cart-item mb-3 pb-3 border-bottom">
+                        <div class="d-flex gap-2">
+                          <img
+                            src="{% static 'images/user-img.jpg' %}"
+                            alt="White Sneaker Shoes"
+                            class="cart-item-img"
+                            style="
+                              width: 50px;
+                              height: 50px;
+                              object-fit: cover;
+                              border-radius: 4px;
+                            "
+                          />
+                          <div class="flex-grow-1 mini">
+                            <p
+                              class="mb-1 fw-semibold small"
+                              style="font-size: 0.85rem"
+                            >
+                              White Sneaker Shoes
+                            </p>
+                            <div
+                              class="d-flex justify-content-between align-items-center"
+                            >
+                              <small class="text-muted">Qty: 1</small>
+                              <span class="fw-semibold small">$89.99</span>
+                            </div>
+                            <small class="text-muted d-block">10 | White</small>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="cart-items-footer">
+                      <a href="/cart/" class="btn btn-primary btn-sm w-100">
+                        <i class="fas fa-shopping-cart me-2"></i>View Full Cart
+                      </a>
+                      <a
+                        href="/shop/checkout/"
+                        class="btn btn-outline-primary btn-sm w-100 mt-2"
+                      >
+                        <i class="fas fa-box me-2"></i>Go to Checkout
+                      </a>
+                    </div>
+                  </div>
+
+                  <style>
+                    .cart-items-dropdown {
+                      position: absolute;
+                      top: 100%;
+                      right: 0;
+                      width: 320px;
+                      background: white;
+                      border: 1px solid #e0e0e0;
+                      border-radius: 8px;
+                      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+                      z-index: 1000;
+                      display: none;
+                    }
+
+                    [data-theme="dark"] .cart-items-dropdown {
+                      background: #1a1a1a;
+                      border-color: #333;
+                      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+                    }
+
+                    .cart-items-dropdown.show {
+                      display: block;
+                    }
+
+                    .cart-items-header {
+                      padding: 12px 16px;
+                      border-bottom: 1px solid #f0f0f0;
+                      display: flex;
+                      justify-content: space-between;
+                      align-items: center;
+                    }
+
+                    [data-theme="dark"] .cart-items-header {
+                      border-bottom-color: #333;
+                    }
+
+                    .cart-items-body {
+                      max-height: 300px;
+                      overflow-y: auto;
+                      padding: 12px 16px;
+                    }
+
+                    .cart-item-img {
+                      flex-shrink: 0;
+                    }
+
+                    .cart-items-footer {
+                      padding: 12px 16px;
+                      border-top: 1px solid #f0f0f0;
+                      display: flex;
+                      flex-direction: column;
+                      gap: 8px;
+                    }
+
+                    [data-theme="dark"] .cart-items-footer {
+                      border-top-color: #333;
+                    }
+
+                    .nav-cart:hover .cart-items-dropdown {
+                      display: block;
+                    }
+
+                    .cart-items-body::-webkit-scrollbar {
+                      width: 6px;
+                    }
+
+                    .cart-items-body::-webkit-scrollbar-track {
+                      background: #f1f1f1;
+                    }
+
+                    [data-theme="dark"]
+                      .cart-items-body::-webkit-scrollbar-track {
+                      background: #2a2a2a;
+                    }
+
+                    .cart-items-body::-webkit-scrollbar-thumb {
+                      background: #888;
+                      border-radius: 3px;
+                    }
+
+                    .cart-items-body::-webkit-scrollbar-thumb:hover {
+                      background: #555;
+                    }
+                  </style>
+
+                  <script>
+                    document.addEventListener("DOMContentLoaded", function () {
+                      const cartLink = document.querySelector(
+                        ".nav-cart > a.cart-link",
+                      );
+                      const cartDropdown = document.querySelector(
+                        ".cart-items-dropdown",
+                      );
+
+                      if (cartLink && cartDropdown) {
+                        cartLink.addEventListener("click", function (e) {
+                          e.preventDefault();
+                          cartDropdown.classList.toggle("show");
+                        });
+
+                        document.addEventListener("click", function (e) {
+                          if (!e.target.closest(".nav-cart")) {
+                            cartDropdown.classList.remove("show");
+                          }
+                        });
+
+                        const navCart = document.querySelector(".nav-cart");
+                        navCart.addEventListener("mouseenter", function () {
+                          if (window.innerWidth > 768) {
+                            cartDropdown.classList.add("show");
+                          }
+                        });
+
+                        navCart.addEventListener("mouseleave", function () {
+                          if (window.innerWidth > 768) {
+                            cartDropdown.classList.remove("show");
+                          }
+                        });
+                      }
+                    });
+                  </script>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
+  </div>
 </header>
 <!-- ================================
 End Navigation Bar (inc/nav/navbar.html)

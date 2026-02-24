@@ -1,205 +1,205 @@
-<!doctype html>
-<html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-
-    <title>Did Coding - Cart</title>
-    <meta name="author" content="Did Coding Limited & James Granger Design">
-    <link rel="canonical" href=""/>
-    <link rel="home" href=""/>
-    <meta name="description" content="">
-    <meta name="keywords" content="">
-
-    <!-- ================================
-    Start CSS
-    ================================= -->
-    <link href="css/bootstrap.min.css" rel="stylesheet">
-    <link href="css/swiper-bundle.min.css" rel="stylesheet">
-    <link href="css/style.css" rel="stylesheet">
-    <link href="css/toastr.css" rel="stylesheet">
-    <!-- ================================
-    End CSS
-    ================================= -->
-
-  </head>
-  <body>
-
-    <!-- ================================
-    Start Navigation Bar
-    ================================= -->
-    <header>
-      <div class="headerCol">
-        <div class="container-fluid">
-          <div class="row align-items-center">
-            <div class="col-auto">
-              <div class="logoCol"><a href="index.html"><img src="images/logo.png" alt="..."></a></div>
-            </div>
-            <div class="col">
-              <div class="d-md-none">
-                <button class="navToggle">
-                  <span class="navToggle__text">Toggle Menu</span>
-                </button>
-              </div>
-              <div class="navCollapseCol">
-                <div class="navCol">
-                  <ul>
-                    <li><a href="index.html">Home</a></li>
-                    <li><a href="portfolio.html">Portfolio</a></li>
-                    <li><a href="blog.html">Blog</a></li>
-                    <li><a href="contact.html">Contact</a></li>
-                    <li><a href="policies.html">Policies</a></li>
-                    <li><a href="shop.html">Shop</a></li>
-                    <li><a href="signup.html">Sign-up</a></li>
-                    <!-- <li><a href="signin.html">Sign-in</a></li>
-                    <li><a href="cart.html">Cart</a></li>-->
-                  </ul>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </header>
-    <!-- ================================
-    End Navigation Bar
-    ================================= -->
-
-    <!-- ================================
+{% extends "base.html" %} {% load static %} {% block title %}Cart - Cheche
+Coding{% endblock %} {% block content %}
+<!-- ================================
     Start Content
     ================================= -->
-    <section>
-      <div class="innerPageBannerCol">
-        <div class="container">
-          <div class="row g-4 g-md-3  align-items-center">
-            <div class="col-md-6">
-              <div class="bannerContent">
-                <h1 class="xlTitle pb-md-3">Cart</h1>
+<section>
+  <div class="innerPageBannerCol">
+    <div class="container">
+      <div class="row g-4 g-md-3 align-items-center">
+        <div class="col-md-6">
+          <div class="bannerContent">
+            <h1 class="xlTitle pb-md-3">Cart</h1>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="lightBg">
+    <div class="sectionSpaceSm">
+      <div class="container">
+        <div class="d-flex justify-content-between align-items-center mb-3">
+          <h2 class="mdTitle mb-0">Your items (3)</h2>
+          <a href="{% url 'shop' %}" class="btn btnOutline btn-sm"
+            >Continue shopping</a
+          >
+        </div>
+        <div class="table-responsive">
+          <table class="table align-middle">
+            <thead>
+              <tr class="text-muted small">
+                <th scope="col" class="product-thumbnail">Product</th>
+                <th scope="col" class="product-title">Details</th>
+                <th scope="col" class="product-price">Price</th>
+                <th scope="col" class="product-quantity">Quantity</th>
+                <th scope="col" class="product-subtotal">Subtotal</th>
+                <th scope="col" class="product-remove"></th>
+              </tr>
+            </thead>
+            <tbody>
+              <!-- Item 1: Casual Denim Dress -->
+              <tr>
+                <td class="product-thumbnail">
+                  <img
+                    src="{% static 'images/user-img.jpg' %}"
+                    alt="Casual Denim Dress"
+                    width="48"
+                    height="48"
+                    class="rounded"
+                  />
+                </td>
+                <td class="product-title">
+                  <p class="fw-semibold mb-1">Casual Denim Dress</p>
+                  <small class="text-muted d-block">Size: Medium</small>
+                  <small class="text-muted">Color: Blue</small>
+                </td>
+                <td class="product-price">$49.99</td>
+                <td class="product-quantity">1</td>
+                <td class="product-subtotal fw-semibold">$49.99</td>
+                <td class="product-remove">
+                  <button
+                    class="btn btn-sm btn-outline-danger remove-item"
+                    data-item="0"
+                  >
+                    Remove
+                  </button>
+                </td>
+              </tr>
+
+              <!-- Item 2: White Sneaker Shoes -->
+              <tr>
+                <td class="product-thumbnail">
+                  <img
+                    src="{% static 'images/user-img.jpg' %}"
+                    alt="White Sneaker Shoes"
+                    width="48"
+                    height="48"
+                    class="rounded"
+                  />
+                </td>
+                <td class="product-title">
+                  <p class="fw-semibold mb-1">White Sneaker Shoes</p>
+                  <small class="text-muted d-block">Size: 10</small>
+                  <small class="text-muted">Color: White</small>
+                </td>
+                <td class="product-price">$89.99</td>
+                <td class="product-quantity">1</td>
+                <td class="product-subtotal fw-semibold">$89.99</td>
+                <td class="product-remove">
+                  <button
+                    class="btn btn-sm btn-outline-danger remove-item"
+                    data-item="1"
+                  >
+                    Remove
+                  </button>
+                </td>
+              </tr>
+
+              <!-- Item 3: Summer Floral Dress -->
+              <tr>
+                <td class="product-thumbnail">
+                  <img
+                    src="{% static 'images/user-img.jpg' %}"
+                    alt="Summer Floral Dress"
+                    width="48"
+                    height="48"
+                    class="rounded"
+                  />
+                </td>
+                <td class="product-title">
+                  <p class="fw-semibold mb-1">Summer Floral Dress</p>
+                  <small class="text-muted d-block">Size: Small</small>
+                  <small class="text-muted">Color: Pink</small>
+                </td>
+                <td class="product-price">$59.99</td>
+                <td class="product-quantity">2</td>
+                <td class="product-subtotal fw-semibold">$119.98</td>
+                <td class="product-remove">
+                  <button
+                    class="btn btn-sm btn-outline-danger remove-item"
+                    data-item="2"
+                  >
+                    Remove
+                  </button>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="row justify-content-end mb-4">
+          <div class="col-lg-5">
+            <div class="card border-0 shadow-sm">
+              <div class="card-body">
+                <h5 class="mb-3">Order Summary</h5>
+                <table class="table mb-3">
+                  <tbody>
+                    <tr class="order-subtotal">
+                      <td>Subtotal</td>
+                      <td class="text-end">$259.96</td>
+                    </tr>
+                    <tr class="order-tax">
+                      <td>State Tax (8%)</td>
+                      <td class="text-end" id="taxAmount">$20.80</td>
+                    </tr>
+                    <tr class="order-total border-top">
+                      <td class="fw-semibold">Total</td>
+                      <td
+                        class="order-total-amount text-end fw-semibold"
+                        id="totalAmount"
+                      >
+                        $280.76
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+                <a href="{% url 'shipping' %}" class="btn btnPrimary w-100"
+                  >Proceed to checkout</a
+                >
               </div>
             </div>
           </div>
         </div>
       </div>
-    </section>
-
-    <section>
-
-      <!-- Start Cart Area  -->
-      <div class="sectionSpaceSm lightBg">
-          <div class="container">
-              <a href="#" class="btn btnPrimary">Clear Shoping Cart</a>
-              <div class="table-responsive">
-                  <table class="table">
-                      <thead>
-                          <tr>
-                              <th scope="col" class="product-thumbnail">Product</th>
-                              <th scope="col" class="product-title"></th>
-                              <th scope="col" class="product-price">Price</th>
-                              <th scope="col" class="product-quantity">Quantity</th>
-                              <th scope="col" class="product-subtotal">Subtotal</th>
-                              <th scope="col" class="product-remove"></th>
-                          </tr>
-                      </thead>
-                      <tbody>
-                          <tr>
-                              
-                              <td class="product-thumbnail"><a href="single-product.html"><img src="images/logo.png" alt="Digital Product"></a></td>
-                              <td class="product-title"><a href="single-product.html">Wireless PS Handler</a></td>
-                              <td class="product-price" data-title="Price">124.00</td>
-                              <td class="product-quantity" data-title="Qty">1</td>
-                              <td class="product-subtotal" data-title="Subtotal">275.00</td>
-                              <td class="product-remove"><a href="#" style="color:red">X</a></td>
-                          </tr>
-                          <tr>
-                              <td class="product-thumbnail"><a href="single-product-2.html"><img src="images/logo.png" alt="Digital Product"></a></td>
-                              <td class="product-title"><a href="single-product-2.html">Gradient Light Keyboard</a></td>
-                              <td class="product-price" data-title="Price">124.00</td>
-                              <td class="product-quantity" data-title="Qty">1</td>
-                              <td class="product-subtotal" data-title="Subtotal">275.00</td>
-                              <td class="product-remove"><a href="#" style="color:red">X</a></td>
-                          </tr>
-                          <tr>
-                              <td class="product-thumbnail"><a href="single-product-3.html"><img src="images/logo.png" alt="Digital Product"></a></td>
-                              <td class="product-title"><a href="single-product-3.html">HD CC Camera</a></td>
-                              <td class="product-price" data-title="Price">124.00</td>
-                              <td class="product-quantity" data-title="Qty">1</td>
-                              <td class="product-subtotal" data-title="Subtotal">275.00</td>
-                              <td class="product-remove"><a href="#" style="color:red">X</a></td>
-                          </tr>
-                      </tbody>
-                  </table>
-              </div>
-              <div class="row">
-                  <div class="col-xl-5 col-lg-7 offset-xl-7 offset-lg-5">
-                    <h5 class="title mb--20">Order Summary</h5>
-                    <table class="table summery-table mb--30">
-                        <tbody>
-                            <tr class="order-subtotal">
-                                <td>Subtotal</td>
-                                <td>$117.00</td>
-                            </tr>
-                            <tr class="order-tax">
-                                <td>State Tax</td>
-                                <td>$8.00</td>
-                            </tr>
-                            <tr class="order-total">
-                                <td>Total</td>
-                                <td class="order-total-amount">$125.00</td>
-                            </tr>
-                        </tbody>
-                    </table>
-                    <a href="checkout.html" class="btn btnPrimary">Process to Checkout</a>
-                  </div>
-              </div>
-          </div>
-      </div>
-      <!-- End Cart Area  -->
-
-    </section>
-    <!-- ================================
+    </div>
+  </div>
+</section>
+<!-- ================================
     End Content
     ================================= -->
-    
-    <!-- ================================
-    Start Footer
-    ================================= -->
-    <footer>
-      <div class="footerCol">
-        <div class="container">
-          <ul class="socialCol">
-            <li><a href="javascript:void(0)"><img src="images/fb.svg" alt="..."></a></li>
-            <li><a href="javascript:void(0)"><img src="images/insta.svg" alt="..."></a></li>
-            <li><a href="javascript:void(0)"><img src="images/twitter.svg" alt="..."></a></li>
-            <li><a href="javascript:void(0)"><img src="images/linkedin.svg" alt="..."></a></li>
-          </ul>
-          <div class="copyrightCol">
-            <form id="newsletterForm">
-              <input type="email" id="email" name="email" placeholder="Add your email to subscribe to our newsletter..">
-              <input class='btn btnPrimary' type="submit" value="Submit">
-            </form>
-          </div> 
-          <div class="copyrightCol">
-            <p>Copyright @2023 All rights reserved. Designed by <a href="https://jamesgrangerdesign.co.uk/" target="_blank">James Granger Design</a></p>
-          </div>
-        </div>
-      </div>
-    </footer>
-    <!-- ================================
-    End Footer
-    ================================= -->
 
-    <!-- ================================
-    Start Scripts
-    ================================= -->
-    <script src="js/global.min.js"></script>
-    <script src="js/bootstrap.bundle.min.js"></script>
-    <script src="js/swiper-bundle.min.js"></script>
-    <script src="js/script.js"></script>
-    <script src="js/toastr.js"></script>
-    <script src="js/alert.js"></script>
-    <script src="js/main.js"></script>
-    <!-- ================================
-    End Scripts
-    ================================= -->
-  </body>
-</html>
+<script>
+  // Calculate tax
+  const totals = document.querySelectorAll("#totalAmount, #taxAmount");
+  if (totals.length > 0) {
+    const totalText =
+      document.getElementById("totalAmount")?.textContent || "0";
+    const totalAmount = parseFloat(totalText.replace(/[£$]/g, ""));
+    const taxAmount = totalAmount * 0.08;
+    const grandTotal = totalAmount + taxAmount;
+
+    const taxEl = document.getElementById("taxAmount");
+    const totalEl = document.getElementById("totalAmount");
+
+    if (taxEl)
+      taxEl.textContent =
+        Math.abs(totalAmount) > 0 ? "$" + taxAmount.toFixed(2) : "$0.00";
+    if (totalEl) totalEl.textContent = "$" + grandTotal.toFixed(2);
+  }
+
+  // Remove item from cart
+  document.querySelectorAll(".remove-item").forEach((btn) => {
+    btn.addEventListener("click", function () {
+      if (confirm("Remove this item from cart?")) {
+        this.closest("tr").remove();
+        if (document.querySelectorAll("tbody tr").length === 0) {
+          location.reload();
+        }
+      }
+    });
+  });
+</script>
+
+{% endblock %}

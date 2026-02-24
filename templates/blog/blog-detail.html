@@ -1,157 +1,542 @@
-<!doctype html>
-<html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+{% extends "base.html" %} {% load static %} {% block title %}Designing fast
+Django APIs - Cheche Coding{% endblock %} {% block content %}
 
-    <title>Did Coding - Blog Detail</title>
-    <meta name="author" content="Did Coding Limited & James Granger Design">
-    <link rel="canonical" href=""/>
-    <link rel="home" href=""/>
-    <meta name="description" content="">
-    <meta name="keywords" content="">
+<!-- Banner Section -->
+<section>
+  <div class="innerPageBannerCol">
+    <div class="container">
+      <div class="row g-4 g-md-3 align-items-center">
+        <div class="col-md-8">
+          <div class="bannerContent">
+            <h1 class="xlTitle pb-md-3">Designing fast Django APIs</h1>
+            <p class="lead mb-0">
+              Practical performance patterns for clean, scalable endpoints.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
 
-    <!-- ================================
-    Start CSS
-    ================================= -->
-    <link href="css/bootstrap.min.css" rel="stylesheet">
-    <link href="css/swiper-bundle.min.css" rel="stylesheet">
-    <link href="css/style.css" rel="stylesheet">
-    <link href="css/toastr.css" rel="stylesheet">
-    <!-- ================================
-    End CSS
-    ================================= -->
+<section class="sectionSpaceSm">
+  <div class="container">
+    <div class="mb-4">
+      <a href="{% url 'blog' %}" class="btn btn-outline-secondary"> ← Back to Blog </a>
+    </div>
+    <div class="row g-4 g-lg-5">
+      <div class="col-lg-8">
+        <article>
+          <figure class="mb-4">
+            <img
+              src="{% static 'images/project-img.jpg' %}"
+              alt="Blog cover"
+              class="img-fluid rounded"
+            />
+          </figure>
 
-  </head>
-  <body>
+          <div class="d-flex flex-wrap gap-3 text-muted small mb-3">
+            <span>Backend</span>
+            <span>6 min read</span>
+            <span>February 22, 2026</span>
+          </div>
 
-    <!-- ================================
-    Start Navigation Bar
-    ================================= -->
-    <header>
-      <div class="headerCol">
-        <div class="container-fluid">
-          <div class="row align-items-center">
-            <div class="col-auto">
-              <div class="logoCol"><a href="index.html"><img src="images/logo.png" alt="..."></a></div>
+          <p>
+            Fast APIs are the difference between a snappy product and a
+            frustrating one. This guide walks through practical steps to keep
+            your Django endpoints lean, cacheable, and resilient under load.
+          </p>
+          <p>
+            Start with the basics: small response payloads, efficient queries,
+            and predictable pagination. Then layer in caching where you get the
+            most leverage. Use query profiling to find slow edges early.
+          </p>
+          <p>
+            When performance goals are tight, measure first, optimize second.
+            Add instrumentation around endpoints so you can spot regressions.
+          </p>
+
+          <div class="bg-light p-4 rounded mt-4 mb-4">
+            <h3 class="h5 mb-2">Key takeaways</h3>
+            <ul class="mb-0">
+              <li>Keep endpoints small and cacheable.</li>
+              <li>Measure performance before optimizing.</li>
+              <li>Ship incremental improvements.</li>
+            </ul>
+          </div>
+
+          <h2 class="h4 mb-3">Design for scale</h2>
+          <p>
+            Avoid one-size-fits-all endpoints. Break large responses into
+            smaller, purpose-built views. Adopt consistent filtering and
+            ordering, and ensure indexes back the queries you rely on most.
+          </p>
+          <p>
+            Lastly, make reliability visible. Timeouts, retries, and graceful
+            fallbacks can protect your users even when upstream services slow
+            down.
+          </p>
+        </article>
+
+        <!-- Similar Posts Section -->
+        <div class="mt-5 pt-5 border-top">
+          <h2 class="h4 mb-4">Related posts</h2>
+          <div class="row g-4">
+            <div class="col-md-6">
+              <article class="card border-0 shadow-sm h-100">
+                <img
+                  src="{% static 'images/project-img.jpg' %}"
+                  alt="Blog cover"
+                  class="card-img-top"
+                />
+                <div class="card-body">
+                  <h3 class="h6 card-title">Building with Stripe in Django</h3>
+                  <p class="small text-muted mb-2">Payments • 7 min read</p>
+                  <p class="small mb-3">
+                    Key patterns for subscriptions and one-off payments.
+                  </p>
+                  <a
+                    href="{% url 'blog_detail' %}"
+                    class="text-decoration-none"
+                    style="
+                      color: var(--primaryColor, #9c07b6);
+                      font-weight: 500;
+                    "
+                    >Read more →</a
+                  >
+                </div>
+              </article>
             </div>
-            <div class="col">
-              <div class="d-md-none">
-                <button class="navToggle">
-                  <span class="navToggle__text">Toggle Menu</span>
+            <div class="col-md-6">
+              <article class="card border-0 shadow-sm h-100">
+                <img
+                  src="{% static 'images/project-img.jpg' %}"
+                  alt="Blog cover"
+                  class="card-img-top"
+                />
+                <div class="card-body">
+                  <h3 class="h6 card-title">
+                    Portfolio storytelling that converts
+                  </h3>
+                  <p class="small text-muted mb-2">Portfolio • 5 min read</p>
+                  <p class="small mb-3">
+                    Showcase impact with a narrative that highlights results.
+                  </p>
+                  <a
+                    href="{% url 'blog_detail' %}"
+                    class="text-decoration-none"
+                    style="
+                      color: var(--primaryColor, #9c07b6);
+                      font-weight: 500;
+                    "
+                    >Read more →</a
+                  >
+                </div>
+              </article>
+            </div>
+          </div>
+        </div>
+
+        <!-- Comments Section -->
+        <div class="mt-5 pt-5 border-top">
+          <h2 class="h4 mb-4">Comments <span class="text-muted">(3)</span></h2>
+
+          <div class="card border-0 bg-light p-4 rounded mb-5">
+            <h5 class="mb-3">Leave a comment</h5>
+            <form id="commentForm">
+              <div class="mb-3">
+                <input
+                  type="text"
+                  class="form-control"
+                  placeholder="Your name"
+                  required
+                />
+              </div>
+              <div class="mb-3">
+                <input
+                  type="email"
+                  class="form-control"
+                  placeholder="Your email"
+                  required
+                />
+              </div>
+              <div class="mb-3">
+                <textarea
+                  class="form-control"
+                  rows="4"
+                  placeholder="Write your comment..."
+                  required
+                ></textarea>
+              </div>
+              <button type="submit" class="btn btn-primary">
+                Post comment
+              </button>
+            </form>
+          </div>
+
+          <div class="comments-list">
+            <div class="card border-0 shadow-sm mb-3 p-4">
+              <div
+                class="d-flex justify-content-between align-items-start mb-2"
+              >
+                <div>
+                  <h6 class="mb-1"><strong>Sarah Johnson</strong></h6>
+                  <small class="text-muted">February 22, 2026</small>
+                </div>
+                <button
+                  class="btn btn-sm btn-outline-secondary reply-toggle"
+                  data-comment="1"
+                >
+                  Reply
                 </button>
               </div>
-              <div class="navCollapseCol">
-                <div class="navCol">
-                  <ul>
-                    <li><a href="index.html">Home</a></li>
-                    <li><a href="portfolio.html">Portfolio</a></li>
-                    <li><a href="blog.html">Blog</a></li>
-                    <li><a href="contact.html">Contact</a></li>
-                    <li><a href="policies.html">Policies</a></li>
-                    <li><a href="shop.html">Shop</a></li>
-                    <li><a href="signup.html">Sign-up</a></li>
-                    <!-- <li><a href="signin.html">Sign-in</a></li>
-                    <li><a href="cart.html">Cart</a></li>-->
-                  </ul>
+              <p class="mb-0">
+                Great post! The performance optimization tips are exactly what
+                our team needed. We implemented the caching strategy you
+                mentioned and saw a 40% speed improvement.
+              </p>
+
+              <div class="reply-form-section mt-3 d-none" id="reply-form-1">
+                <form class="reply-form">
+                  <div class="row">
+                    <div class="col-md-6 mb-2">
+                      <input
+                        type="text"
+                        class="form-control form-control-sm"
+                        placeholder="Your name"
+                        required
+                      />
+                    </div>
+                    <div class="col-md-6 mb-2">
+                      <input
+                        type="email"
+                        class="form-control form-control-sm"
+                        placeholder="Your email"
+                        required
+                      />
+                    </div>
+                  </div>
+                  <div class="mb-2">
+                    <textarea
+                      class="form-control form-control-sm"
+                      rows="2"
+                      placeholder="Write a reply..."
+                      required
+                    ></textarea>
+                  </div>
+                  <button type="submit" class="btn btn-sm btn-primary">
+                    Post reply
+                  </button>
+                  <button
+                    type="button"
+                    class="btn btn-sm btn-outline-secondary cancel-reply"
+                    data-comment="1"
+                  >
+                    Cancel
+                  </button>
+                </form>
+              </div>
+
+              <div
+                class="replies mt-4 ps-md-4 border-start border-3"
+                id="replies-1"
+              >
+                <div class="card border-0 bg-light p-3 mb-3">
+                  <div
+                    class="d-flex justify-content-between align-items-start mb-2"
+                  >
+                    <div>
+                      <h6 class="mb-1">
+                        <strong>Cheche Coding</strong>
+                        <span class="badge bg-primary">Author</span>
+                      </h6>
+                      <small class="text-muted">February 22, 2026</small>
+                    </div>
+                  </div>
+                  <p class="mb-0 small">
+                    Thanks Sarah! A 40% improvement is fantastic. That caching
+                    pattern really does work well when databases start to become
+                    the bottleneck.
+                  </p>
                 </div>
               </div>
             </div>
+
+            <div class="card border-0 shadow-sm mb-3 p-4">
+              <div
+                class="d-flex justify-content-between align-items-start mb-2"
+              >
+                <div>
+                  <h6 class="mb-1"><strong>Michael Chen</strong></h6>
+                  <small class="text-muted">February 21, 2026</small>
+                </div>
+                <button
+                  class="btn btn-sm btn-outline-secondary reply-toggle"
+                  data-comment="2"
+                >
+                  Reply
+                </button>
+              </div>
+              <p class="mb-0">
+                Could you elaborate more on the indexing strategies? We're
+                dealing with a particularly complex query that's still slow
+                despite optimization.
+              </p>
+
+              <div class="reply-form-section mt-3 d-none" id="reply-form-2">
+                <form class="reply-form">
+                  <div class="row">
+                    <div class="col-md-6 mb-2">
+                      <input
+                        type="text"
+                        class="form-control form-control-sm"
+                        placeholder="Your name"
+                        required
+                      />
+                    </div>
+                    <div class="col-md-6 mb-2">
+                      <input
+                        type="email"
+                        class="form-control form-control-sm"
+                        placeholder="Your email"
+                        required
+                      />
+                    </div>
+                  </div>
+                  <div class="mb-2">
+                    <textarea
+                      class="form-control form-control-sm"
+                      rows="2"
+                      placeholder="Write a reply..."
+                      required
+                    ></textarea>
+                  </div>
+                  <button type="submit" class="btn btn-sm btn-primary">
+                    Post reply
+                  </button>
+                  <button
+                    type="button"
+                    class="btn btn-sm btn-outline-secondary cancel-reply"
+                    data-comment="2"
+                  >
+                    Cancel
+                  </button>
+                </form>
+              </div>
+
+              <div
+                class="replies mt-4 ps-md-4 border-start border-3"
+                id="replies-2"
+              ></div>
+            </div>
+
+            <div class="card border-0 shadow-sm mb-3 p-4">
+              <div
+                class="d-flex justify-content-between align-items-start mb-2"
+              >
+                <div>
+                  <h6 class="mb-1"><strong>Emma Rodriguez</strong></h6>
+                  <small class="text-muted">February 20, 2026</small>
+                </div>
+                <button
+                  class="btn btn-sm btn-outline-secondary reply-toggle"
+                  data-comment="3"
+                >
+                  Reply
+                </button>
+              </div>
+              <p class="mb-0">
+                This is incredibly helpful for my Django REST project. The
+                practical examples make it really easy to implement these
+                patterns. Looking forward to more posts like this!
+              </p>
+
+              <div class="reply-form-section mt-3 d-none" id="reply-form-3">
+                <form class="reply-form">
+                  <div class="row">
+                    <div class="col-md-6 mb-2">
+                      <input
+                        type="text"
+                        class="form-control form-control-sm"
+                        placeholder="Your name"
+                        required
+                      />
+                    </div>
+                    <div class="col-md-6 mb-2">
+                      <input
+                        type="email"
+                        class="form-control form-control-sm"
+                        placeholder="Your email"
+                        required
+                      />
+                    </div>
+                  </div>
+                  <div class="mb-2">
+                    <textarea
+                      class="form-control form-control-sm"
+                      rows="2"
+                      placeholder="Write a reply..."
+                      required
+                    ></textarea>
+                  </div>
+                  <button type="submit" class="btn btn-sm btn-primary">
+                    Post reply
+                  </button>
+                  <button
+                    type="button"
+                    class="btn btn-sm btn-outline-secondary cancel-reply"
+                    data-comment="3"
+                  >
+                    Cancel
+                  </button>
+                </form>
+              </div>
+
+              <div
+                class="replies mt-4 ps-md-4 border-start border-3"
+                id="replies-3"
+              ></div>
+            </div>
           </div>
         </div>
       </div>
-    </header>
-    <!-- ================================
-    End Navigation Bar
-    ================================= -->
+    </div>
+  </div>
+</section>
 
-    <!-- ================================
-    Start Content
-    ================================= -->
-    <section>
-      <div class="innerPageBannerCol">
-        <div class="container">
-          <div class="row g-4 g-md-3  align-items-center">
-            <div class="col-md-6">
-              <div class="bannerContent">
-                <h1 class="xlTitle pb-md-3">Blog title</h1>
+<script>
+  document.querySelectorAll(".reply-toggle").forEach((btn) => {
+    btn.addEventListener("click", function () {
+      const commentId = this.dataset.comment;
+      const formSection = document.getElementById(`reply-form-${commentId}`);
+      formSection.classList.toggle("d-none");
+    });
+  });
+
+  document.querySelectorAll(".cancel-reply").forEach((btn) => {
+    btn.addEventListener("click", function () {
+      const commentId = this.dataset.comment;
+      document
+        .getElementById(`reply-form-${commentId}`)
+        .classList.add("d-none");
+    });
+  });
+
+  document.querySelectorAll(".reply-form").forEach((form) => {
+    form.addEventListener("submit", function (e) {
+      e.preventDefault();
+      const commentId = this.closest(".reply-form-section").id.split("-")[2];
+      const repliesContainer = document.getElementById(`replies-${commentId}`);
+      const nameInput = this.querySelector('input[type="text"]');
+      const textInput = this.querySelector("textarea");
+
+      const reply = document.createElement("div");
+      reply.className = "card border-0 bg-light p-3 mb-3";
+      reply.innerHTML = `
+          <div class="d-flex justify-content-between align-items-start mb-2">
+            <div>
+              <h6 class="mb-1"><strong>${nameInput.value}</strong></h6>
+              <small class="text-muted">Just now</small>
+            </div>
+          </div>
+          <p class="mb-0 small">${textInput.value}</p>
+        `;
+
+      repliesContainer.appendChild(reply);
+      this.reset();
+      document
+        .getElementById(`reply-form-${commentId}`)
+        .classList.add("d-none");
+    });
+  });
+
+  document
+    .getElementById("commentForm")
+    .addEventListener("submit", function (e) {
+      e.preventDefault();
+      const nameInput = this.querySelector('input[type="text"]');
+      const textInput = this.querySelector("textarea");
+
+      const comment = document.createElement("div");
+      comment.className = "card border-0 shadow-sm mb-3 p-4";
+      const commentId = Date.now();
+      comment.innerHTML = `
+        <div class="d-flex justify-content-between align-items-start mb-2">
+          <div>
+            <h6 class="mb-1"><strong>${nameInput.value}</strong></h6>
+            <small class="text-muted">Just now</small>
+          </div>
+          <button class="btn btn-sm btn-outline-secondary reply-toggle" data-comment="${commentId}">Reply</button>
+        </div>
+        <p class="mb-0">${textInput.value}</p>
+
+        <div class="reply-form-section mt-3 d-none" id="reply-form-${commentId}">
+          <form class="reply-form">
+            <div class="row">
+              <div class="col-md-6 mb-2">
+                <input type="text" class="form-control form-control-sm" placeholder="Your name" required />
+              </div>
+              <div class="col-md-6 mb-2">
+                <input type="email" class="form-control form-control-sm" placeholder="Your email" required />
               </div>
             </div>
-          </div>
-          <div class="row">
-            <div class="col-md-auto">
-              <div class="authorCol">
-                <h4 class="smTitle pb-3">Bobby Stearman</h4>
+            <div class="mb-2">
+              <textarea class="form-control form-control-sm" rows="2" placeholder="Write a reply..." required></textarea>
+            </div>
+            <button type="submit" class="btn btn-sm btn-primary">Post reply</button>
+            <button type="button" class="btn btn-sm btn-outline-secondary cancel-reply" data-comment="${commentId}">Cancel</button>
+          </form>
+        </div>
+
+        <div class="replies mt-4 ps-md-4 border-start border-3" id="replies-${commentId}"></div>
+      `;
+
+      document.querySelector(".comments-list").prepend(comment);
+
+      comment
+        .querySelector(".reply-toggle")
+        .addEventListener("click", function () {
+          const cId = this.dataset.comment;
+          document
+            .getElementById(`reply-form-${cId}`)
+            .classList.toggle("d-none");
+        });
+
+      comment
+        .querySelector(".cancel-reply")
+        .addEventListener("click", function () {
+          const cId = this.dataset.comment;
+          document.getElementById(`reply-form-${cId}`).classList.add("d-none");
+        });
+
+      comment
+        .querySelector(".reply-form")
+        .addEventListener("submit", function (e) {
+          e.preventDefault();
+          const cId = this.closest(".reply-form-section").id.split("-")[2];
+          const repliesContainer = document.getElementById(`replies-${cId}`);
+          const nameInput = this.querySelector('input[type="text"]');
+          const textInput = this.querySelector("textarea");
+
+          const reply = document.createElement("div");
+          reply.className = "card border-0 bg-light p-3 mb-3";
+          reply.innerHTML = `
+              <div class="d-flex justify-content-between align-items-start mb-2">
+                <div>
+                  <h6 class="mb-1"><strong>${nameInput.value}</strong></h6>
+                  <small class="text-muted">Just now</small>
+                </div>
               </div>
-            </div>
-            <div class="col-md">
-              <h4 class="smTitle pb-3">12-10-2021</h4>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
+              <p class="mb-0 small">${textInput.value}</p>
+            `;
 
-    <section>
-      <div class="sectionSpaceSm">
-        <div class="container">
-          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
-          Aenean congue imperdiet lorem ut posuere. Maecenas nec accumsan 
-          risus, quis luctus libero. Morbi a nulla ac felis scelerisque 
-          feugiat quis vitae turpis. Vivamus nec augue vel enim scelerisque 
-          cursus. Curabitur efficitur ipsum quis turpis bibendum egestas. 
-          Nunc ac euismod dolor. Vestibulum nec ipsum fermentum, semper 
-          quam eu, porttitor elit. Maecenas efficitur ex eget augue euismod 
-          semper. Curabitur pharetra tortor vel orci volutpat semper. 
-          Donec feugiat mauris ante. In hac habitasse platea dictumst.
-          </p>
-        </div>
-      </div>
-    </section>
-    <!-- ================================
-    End Content
-    ================================= -->
-    
-    <!-- ================================
-    Start Footer
-    ================================= -->
-    <footer>
-      <div class="footerCol">
-        <div class="container">
-          <ul class="socialCol">
-            <li><a href="javascript:void(0)"><img src="images/fb.svg" alt="..."></a></li>
-            <li><a href="javascript:void(0)"><img src="images/insta.svg" alt="..."></a></li>
-            <li><a href="javascript:void(0)"><img src="images/twitter.svg" alt="..."></a></li>
-            <li><a href="javascript:void(0)"><img src="images/linkedin.svg" alt="..."></a></li>
-          </ul>
-          <div class="copyrightCol">
-            <form id="newsletterForm">
-              <input type="email" id="email" name="email" placeholder="Add your email to subscribe to our newsletter..">
-              <input class='btn btnPrimary' type="submit" value="Submit">
-            </form>
-          </div> 
-          <div class="copyrightCol">
-            <p>Copyright @2023 All rights reserved. Designed by <a href="https://jamesgrangerdesign.co.uk/" target="_blank">James Granger Design</a></p>
-          </div>
-        </div>
-      </div>
-    </footer>
-    <!-- ================================
-    End Footer
-    ================================= -->
+          repliesContainer.appendChild(reply);
+          this.reset();
+          document.getElementById(`reply-form-${cId}`).classList.add("d-none");
+        });
 
-    <!-- ================================
-    Start Scripts
-    ================================= -->
-    <script src="js/global.min.js"></script>
-    <script src="js/bootstrap.bundle.min.js"></script>
-    <script src="js/swiper-bundle.min.js"></script>
-    <script src="js/script.js"></script>
-    <script src="js/toastr.js"></script>
-    <script src="js/alert.js"></script>
-    <script src="js/main.js"></script>
-    <!-- ================================
-    End Scripts
-    ================================= -->
-  </body>
-</html>
+      this.reset();
+    });
+</script>
+
+{% endblock %}

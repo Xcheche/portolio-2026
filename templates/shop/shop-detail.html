@@ -1,80 +1,21 @@
-<!doctype html>
-<html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+{% extends 'base.html' %}
+{% load static %}
 
-    <title>Did Coding - Shop Detail</title>
-    <meta name="author" content="Did Coding Limited & James Granger Design">
-    <link rel="canonical" href=""/>
-    <link rel="home" href=""/>
-    <meta name="description" content="">
-    <meta name="keywords" content="">
+{% block title %}Product Detail - Cheche Coding{% endblock %}
 
-    <!-- ================================
-    Start CSS
-    ================================= -->
-    <link href="css/bootstrap.min.css" rel="stylesheet">
-    <link href="css/swiper-bundle.min.css" rel="stylesheet">
-    <link href="css/style.css" rel="stylesheet">
-    <link href="css/toastr.css" rel="stylesheet">
-    <!-- ================================
-    End CSS
-    ================================= -->
+{% block content %}
 
-  </head>
-  <body>
-
-    <!-- ================================
-    Start Navigation Bar
-    ================================= -->
-    <header>
-      <div class="headerCol">
-        <div class="container-fluid">
-          <div class="row align-items-center">
-            <div class="col-auto">
-              <div class="logoCol"><a href="index.html"><img src="images/logo.png" alt="..."></a></div>
-            </div>
-            <div class="col">
-              <div class="d-md-none">
-                <button class="navToggle">
-                  <span class="navToggle__text">Toggle Menu</span>
-                </button>
-              </div>
-              <div class="navCollapseCol">
-                <div class="navCol">
-                  <ul>
-                    <li><a href="index.html">Home</a></li>
-                    <li><a href="portfolio.html">Portfolio</a></li>
-                    <li><a href="blog.html">Blog</a></li>
-                    <li><a href="contact.html">Contact</a></li>
-                    <li><a href="policies.html">Policies</a></li>
-                    <li><a href="shop.html">Shop</a></li>
-                    <li><a href="signup.html">Sign-up</a></li>
-                    <!-- <li><a href="signin.html">Sign-in</a></li>
-                    <li><a href="cart.html">Cart</a></li>-->
-                  </ul>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </header>
-    <!-- ================================
-    End Navigation Bar
-    ================================= -->
-
-    <!-- ================================
-    Start Content
-    ================================= -->
+    <!-- Page Content -->
     <section>
-      <div class="innerPageBannerCol">
+      <div
+        class="innerPageBannerCol"
+        style="background-color: #f8f9fa; padding: 40px 0"
+      >
         <div class="container">
-          <div class="row g-4 g-md-3  align-items-center">
+          <div class="row g-4 g-md-3 align-items-center">
             <div class="col-md-6">
               <div class="bannerContent">
-                <h1 class="xlTitle pb-md-3">Product title</h1>
+                <h1 class="xlTitle pb-md-3">Product Detail</h1>
               </div>
             </div>
           </div>
@@ -82,58 +23,333 @@
       </div>
     </section>
 
-    <section>
-      <div class="sectionSpaceSm">
-        <div class="container">
-          <div class="row row--50">
-            <div class="col-lg-6 mb--40">
-                <div class="h-100">
-                    <div class="position-sticky sticky-top">
-                        <div class="single-product-thumbnail axil-product"> 
-                            <div class="thumbnail">
-                                <img src="images/user-img.jpg" alt="Product Images">
-                            </div>
-                        </div>
-                    </div>
-                </div>
+    <section style="padding: 60px 0">
+      <div class="container">
+        <div class="row g-5">
+          <!-- Product Image -->
+          <div class="col-lg-6">
+            <div class="card border-0 shadow-sm h-100 position-relative">
+              <div
+                class="zoom-container position-relative"
+                style="overflow: hidden; border-radius: 0.375rem"
+              >
+                <img
+                  id="productImage"
+                  src="{% static 'images/user-img.jpg' %}"
+                  alt="Product Detail"
+                  class="img-fluid rounded zoom-image"
+                  style="
+                    cursor: zoom-in;
+                    transition: transform 0.3s ease;
+                    width: 100%;
+                    height: auto;
+                    display: block;
+                  "
+                />
+                <div
+                  id="zoomOverlay"
+                  class="position-absolute top-0 start-0 d-none"
+                  style="
+                    width: 100px;
+                    height: 100px;
+                    border: 2px solid #007bff;
+                    pointer-events: none;
+                  "
+                ></div>
+              </div>
+              <div
+                id="zoomedView"
+                class="d-none position-absolute top-0 start-100 ms-3"
+                style="
+                  width: 300px;
+                  height: 400px;
+                  overflow: hidden;
+                  border: 1px solid #ddd;
+                  border-radius: 0.375rem;
+                "
+              >
+                <img
+                  id="zoomedImage"
+                  src="{% static 'images/user-img.jpg' %}"
+                  alt="Product Detail"
+                  style="width: 150%; height: 150%; object-fit: cover"
+                />
+              </div>
             </div>
-            <div class="col-lg-6 mb--40">
-                <h2>Bored Ape Yacht Club</h2>
-                <p>$5000.00</p>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
-                  Aenean congue imperdiet lorem ut posuere. Maecenas nec accumsan 
-                  risus, quis luctus libero. Morbi a nulla ac felis scelerisque 
-                  feugiat quis vitae turpis. Vivamus nec augue vel enim scelerisque 
-                  cursus. Curabitur efficitur ipsum quis turpis bibendum egestas. 
-                  Nunc ac euismod dolor. Vestibulum nec ipsum fermentum, semper 
-                  quam eu, porttitor elit. Maecenas efficitur ex eget augue euismod 
-                  semper. Curabitur pharetra tortor vel orci volutpat semper. 
-                  Donec feugiat mauris ante. In hac habitasse platea dictumst.
-                </p>
-                <!--Product variation-->
-                <div class="product-variation">
-                    <h4>Choose your option</h4>
-                    <select class="form-select">
-                        <option value="option1">Option 1</option>
-                        <option value="option2">Option 2</option>
-                        <option value="option3">Option 3</option>
-                    </select>
-                </div>
-                <a href="#" class="btn btnPrimary">Add to cart</a>
-                <a href="#" class="btn btnDanger">Out of stock</a>&nbsp;&nbsp;
+          </div>
 
-                <a href="#" class="btn btnPrimary mt-3" role="button" aria-label="Purchase from our trusted partner">Purchase from <span class="text-danger">Partner</span></a>
+          <!-- Product Details -->
+          <div class="col-lg-6">
+            <h2 class="mb-2">Product Detail</h2>
+            <div class="d-flex align-items-center gap-2 mb-3">
+              <p class="fs-4 fw-semibold mb-0">$39.00</p>
+              <span class="badge bg-success">In Stock</span>
             </div>
-            <!--Reviews-->
-            <div class="col-12"></div>
-              <div class="product-reviews">
+
+            <p class="text-muted mb-4">
+              Clean, conversion-focused landing page for SaaS and launches.
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+            </p>
+
+            <!-- Product Variations -->
+            <div class="mb-4">
+              <!-- Size Selection -->
+              <div class="mb-3">
+                <h4 class="h6 mb-2">Size</h4>
+                <div class="d-flex gap-2 flex-wrap">
+                <input
+                  type="radio"
+                  name="size"
+                  value="Small"
+                  id="size-Small"
+                  class="btn-check"
+                  checked
+                />
+                <label
+                  for="size-Small"
+                  class="btn btn-outline-secondary btn-sm"
+                  >Small</label
+                >
+                <input
+                  type="radio"
+                  name="size"
+                  value="Medium"
+                  id="size-Medium"
+                  class="btn-check"
+                />
+                <label
+                  for="size-Medium"
+                  class="btn btn-outline-secondary btn-sm"
+                  >Medium</label
+                >
+                <input
+                  type="radio"
+                  name="size"
+                  value="Large"
+                  id="size-Large"
+                  class="btn-check"
+                />
+                <label
+                  for="size-Large"
+                  class="btn btn-outline-secondary btn-sm"
+                  >Large</label
+                >
+                <input
+                  type="radio"
+                  name="size"
+                  value="XL"
+                  id="size-XL"
+                  class="btn-check"
+                />
+                <label
+                  for="size-XL"
+                  class="btn btn-outline-secondary btn-sm"
+                  >XL</label
+                >
+                </div>
+              </div>
+
+              <!-- Color Selection -->
+              <div class="mb-3">
+                <h4 class="h6 mb-2">Color</h4>
+                <div class="d-flex gap-2 flex-wrap align-items-center">
+                <input
+                  type="radio"
+                  name="color"
+                  value="Black"
+                  id="color-Black"
+                  class="btn-check"
+                  checked
+                />
+                <label
+                  for="color-Black"
+                  class="d-flex align-items-center gap-2 p-0"
+                  style="cursor: pointer"
+                >
+                  <span
+                    style="
+                      display: inline-block;
+                      width: 30px;
+                      height: 30px;
+                      background-color: #000000;
+                      border: 2px solid #ddd;
+                      border-radius: 50%;
+                      cursor: pointer;
+                    "
+                  ></span>
+                  <span class="small">Black</span>
+                </label>
+                <input
+                  type="radio"
+                  name="color"
+                  value="White"
+                  id="color-White"
+                  class="btn-check"
+                />
+                <label
+                  for="color-White"
+                  class="d-flex align-items-center gap-2 p-0"
+                  style="cursor: pointer"
+                >
+                  <span
+                    style="
+                      display: inline-block;
+                      width: 30px;
+                      height: 30px;
+                      background-color: #FFFFFF;
+                      border: 2px solid #ddd;
+                      border-radius: 50%;
+                      cursor: pointer;
+                    "
+                  ></span>
+                  <span class="small">White</span>
+                </label>
+                <input
+                  type="radio"
+                  name="color"
+                  value="Blue"
+                  id="color-Blue"
+                  class="btn-check"
+                />
+                <label
+                  for="color-Blue"
+                  class="d-flex align-items-center gap-2 p-0"
+                  style="cursor: pointer"
+                >
+                  <span
+                    style="
+                      display: inline-block;
+                      width: 30px;
+                      height: 30px;
+                      background-color: #0066CC;
+                      border: 2px solid #ddd;
+                      border-radius: 50%;
+                      cursor: pointer;
+                    "
+                  ></span>
+                  <span class="small">Blue</span>
+                </label>
+                <input
+                  type="radio"
+                  name="color"
+                  value="Red"
+                  id="color-Red"
+                  class="btn-check"
+                />
+                <label
+                  for="color-Red"
+                  class="d-flex align-items-center gap-2 p-0"
+                  style="cursor: pointer"
+                >
+                  <span
+                    style="
+                      display: inline-block;
+                      width: 30px;
+                      height: 30px;
+                      background-color: #CC0000;
+                      border: 2px solid #ddd;
+                      border-radius: 50%;
+                      cursor: pointer;
+                    "
+                  ></span>
+                  <span class="small">Red</span>
+                </label>
+                </div>
+              </div>
+            </div>
+
+            <!-- Quantity Selector -->
+            <div class="mb-4">
+              <h4 class="h6 mb-2">Quantity</h4>
+              <div class="input-group" style="width: 140px">
+                <button
+                  class="btn btn-outline-secondary"
+                  type="button"
+                  id="decreaseQty"
+                >
+                  −
+                </button>
+                <input
+                  type="number"
+                  id="quantity"
+                  class="form-control text-center"
+                  value="1"
+                  min="1"
+                  readonly
+                />
+                <button
+                  class="btn btn-outline-secondary"
+                  type="button"
+                  id="increaseQty"
+                >
+                  +
+                </button>
+              </div>
+            </div>
+
+            <!-- Add to Cart & Checkout -->
+            <div class="d-flex flex-wrap gap-2 mb-3">
+            
+               
+                <div class="d-flex gap-2">
+                  <button type="submit" class="btn btn-primary flex-grow-1">
+                    Add to cart
+                  </button>
+                  <a
+                    href="{% url 'shipping' %}"
+                    class="btn btn-outline-secondary flex-grow-1"
+                    >Buy now</a
+                  >
+                </div>
+              </form>
+            </div>
+
+            <!-- Affiliate Button -->
+            <a
+              href="#"
+              class="btn btn-primary w-100"
+              role="button"
+              aria-label="Purchase from our trusted partner"
+            >
+              Purchase from <span class="text-warning">Partner</span>
+            </a>
+
+            <!-- Shipping Info -->
+            <div class="card border-0 bg-light mt-4 p-3">
+              <div class="d-flex gap-2">
+                <span class="text-primary" style="font-size: 1.25rem">🚚</span>
+                <div>
+                  <p class="small fw-semibold mb-1">
+                    Free shipping on orders over $50
+                  </p>
+                  <p class="small text-muted mb-0">
+                    Standard delivery: 5-7 business days
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Customer Reviews Section -->
+        <div class="row g-4 mt-4">
+          <div class="col-12">
+            <div class="card border-0 shadow-sm">
+              <div class="card-body">
                 <h3 class="mb-3">Customer reviews</h3>
 
-                <!-- Review submission form -->
-                <form id="reviewForm" class="review-form mb-4">
-                  <div class="row g-2 align-items-center">
+                <!-- Review Form -->
+                <form id="addToCartForm" method="POST" action="{% url 'product_detail' %}" class="w-100">
+                {% csrf_token %}
+                <div class="row g-2 align-items-center">
                     <div class="col-md-4">
-                      <input type="text" id="reviewerName" class="form-control" placeholder="Your name" required>
+                      <input
+                        type="text"
+                        id="reviewerName"
+                        class="form-control"
+                        placeholder="Your name"
+                        required
+                      />
                     </div>
                     <div class="col-md-3">
                       <select id="reviewRating" class="form-select" required>
@@ -146,54 +362,99 @@
                       </select>
                     </div>
                     <div class="col-md-5">
-                      <button type="submit" class="btn btnPrimary w-100">Submit review</button>
+                      <button type="submit" class="btn btn-primary w-100">
+                        Submit review
+                      </button>
                     </div>
                   </div>
                   <div class="mt-2">
-                    <textarea id="reviewText" class="form-control" rows="3" placeholder="Write your review..." required></textarea>
+                    <textarea
+                      id="reviewText"
+                      class="form-control"
+                      rows="3"
+                      placeholder="Write your review..."
+                      required
+                    ></textarea>
                   </div>
                 </form>
 
-                <!-- Reviews list -->
+                <!-- Reviews List -->
                 <div id="reviewsList" class="reviews-list">
                   <div class="review mb-3 p-3 border rounded">
-                    <div class="d-flex justify-content-between align-items-start">
+                    <div
+                      class="d-flex justify-content-between align-items-start"
+                    >
                       <div>
                         <strong>Jane Doe</strong>
                         <div class="text-muted small">★★★★★</div>
                       </div>
                       <div>
-                        <button type="button" class="btn btn-sm btn-outline-secondary reply-toggle">Reply</button>
+                        <button
+                          type="button"
+                          class="btn btn-sm btn-outline-secondary reply-toggle"
+                        >
+                          Reply
+                        </button>
                       </div>
                     </div>
-                    <p class="mb-1 mt-2">Amazing product — well packed and described. Highly recommend!</p>
-
-                    <!-- Reply area (hidden by default) -->
+                    <p class="mb-1 mt-2">
+                      Amazing product — well packed and described. Highly
+                      recommend!
+                    </p>
                     <div class="reply-area mt-2 d-none">
                       <form class="reply-form d-flex gap-2">
-                        <input type="text" class="form-control form-control-sm reply-input" placeholder="Write a reply..." required>
-                        <button type="button" class="btn btn-sm btnPrimary send-reply">Send</button>
+                        <input
+                          type="text"
+                          class="form-control form-control-sm reply-input"
+                          placeholder="Write a reply..."
+                          required
+                        />
+                        <button
+                          type="button"
+                          class="btn btn-sm btn-primary send-reply"
+                        >
+                          Send
+                        </button>
                       </form>
                       <div class="replies mt-2"></div>
                     </div>
                   </div>
 
                   <div class="review mb-3 p-3 border rounded">
-                    <div class="d-flex justify-content-between align-items-start">
+                    <div
+                      class="d-flex justify-content-between align-items-start"
+                    >
                       <div>
                         <strong>Sam R.</strong>
                         <div class="text-muted small">★★★★☆</div>
                       </div>
                       <div>
-                        <button type="button" class="btn btn-sm btn-outline-secondary reply-toggle">Reply</button>
+                        <button
+                          type="button"
+                          class="btn btn-sm btn-outline-secondary reply-toggle"
+                        >
+                          Reply
+                        </button>
                       </div>
                     </div>
-                    <p class="mb-1 mt-2">Great value. Delivery was slightly delayed but product quality is good.</p>
-
+                    <p class="mb-1 mt-2">
+                      Great value. Delivery was slightly delayed but product
+                      quality is good.
+                    </p>
                     <div class="reply-area mt-2 d-none">
                       <form class="reply-form d-flex gap-2">
-                        <input type="text" class="form-control form-control-sm reply-input" placeholder="Write a reply..." required>
-                        <button type="button" class="btn btn-sm btnPrimary send-reply">Send</button>
+                        <input
+                          type="text"
+                          class="form-control form-control-sm reply-input"
+                          placeholder="Write a reply..."
+                          required
+                        />
+                        <button
+                          type="button"
+                          class="btn btn-sm btn-primary send-reply"
+                        >
+                          Send
+                        </button>
                       </form>
                       <div class="replies mt-2"></div>
                     </div>
@@ -201,114 +462,169 @@
                 </div>
               </div>
             </div>
-
-            <script>
-            document.addEventListener('click', function(e) {
-              // Toggle reply area
-              if (e.target.matches('.reply-toggle')) {
-                var review = e.target.closest('.review');
-                var area = review.querySelector('.reply-area');
-                area.classList.toggle('d-none');
-              }
-
-              // Send reply (adds inline reply entry)
-              if (e.target.matches('.send-reply')) {
-                var form = e.target.closest('.reply-form');
-                var input = form.querySelector('.reply-input');
-                var text = input.value.trim();
-                if (!text) return;
-                var replies = form.parentElement.querySelector('.replies');
-                var div = document.createElement('div');
-                div.className = 'p-2 mt-2 bg-light rounded';
-                div.textContent = text;
-                replies.appendChild(div);
-                input.value = '';
-              }
-            });
-
-            // Submit new review (adds review to list)
-            document.getElementById('reviewForm').addEventListener('submit', function(ev) {
-              ev.preventDefault();
-              var name = document.getElementById('reviewerName').value.trim();
-              var rating = document.getElementById('reviewRating').value;
-              var text = document.getElementById('reviewText').value.trim();
-              if (!name || !rating || !text) return;
-
-              var container = document.getElementById('reviewsList');
-              var review = document.createElement('div');
-              review.className = 'review mb-3 p-3 border rounded';
-              review.innerHTML = ''
-                + '<div class="d-flex justify-content-between align-items-start">'
-                +   '<div><strong>' + escapeHtml(name) + '</strong><div class="text-muted small">' + '★'.repeat(rating) + '</div></div>'
-                +   '<div><button type="button" class="btn btn-sm btn-outline-secondary reply-toggle">Reply</button></div>'
-                + '</div>'
-                + '<p class="mb-1 mt-2">' + escapeHtml(text) + '</p>'
-                + '<div class="reply-area mt-2 d-none">'
-                +   '<form class="reply-form d-flex gap-2">'
-                +     '<input type="text" class="form-control form-control-sm reply-input" placeholder="Write a reply..." required>'
-                +     '<button type="button" class="btn btn-sm btnPrimary send-reply">Send</button>'
-                +   '</form>'
-                +   '<div class="replies mt-2"></div>'
-                + '</div>';
-              container.insertBefore(review, container.firstChild);
-
-              // reset form
-              this.reset();
-            });
-
-            // Basic text escaping
-            function escapeHtml(str) {
-              return str.replace(/[&<>"']/g, function (m) { return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":"&#39;"}[m]; });
-            }
-            </script>
           </div>
         </div>
       </div>
     </section>
-    <!-- ================================
-    End Content
-    ================================= -->
-    
-    <!-- ================================
-    Start Footer
-    ================================= -->
-    <footer>
-      <div class="footerCol">
-        <div class="container">
-          <ul class="socialCol">
-            <li><a href="javascript:void(0)"><img src="images/fb.svg" alt="..."></a></li>
-            <li><a href="javascript:void(0)"><img src="images/insta.svg" alt="..."></a></li>
-            <li><a href="javascript:void(0)"><img src="images/twitter.svg" alt="..."></a></li>
-            <li><a href="javascript:void(0)"><img src="images/linkedin.svg" alt="..."></a></li>
-          </ul>
-          <div class="copyrightCol">
-            <form id="newsletterForm">
-              <input type="email" id="email" name="email" placeholder="Add your email to subscribe to our newsletter..">
-              <input class='btn btnPrimary' type="submit" value="Submit">
-            </form>
-          </div> 
-          <div class="copyrightCol">
-            <p>Copyright @2023 All rights reserved. Designed by <a href="https://jamesgrangerdesign.co.uk/" target="_blank">James Granger Design</a></p>
+
+    <!-- Footer -->
+    <footer class="bg-dark text-light py-4 mt-5">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-4">
+            <h5>Cheche Coding</h5>
+            <p class="text-muted">
+              Professional web development and design services.
+            </p>
+          </div>
+          <div class="col-md-4">
+            <h5>Quick Links</h5>
+            <ul class="list-unstyled">
+              <li>
+                <a href="{% url 'portfolio' %}" class="text-muted text-decoration-none"
+                  >Portfolio</a
+                >
+              </li>
+              <li>
+                <a href="{% url 'shop' %}" class="text-muted text-decoration-none"
+                  >Shop</a
+                >
+              </li>
+              <li>
+                <a href="{% url 'contact' %}" class="text-muted text-decoration-none"
+                  >Contact</a
+                >
+              </li>
+            </ul>
+          </div>
+          <div class="col-md-4">
+            <h5>Contact</h5>
+            <p class="text-muted">Email: info@chechocoding.com</p>
           </div>
         </div>
+        <hr class="bg-muted" />
+        <p class="text-center text-muted mb-0">
+          &copy; 2024 Cheche Coding. All rights reserved.
+        </p>
       </div>
     </footer>
-    <!-- ================================
-    End Footer
-    ================================= -->
 
-    <!-- ================================
-    Start Scripts
-    ================================= -->
-    <script src="js/global.min.js"></script>
-    <script src="js/bootstrap.bundle.min.js"></script>
-    <script src="js/swiper-bundle.min.js"></script>
-    <script src="js/script.js"></script>
-    <script src="js/toastr.js"></script>
-    <script src="js/alert.js"></script>
-    <script src="js/main.js"></script>
-    <!-- ================================
-    End Scripts
-    ================================= -->
-  </body>
-</html>
+    <!-- Scripts -->
+    <script src="{% static 'js/bootstrap.bundle.min.js' %}"></script>
+    <script>
+      // Image Zoom Functionality
+      const imageContainer = document.querySelector(".zoom-container");
+      const productImage = document.getElementById("productImage");
+      const zoomOverlay = document.getElementById("zoomOverlay");
+      const zoomedView = document.getElementById("zoomedView");
+      const zoomedImage = document.getElementById("zoomedImage");
+
+      productImage.addEventListener("mouseenter", () => {
+        zoomOverlay.classList.remove("d-none");
+        zoomedView.classList.remove("d-none");
+      });
+
+      imageContainer.addEventListener("mousemove", (e) => {
+        const rect = imageContainer.getBoundingClientRect();
+        const x = e.clientX - rect.left;
+        const y = e.clientY - rect.top;
+
+        zoomOverlay.style.left = x - 50 + "px";
+        zoomOverlay.style.top = y - 50 + "px";
+
+        zoomedImage.style.transform = `translate(-${(x / rect.width) * 50}%, -${(y / rect.height) * 50}%)`;
+      });
+
+      imageContainer.addEventListener("mouseleave", () => {
+        zoomOverlay.classList.add("d-none");
+        zoomedView.classList.add("d-none");
+      });
+
+      // Quantity Controls
+      document.getElementById("increaseQty").addEventListener("click", () => {
+        const qtyInput = document.getElementById("quantity");
+        qtyInput.value = parseInt(qtyInput.value) + 1;
+      });
+
+      document.getElementById("decreaseQty").addEventListener("click", () => {
+        const qtyInput = document.getElementById("quantity");
+        if (parseInt(qtyInput.value) > 1) {
+          qtyInput.value = parseInt(qtyInput.value) - 1;
+        }
+      });
+
+      // Review Form Submission
+      document
+        .getElementById("reviewForm")
+        .addEventListener("submit", function (ev) {
+          ev.preventDefault();
+          const name = document.getElementById("reviewerName").value.trim();
+          const rating = document.getElementById("reviewRating").value;
+          const text = document.getElementById("reviewText").value.trim();
+
+          if (!name || !rating || !text) return;
+
+          const container = document.getElementById("reviewsList");
+          const review = document.createElement("div");
+          review.className = "review mb-3 p-3 border rounded";
+          review.innerHTML =
+            '<div class="d-flex justify-content-between align-items-start">' +
+            "<div><strong>" +
+            escapeHtml(name) +
+            "</strong>" +
+            '<div class="text-muted small">' +
+            "★".repeat(rating) +
+            "</div></div>" +
+            '<div><button type="button" class="btn btn-sm btn-outline-secondary reply-toggle">Reply</button></div>' +
+            "</div>" +
+            '<p class="mb-1 mt-2">' +
+            escapeHtml(text) +
+            "</p>" +
+            '<div class="reply-area mt-2 d-none">' +
+            '<form class="reply-form d-flex gap-2">' +
+            '<input type="text" class="form-control form-control-sm reply-input" placeholder="Write a reply..." required>' +
+            '<button type="button" class="btn btn-sm btn-primary send-reply">Send</button>' +
+            "</form>" +
+            '<div class="replies mt-2"></div>' +
+            "</div>";
+
+          container.insertBefore(review, container.firstChild);
+          this.reset();
+        });
+
+      // Reply Toggle
+      document.addEventListener("click", function (e) {
+        if (e.target.matches(".reply-toggle")) {
+          const review = e.target.closest(".review");
+          const area = review.querySelector(".reply-area");
+          area.classList.toggle("d-none");
+        }
+
+        if (e.target.matches(".send-reply")) {
+          const form = e.target.closest(".reply-form");
+          const input = form.querySelector(".reply-input");
+          const text = input.value.trim();
+          if (!text) return;
+          const replies = form.parentElement.querySelector(".replies");
+          const div = document.createElement("div");
+          div.className = "p-2 mt-2 bg-light rounded";
+          div.textContent = text;
+          replies.appendChild(div);
+          input.value = "";
+        }
+      });
+
+      // HTML Escape Function
+      function escapeHtml(str) {
+        return str.replace(/[&<>"']/g, function (m) {
+          return {
+            "&": "&amp;",
+            "<": "&lt;",
+            ">": "&gt;",
+            '"': "&quot;",
+            "'": "&#39;",
+          }[m];
+        });
+      }
+    </script>
+{% endblock %}

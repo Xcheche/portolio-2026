@@ -1,7 +1,5 @@
-{% extends "base.html" %}
-{% load static %}
-{% block content %}
-<!-- Dashboard v1: Card-based, clean grid. Theme switch is in navbar via base.html. -->
+{% extends "base.html" %} {% load static %} {% block content %}
+<!-- Client dashboard: orders, support, and notifications (UI only). -->
 
 <section>
   <div class="innerPageBannerCol">
@@ -9,9 +7,18 @@
       <div class="row g-4 g-md-3 align-items-center">
         <div class="col-md-8">
           <div class="bannerContent">
-            <h1 class="xlTitle pb-md-3">Dashboard</h1>
-            <p class="lead mb-0">Your portfolio hub — projects, blog, and shop in one place.</p>
+            <div class="dashboard-hero-icon" aria-hidden="true">
+              <i class="fas fa-user"></i>
+            </div>
+            <h1 class="xlTitle pb-md-3">Client Dashboard</h1>
+            <p class="lead mb-0">
+              Track orders, manage updates, and stay connected.
+            </p>
           </div>
+        </div>
+        <div class="col-md-4 text-md-end">
+          <span class="badge rounded-pill bg-primary">Premium Member</span>
+          <span class="badge rounded-pill bg-light text-dark ms-2">Active</span>
         </div>
       </div>
     </div>
@@ -21,157 +28,254 @@
 <section>
   <div class="sectionSpace pt-0">
     <div class="container">
-      <!-- Stats row -->
-      <div class="row g-3 g-md-4 mb-5">
-        <div class="col-sm-6 col-lg-4">
-          <div class="card border-0 shadow-sm h-100 dashboard-stat-card">
+      <div class="row g-3 g-md-4 mb-4">
+        <div class="col-sm-6 col-lg-3">
+          <div class="card border-0 shadow-sm h-100 client-stat">
             <div class="card-body d-flex align-items-center">
-              <div class="dashboard-stat-icon me-3">
-                <i class="fas fa-briefcase fa-2x primaryColor"></i>
-              </div>
+              <i class="fas fa-box-open fa-2x text-primary me-3"></i>
               <div>
-                <span class="d-block fs-4 fw-bold">12</span>
-                <span class="text-muted small">Portfolio items</span>
+                <div class="fs-4 fw-bold">5</div>
+                <div class="text-muted small">Total orders</div>
               </div>
-            </div>
-            <div class="card-footer bg-transparent border-0 pt-0">
-              <a href="{% url 'portfolio' %}" class="btn btnPrimary btn-sm">View portfolio</a>
             </div>
           </div>
         </div>
-        <div class="col-sm-6 col-lg-4">
-          <div class="card border-0 shadow-sm h-100 dashboard-stat-card">
+        <div class="col-sm-6 col-lg-3">
+          <div class="card border-0 shadow-sm h-100 client-stat">
             <div class="card-body d-flex align-items-center">
-              <div class="dashboard-stat-icon me-3">
-                <i class="fas fa-blog fa-2x primaryColor"></i>
-              </div>
+              <i class="fas fa-truck-fast fa-2x text-success me-3"></i>
               <div>
-                <span class="d-block fs-4 fw-bold">8</span>
-                <span class="text-muted small">Blog posts</span>
+                <div class="fs-4 fw-bold">2</div>
+                <div class="text-muted small">In transit</div>
               </div>
-            </div>
-            <div class="card-footer bg-transparent border-0 pt-0">
-              <a href="/blog/" class="btn btnOutline btn-sm">View blog</a>
             </div>
           </div>
         </div>
-        <div class="col-sm-6 col-lg-4">
-          <div class="card border-0 shadow-sm h-100 dashboard-stat-card">
+        <div class="col-sm-6 col-lg-3">
+          <div class="card border-0 shadow-sm h-100 client-stat">
             <div class="card-body d-flex align-items-center">
-              <div class="dashboard-stat-icon me-3">
-                <i class="fas fa-shopping-cart fa-2x primaryColor"></i>
-              </div>
+              <i class="fas fa-check-circle fa-2x text-warning me-3"></i>
               <div>
-                <span class="d-block fs-4 fw-bold">3</span>
-                <span class="text-muted small">Orders</span>
+                <div class="fs-4 fw-bold">3</div>
+                <div class="text-muted small">Delivered</div>
               </div>
             </div>
-            <div class="card-footer bg-transparent border-0 pt-0">
-              <a href="{% url 'shop' %}" class="btn btnOutline btn-sm">View shop</a>
+          </div>
+        </div>
+        <div class="col-sm-6 col-lg-3">
+          <div class="card border-0 shadow-sm h-100 client-stat">
+            <div class="card-body d-flex align-items-center">
+              <i class="fas fa-bell fa-2x text-danger me-3"></i>
+              <div>
+                <div class="fs-4 fw-bold">4</div>
+                <div class="text-muted small">New alerts</div>
+              </div>
             </div>
           </div>
         </div>
       </div>
 
-      <!-- Blog: Free vs Premium (UI distinction only) -->
-      <div class="row mb-4">
-        <div class="col">
-          <h2 class="lgTitle mb-2">Blog</h2>
-          <p class="text-muted mb-0">Free articles and premium content — integration with Django &amp; Stripe coming later.</p>
+      <div class="row g-4">
+        <div class="col-lg-8">
+          <div class="card border-0 shadow-sm h-100">
+            <div
+              class="card-header bg-transparent border-bottom d-flex align-items-center justify-content-between"
+            >
+              <h2 class="mdTitle mb-0">Recent orders</h2>
+              <button class="btn btnOutline btn-sm">View all</button>
+            </div>
+            <div class="card-body">
+              <div class="table-responsive">
+                <table class="table align-middle">
+                  <thead>
+                    <tr class="text-muted small">
+                      <th scope="col">Order</th>
+                      <th scope="col">Status</th>
+                      <th scope="col">Updated</th>
+                      <th scope="col" class="text-end">Actions</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>
+                        <strong>#ORD-2301</strong>
+                        <div class="text-muted small">UI Design Kit</div>
+                      </td>
+                      <td><span class="badge bg-success">Delivered</span></td>
+                      <td class="text-muted small">2 days ago</td>
+                      <td class="text-end">
+                        <button class="btn btnOutline btn-sm">View</button>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>
+                        <strong>#ORD-2294</strong>
+                        <div class="text-muted small">Portfolio Theme</div>
+                      </td>
+                      <td>
+                        <span class="badge bg-warning text-dark"
+                          >In transit</span
+                        >
+                      </td>
+                      <td class="text-muted small">5 hours ago</td>
+                      <td class="text-end">
+                        <button class="btn btnPrimary btn-sm me-2">
+                          Track
+                        </button>
+                        <button class="btn btnOutline btn-sm">Cancel</button>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>
+                        <strong>#ORD-2281</strong>
+                        <div class="text-muted small">Brand Assets Pack</div>
+                      </td>
+                      <td>
+                        <span class="badge bg-info text-dark">Processing</span>
+                      </td>
+                      <td class="text-muted small">1 day ago</td>
+                      <td class="text-end">
+                        <button class="btn btnOutline btn-sm">Update</button>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+
+          <div class="card border-0 shadow-sm mt-4">
+            <div class="card-body">
+              <div class="d-flex align-items-center justify-content-between">
+                <div>
+                  <h3 class="mdTitle mb-1">Track shipment</h3>
+                  <p class="text-muted small mb-0">
+                    Estimated arrival in 3 days.
+                  </p>
+                </div>
+                <span class="badge rounded-pill bg-light text-dark"
+                  >#ORD-2294</span
+                >
+              </div>
+              <div class="progress mt-3" style="height: 8px">
+                <div class="progress-bar bg-primary" style="width: 65%"></div>
+              </div>
+              <div class="d-flex justify-content-between small text-muted mt-2">
+                <span>Order placed</span>
+                <span>Out for delivery</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-lg-4">
+          <div class="card border-0 shadow-sm mb-4">
+            <div class="card-header bg-transparent border-bottom">
+              <h3 class="mdTitle mb-0">Notifications</h3>
+            </div>
+            <div class="card-body">
+              <div class="client-note">
+                <div class="d-flex align-items-start">
+                  <i class="fas fa-bell text-primary mt-1 me-2"></i>
+                  <div>
+                    <strong>Order shipped</strong>
+                    <div class="text-muted small">Tracking number updated.</div>
+                  </div>
+                </div>
+              </div>
+              <div class="client-note">
+                <div class="d-flex align-items-start">
+                  <i class="fas fa-star text-warning mt-1 me-2"></i>
+                  <div>
+                    <strong>Premium post unlocked</strong>
+                    <div class="text-muted small">
+                      New blog content available.
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="client-note">
+                <div class="d-flex align-items-start">
+                  <i class="fas fa-comment text-success mt-1 me-2"></i>
+                  <div>
+                    <strong>Message from admin</strong>
+                    <div class="text-muted small">
+                      Your update request is in progress.
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="card border-0 shadow-sm">
+            <div class="card-body text-center">
+              <img
+                src="{% static 'images/user-img.jpg' %}"
+                alt="Client"
+                class="client-avatar mb-3"
+              />
+              <h4 class="mdTitle mb-1">Welcome back</h4>
+              <p class="text-muted small">Update your profile photo anytime.</p>
+              <button class="btn btnOutline btn-sm">Update photo</button>
+            </div>
+          </div>
         </div>
       </div>
-      <div class="row g-4 mb-5">
+
+      <div class="row g-4 mt-1">
         <div class="col-lg-6">
           <div class="card border-0 shadow-sm h-100">
-            <div class="card-header bg-transparent border-bottom d-flex align-items-center">
-              <i class="fas fa-unlock me-2 primaryColor"></i>
-              <strong>Free posts</strong>
+            <div class="card-header bg-transparent border-bottom">
+              <h3 class="mdTitle mb-0">Message admin</h3>
             </div>
             <div class="card-body">
-              <p class="small text-muted mb-3">Public articles available to everyone.</p>
-              <ul class="list-unstyled mb-0">
-                <li class="d-flex align-items-start mb-2">
-                  <i class="fas fa-file-alt me-2 mt-1 primaryColor"></i>
-                  <span>How to implement Django in your project</span>
-                </li>
-                <li class="d-flex align-items-start mb-2">
-                  <i class="fas fa-file-alt me-2 mt-1 primaryColor"></i>
-                  <span>Using code to structure your marketplace</span>
-                </li>
-                <li class="d-flex align-items-start">
-                  <i class="fas fa-file-alt me-2 mt-1 primaryColor"></i>
-                  <span>Getting started with REST APIs</span>
-                </li>
-              </ul>
+              <div class="mb-3">
+                <label class="form-label">Subject</label>
+                <input
+                  type="text"
+                  class="form-control"
+                  placeholder="Order update request"
+                />
+              </div>
+              <div class="mb-3">
+                <label class="form-label">Message</label>
+                <textarea
+                  class="form-control"
+                  rows="4"
+                  placeholder="Write your message..."
+                ></textarea>
+              </div>
+              <button class="btn btnPrimary">Send message</button>
             </div>
           </div>
         </div>
         <div class="col-lg-6">
-          <div class="card border-0 shadow-sm h-100 dashboard-premium-card">
-            <div class="card-header bg-transparent border-bottom d-flex align-items-center">
-              <i class="fas fa-crown me-2 text-warning"></i>
-              <strong>Premium posts</strong>
-              <span class="badge bg-warning text-dark ms-2">Paid</span>
+          <div class="card border-0 shadow-sm h-100">
+            <div class="card-header bg-transparent border-bottom">
+              <h3 class="mdTitle mb-0">Premium blog access</h3>
             </div>
             <div class="card-body">
-              <p class="small text-muted mb-3">Exclusive content for subscribers — Stripe integration coming soon.</p>
-              <ul class="list-unstyled mb-0">
-                <li class="d-flex align-items-start mb-2">
-                  <i class="fas fa-lock me-2 mt-1 text-muted"></i>
-                  <span>Advanced Django patterns (premium)</span>
+              <p class="text-muted small">
+                You can read premium posts and track your history.
+              </p>
+              <ul class="list-unstyled mb-3">
+                <li class="d-flex align-items-center mb-2">
+                  <i class="fas fa-bookmark text-primary me-2"></i>
+                  <span>Latest: Design systems at scale</span>
                 </li>
-                <li class="d-flex align-items-start mb-2">
-                  <i class="fas fa-lock me-2 mt-1 text-muted"></i>
-                  <span>Stripe integration deep-dive (premium)</span>
+                <li class="d-flex align-items-center mb-2">
+                  <i class="fas fa-bookmark text-primary me-2"></i>
+                  <span>Latest: Pricing digital products</span>
                 </li>
-                <li class="d-flex align-items-start">
-                  <i class="fas fa-lock me-2 mt-1 text-muted"></i>
-                  <span>Scaling Django in production (premium)</span>
+                <li class="d-flex align-items-center">
+                  <i class="fas fa-bookmark text-primary me-2"></i>
+                  <span>Latest: Conversion focused UI</span>
                 </li>
               </ul>
+              <button class="btn btnOutline btn-sm">View history</button>
             </div>
           </div>
-        </div>
-      </div>
-
-      <!-- Quick links -->
-      <div class="row">
-        <div class="col">
-          <h2 class="lgTitle mb-3">Quick links</h2>
-        </div>
-      </div>
-      <div class="row g-3">
-        <div class="col-md-6 col-lg-3">
-          <a href="{% url 'portfolio' %}" class="card border-0 shadow-sm text-decoration-none dashboard-quick-link h-100">
-            <div class="card-body d-flex align-items-center">
-              <i class="fas fa-briefcase fa-lg primaryColor me-3"></i>
-              <span class="fw-medium">Portfolio</span>
-            </div>
-          </a>
-        </div>
-        <div class="col-md-6 col-lg-3">
-          <a href="/blog/" class="card border-0 shadow-sm text-decoration-none dashboard-quick-link h-100">
-            <div class="card-body d-flex align-items-center">
-              <i class="fas fa-blog fa-lg primaryColor me-3"></i>
-              <span class="fw-medium">Blog</span>
-            </div>
-          </a>
-        </div>
-        <div class="col-md-6 col-lg-3">
-          <a href="{% url 'shop' %}" class="card border-0 shadow-sm text-decoration-none dashboard-quick-link h-100">
-            <div class="card-body d-flex align-items-center">
-              <i class="fas fa-store fa-lg primaryColor me-3"></i>
-              <span class="fw-medium">Shop</span>
-            </div>
-          </a>
-        </div>
-        <div class="col-md-6 col-lg-3">
-          <a href="{% url 'contact' %}" class="card border-0 shadow-sm text-decoration-none dashboard-quick-link h-100">
-            <div class="card-body d-flex align-items-center">
-              <i class="fas fa-envelope fa-lg primaryColor me-3"></i>
-              <span class="fw-medium">Contact</span>
-            </div>
-          </a>
         </div>
       </div>
     </div>
@@ -179,10 +283,37 @@
 </section>
 
 <style>
-.dashboard-stat-card .card-body { padding-bottom: 0.5rem; }
-.dashboard-premium-card .card-header { border-color: rgba(249, 176, 0, 0.3); }
-.dashboard-quick-link { color: inherit; transition: transform 0.2s ease, box-shadow 0.2s ease; }
-.dashboard-quick-link:hover { transform: translateY(-2px); box-shadow: 0 8px 24px rgba(0,0,0,0.1) !important; color: var(--primaryColor); }
-[data-theme="dark"] .dashboard-quick-link:hover { box-shadow: 0 8px 24px rgba(0,0,0,0.3) !important; }
+  .client-stat {
+    border-radius: 16px;
+  }
+  .client-note {
+    padding: 12px 0;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+  }
+  .client-note:last-child {
+    border-bottom: 0;
+  }
+  .client-avatar {
+    width: 88px;
+    height: 88px;
+    border-radius: 20px;
+    object-fit: cover;
+    box-shadow: 0 12px 24px rgba(15, 23, 42, 0.12);
+  }
+  [data-theme="dark"] .client-note {
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  }
+  .dashboard-hero-icon {
+    width: 48px;
+    height: 48px;
+    border-radius: 14px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(37, 99, 235, 0.12);
+    color: var(--primaryColor);
+    margin-bottom: 12px;
+    box-shadow: 0 10px 20px rgba(15, 23, 42, 0.12);
+  }
 </style>
 {% endblock %}
