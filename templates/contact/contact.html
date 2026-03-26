@@ -18,51 +18,75 @@ Coding{% endblock %} {% block content %}
   </div>
 </section>
 
-<section>
-  <div class="lightBg">
-    <div class="sectionSpaceSm">
-      <div class="container">
-        <div class="row justify-content-center">
-          <div class="col-lg-7">
-            <div class="card border-0 shadow-sm">
-              <div class="card-body p-4 p-md-5">
-                <form id="contactForm">
-                  <div class="mb-3">
-                    <label for="name" class="form-label">Name</label>
-                    <input
-                      type="text"
-                      id="name"
-                      name="name"
-                      class="form-control"
-                      placeholder="Your name"
-                    />
-                  </div>
-                  <div class="mb-3">
-                    <label for="email" class="form-label">Email</label>
-                    <input
-                      type="email"
-                      id="email"
-                      name="email"
-                      class="form-control"
-                      placeholder="you@example.com"
-                    />
-                  </div>
-                  <div class="mb-4">
-                    <label for="message" class="form-label">Message</label>
-                    <textarea
-                      id="message"
-                      name="message"
-                      class="form-control"
-                      placeholder="Write something..."
-                      rows="6"
-                    ></textarea>
-                  </div>
-                  <button class="btn btnPrimary w-100" type="submit">
-                    Submit
-                  </button>
-                </form>
+<section class="contact-section">
+  <div class="contact-section-wrapper">
+    <div class="container">
+      <div class="row justify-content-center">
+        <div class="col-lg-7">
+          <div class="contact-form-wrapper">
+            <form id="contactForm" class="contact-form" novalidate>
+              <div class="form-group">
+                <label for="name" class="form-label">
+                  Name
+                  <span class="aria-required" aria-label="required">*</span>
+                </label>
+                <input
+                  type="text"
+                  id="name"
+                  name="name"
+                  class="form-control"
+                  placeholder="Your name"
+                  required
+                />
+                <div class="invalid-feedback">
+                  Please provide a name.
+                </div>
               </div>
-            </div>
+
+              <div class="form-group">
+                <label for="email" class="form-label">
+                  Email
+                  <span class="aria-required" aria-label="required">*</span>
+                </label>
+                <input
+                  type="email"
+                  id="email"
+                  name="email"
+                  class="form-control"
+                  placeholder="you@example.com"
+                  required
+                />
+                <div class="invalid-feedback">
+                  Please provide a valid email address.
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label for="message" class="form-label">
+                  Message
+                  <span class="aria-required" aria-label="required">*</span>
+                </label>
+                <textarea
+                  id="message"
+                  name="message"
+                  class="form-control"
+                  placeholder="Write something..."
+                  rows="6"
+                  required
+                  minlength="10"
+                ></textarea>
+                <div class="form-text">Minimum 10 characters.</div>
+                <div class="invalid-feedback">
+                  Please provide a message (at least 10 characters).
+                </div>
+              </div>
+
+              <div class="form-status" role="alert"></div>
+
+              <button class="btn btnPrimary w-100" type="submit">
+                Submit
+              </button>
+            </form>
           </div>
         </div>
       </div>

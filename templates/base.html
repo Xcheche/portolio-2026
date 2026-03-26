@@ -34,10 +34,15 @@
     <!-- ================================
     Start CSS
     ================================= -->
-    <link href="{% static 'css/bootstrap.min.css' %}" rel="stylesheet" />
+    <!-- <link href="{% static 'css/bootstrap.min.css' %}" rel="stylesheet" /> -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootswatch@5.3.3/dist/flatly/bootstrap.min.css"
+      rel="stylesheet"
+    />
     <link href="{% static 'css/swiper-bundle.min.css' %}" rel="stylesheet" />
     <link href="{% static 'css/style.css' %}" rel="stylesheet" />
     <link href="{% static 'css/toastr.css' %}" rel="stylesheet" />
+    <link href="{% static 'css/enhancements.css' %}" rel="stylesheet" />
     <!-- ================================
     End CSS
     ================================= -->
@@ -184,6 +189,26 @@
           animation: none;
         }
       }
+
+      .btn,
+      .btn-primary,
+      .btn-outline-primary,
+      .btnPrimary,
+      .btnOutline {
+        background: #ffffff !important;
+        color: #000000 !important;
+        border: 1px solid #000000 !important;
+      }
+
+      .btn:hover,
+      .btn-primary:hover,
+      .btn-outline-primary:hover,
+      .btnPrimary:hover,
+      .btnOutline:hover {
+        background: #000000 !important;
+        color: #ffffff !important;
+        border-color: #000000 !important;
+      }
     </style>
   </head>
 
@@ -206,6 +231,11 @@
         <div class="splash-progress" aria-hidden="true"><span></span></div>
       </div>
     </div>
+    <!-- Skip to main content link for keyboard navigation -->
+    <a href="#main-content" class="sr-only btn btn-primary">
+      Skip to main content
+    </a>
+
     <!-- Decorative wave (CSS-only, GPU-accelerated, pointer-events: none) -->
     <div class="wave-bg" aria-hidden="true">
       <svg
@@ -240,7 +270,9 @@
     <!-- ================================
     Start Content
     ================================= -->
-    {% block content %} {% endblock %}
+    <main id="main-content" role="main">
+      {% block content %} {% endblock %}
+    </main>
     <!-- ================================
     End Content
     ================================= -->
@@ -285,6 +317,8 @@
     <script src="{% static 'js/alert.js' %}"></script>
     <script src="{% static 'js/main.js' %}"></script>
     <script src="{% static 'js/theme.js' %}"></script>
+    <script src="{% static 'js/theme-toggle.js' %}"></script>
+    <script src="{% static 'js/form-validation.js' %}"></script>
     <!-- ================================
     End Scripts
     ================================= -->

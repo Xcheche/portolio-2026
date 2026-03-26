@@ -6,7 +6,7 @@
     <div class="row align-items-center py-5">
       <div class="col-lg-7">
         <div class="admin-hero-icon" aria-hidden="true">
-          <i class="fas fa-hand-holding-pen"></i>
+          <i class="fas fa-user-shield"></i>
         </div>
         <h1 class="xlTitle mb-2 text-white">Admin Dashboard</h1>
         <p class="lead mb-0 admin-hero-text">
@@ -14,7 +14,7 @@
         </p>
       </div>
       <div class="col-lg-5 text-lg-end mt-4 mt-lg-0">
-        <div class="d-inline-flex flex-wrap gap-2">
+        <div class="d-inline-flex flex-wrap gap-2 admin-hero-actions">
           <button class="btn btn-light btn-sm">
             <i class="fas fa-plus me-1"></i>New product
           </button>
@@ -35,49 +35,56 @@
     <div class="row g-3 g-md-4 admin-stats">
       <div class="col-sm-6 col-lg-3">
         <div class="card border-0 shadow-sm h-100">
-          <div class="card-body">
-            <div class="d-flex align-items-center justify-content-between">
-              <span class="text-muted small">Total sales</span>
-              <i class="fas fa-chart-line text-success"></i>
+          <div class="card-body d-flex align-items-center">
+            <i class="fas fa-chart-line fa-2x text-success me-3"></i>
+            <div>
+              <div class="fs-4 fw-bold">$24,830</div>
+              <div class="text-muted small">Total sales</div>
             </div>
-            <div class="fs-3 fw-bold mt-2">$24,830</div>
-            <div class="text-success small">+12% this month</div>
           </div>
         </div>
       </div>
       <div class="col-sm-6 col-lg-3">
         <div class="card border-0 shadow-sm h-100">
-          <div class="card-body">
-            <div class="d-flex align-items-center justify-content-between">
-              <span class="text-muted small">Orders</span>
-              <i class="fas fa-shopping-bag text-primary"></i>
+          <div class="card-body d-flex align-items-center">
+            <i class="fas fa-shopping-bag fa-2x text-primary me-3"></i>
+            <div>
+              <div class="fs-4 fw-bold">128</div>
+              <div class="text-muted small">Orders</div>
             </div>
-            <div class="fs-3 fw-bold mt-2">128</div>
-            <div class="text-muted small">18 pending</div>
           </div>
         </div>
       </div>
       <div class="col-sm-6 col-lg-3">
         <div class="card border-0 shadow-sm h-100">
-          <div class="card-body">
-            <div class="d-flex align-items-center justify-content-between">
-              <span class="text-muted small">Blogs written</span>
-              <i class="fas fa-blog text-warning"></i>
+          <div class="card-body d-flex align-items-center">
+            <i class="fas fa-blog fa-2x text-warning me-3"></i>
+            <div>
+              <div class="fs-4 fw-bold">42</div>
+              <div class="text-muted small">Blogs written</div>
             </div>
-            <div class="fs-3 fw-bold mt-2">42</div>
-            <div class="text-muted small">6 premium</div>
           </div>
         </div>
       </div>
       <div class="col-sm-6 col-lg-3">
         <div class="card border-0 shadow-sm h-100">
-          <div class="card-body">
-            <div class="d-flex align-items-center justify-content-between">
-              <span class="text-muted small">Visitors</span>
-              <i class="fas fa-users text-info"></i>
+          <div class="card-body d-flex align-items-center">
+            <i class="fas fa-users fa-2x text-info me-3"></i>
+            <div>
+              <div class="fs-4 fw-bold">6,240</div>
+              <div class="text-muted small">Visitors</div>
             </div>
-            <div class="fs-3 fw-bold mt-2">6,240</div>
-            <div class="text-muted small">1,140 new</div>
+          </div>
+        </div>
+      </div>
+      <div class="col-sm-6 col-lg-3">
+        <div class="card border-0 shadow-sm h-100">
+          <div class="card-body d-flex align-items-center">
+            <i class="fas fa-briefcase fa-2x text-danger me-3"></i>
+            <div>
+              <div class="fs-4 fw-bold">15</div>
+              <div class="text-muted small">Portfolio projects</div>
+            </div>
           </div>
         </div>
       </div>
@@ -85,7 +92,7 @@
 
     <div class="row g-4 mt-1">
       <div class="col-lg-8">
-        <div class="card border-0 shadow-sm h-100">
+        <div class="card border-0 shadow-sm">
           <div
             class="card-header bg-transparent border-bottom d-flex align-items-center justify-content-between"
           >
@@ -96,35 +103,31 @@
             <div class="row g-3">
               <div class="col-md-6">
                 <div class="admin-tile">
-                  <div class="d-flex align-items-center mb-2">
-                    <i class="fas fa-boxes-stacked text-primary me-2"></i>
+                  <div class="admin-tile-header">
+                    <i class="fas fa-boxes-stacked"></i>
                     <strong>Products</strong>
                   </div>
-                  <p class="text-muted small">Add, update, and delete items.</p>
+                  <p class="admin-tile-description">Add, update, and delete items.</p>
                   <button class="btn btnPrimary btn-sm">Manage products</button>
                 </div>
               </div>
               <div class="col-md-6">
                 <div class="admin-tile">
-                  <div class="d-flex align-items-center mb-2">
-                    <i class="fas fa-pen-to-square text-warning me-2"></i>
+                  <div class="admin-tile-header">
+                    <i class="fas fa-pen-to-square"></i>
                     <strong>Blog posts</strong>
                   </div>
-                  <p class="text-muted small">
-                    Write, edit, and publish posts.
-                  </p>
+                  <p class="admin-tile-description">Write, edit, and publish posts.</p>
                   <button class="btn btnPrimary btn-sm">Manage posts</button>
                 </div>
               </div>
               <div class="col-md-6">
                 <div class="admin-tile">
-                  <div class="d-flex align-items-center mb-2">
-                    <i class="fas fa-briefcase text-success me-2"></i>
+                  <div class="admin-tile-header">
+                    <i class="fas fa-briefcase"></i>
                     <strong>Portfolio</strong>
                   </div>
-                  <p class="text-muted small">
-                    Create and update portfolio work.
-                  </p>
+                  <p class="admin-tile-description">Create and update portfolio work.</p>
                   <button class="btn btnPrimary btn-sm">
                     Manage portfolio
                   </button>
@@ -132,13 +135,11 @@
               </div>
               <div class="col-md-6">
                 <div class="admin-tile">
-                  <div class="d-flex align-items-center mb-2">
-                    <i class="fas fa-user-gear text-danger me-2"></i>
+                  <div class="admin-tile-header">
+                    <i class="fas fa-user-gear"></i>
                     <strong>Client control</strong>
                   </div>
-                  <p class="text-muted small">
-                    Flag or delete client accounts.
-                  </p>
+                  <p class="admin-tile-description">Flag or delete client accounts.</p>
                   <div class="d-flex flex-wrap gap-2">
                     <button class="btn btnOutline btn-sm">Flag client</button>
                     <button class="btn btnOutline btn-sm">
@@ -217,80 +218,10 @@
             </div>
           </div>
         </div>
-      </div>
 
-      <div class="col-lg-4">
-        <div class="card border-0 shadow-sm mb-4">
-          <div class="card-header bg-transparent border-bottom">
-            <h3 class="mdTitle mb-0">Admin profile</h3>
-          </div>
-          <div class="card-body text-center">
-            <img
-              src="{% static 'images/user-img.jpg' %}"
-              alt="Admin"
-              class="admin-avatar mb-3"
-            />
-            <h4 class="smTitle mb-1">Cheche Admin</h4>
-            <p class="text-muted small mb-3">Update your photo or info.</p>
-            <button class="btn btnOutline btn-sm">Update photo</button>
-          </div>
-        </div>
-
-        <div class="card border-0 shadow-sm mb-4">
+        <div class="card border-0 shadow-sm mt-4">
           <div
-            class="card-header bg-transparent border-bottom d-flex align-items-center justify-content-between"
-          >
-            <h3 class="mdTitle mb-0">Notifications</h3>
-            <span class="badge bg-danger">3</span>
-          </div>
-          <div class="card-body">
-            <div class="admin-note">
-              <strong>New order received</strong>
-              <div class="text-muted small">Order #ORD-2294 needs review.</div>
-            </div>
-            <div class="admin-note">
-              <strong>New premium subscriber</strong>
-              <div class="text-muted small">Trial converted to monthly.</div>
-            </div>
-            <div class="admin-note">
-              <strong>Portfolio update request</strong>
-              <div class="text-muted small">Client sent new assets.</div>
-            </div>
-          </div>
-        </div>
-
-        <div class="card border-0 shadow-sm">
-          <div class="card-header bg-transparent border-bottom">
-            <h3 class="mdTitle mb-0">Newsletter</h3>
-          </div>
-          <div class="card-body">
-            <div class="mb-3">
-              <label class="form-label">Subject</label>
-              <input
-                class="form-control"
-                type="text"
-                placeholder="Monthly update"
-              />
-            </div>
-            <div class="mb-3">
-              <label class="form-label">Message</label>
-              <textarea
-                class="form-control"
-                rows="4"
-                placeholder="Write a newsletter..."
-              ></textarea>
-            </div>
-            <button class="btn btnPrimary w-100">Send newsletter</button>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <div class="row g-4 mt-1">
-      <div class="col-12">
-        <div class="card border-0 shadow-sm">
-          <div
-            class="card-header bg-transparent border-bottom d-flex align-items-center justify-content-between"
+            class="card-header bg-transparent border-bottom d-flex align-items-center justify-content-between admin-client-header"
           >
             <h3 class="mdTitle mb-0">Client accounts</h3>
             <button class="btn btnOutline btn-sm">Export list</button>
@@ -359,7 +290,99 @@
           </div>
         </div>
       </div>
+
+      <div class="col-lg-4">
+        <div class="card border-0 shadow-sm mb-3">
+          <div class="card-header bg-transparent border-bottom">
+            <h3 class="mdTitle mb-0">Admin profile</h3>
+          </div>
+          <div class="card-body text-center">
+            <img
+              src="{% static 'images/user-img.jpg' %}"
+              alt="Admin"
+              class="admin-avatar mb-3"
+            />
+            <h4 class="smTitle mb-1">Cheche Admin</h4>
+            <p class="text-muted small mb-3">Update your photo or info.</p>
+            <button class="btn btnOutline btn-sm">Update photo</button>
+          </div>
+        </div>
+
+        <div class="card border-0 shadow-sm mb-3">
+          <div
+            class="card-header bg-transparent border-bottom d-flex align-items-center justify-content-between"
+          >
+            <h3 class="mdTitle mb-0">Notifications</h3>
+            <span class="badge bg-danger">3</span>
+          </div>
+          <div class="card-body">
+            <div class="admin-note">
+              <strong>New order received</strong>
+              <div class="text-muted small">Order #ORD-2294 needs review.</div>
+            </div>
+            <div class="admin-note">
+              <strong>New premium subscriber</strong>
+              <div class="text-muted small">Trial converted to monthly.</div>
+            </div>
+            <div class="admin-note">
+              <strong>Portfolio update request</strong>
+              <div class="text-muted small">Client sent new assets.</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="card border-0 shadow-sm">
+          <div
+            class="card-header bg-transparent border-bottom admin-communication-header"
+          >
+            <h3 class="mdTitle mb-1">Communication</h3>
+            <p class="text-muted small mb-0">Client chat and newsletter tools</p>
+          </div>
+          <div class="card-body">
+            <div class="admin-chat-thread mb-3">
+              <div class="admin-chat-bubble is-client">
+                Hi admin, I need help with my order delivery time.
+                <small>Amaka Bello · 9:14 AM</small>
+              </div>
+              <div class="admin-chat-bubble is-admin ms-auto">
+                Sure, I can help. I just sent an updated timeline.
+                <small>You · 9:16 AM</small>
+              </div>
+            </div>
+            <label class="form-label">Reply to client</label>
+            <textarea
+              class="form-control mb-2"
+              rows="2"
+              placeholder="Reply to client..."
+            ></textarea>
+            <div class="d-flex justify-content-end mb-3 admin-send-row">
+              <button class="btn btnPrimary btn-sm">Send reply</button>
+            </div>
+
+            <div class="admin-divider my-3"></div>
+
+            <div class="mb-2">
+              <label class="form-label">Newsletter subject</label>
+              <input
+                class="form-control"
+                type="text"
+                placeholder="Monthly update"
+              />
+            </div>
+            <div class="mb-2">
+              <label class="form-label">Newsletter message</label>
+              <textarea
+                class="form-control"
+                rows="2"
+                placeholder="Write a newsletter..."
+              ></textarea>
+            </div>
+            <button class="btn btnPrimary btn-sm w-100">Send newsletter</button>
+          </div>
+        </div>
+      </div>
     </div>
+
   </div>
 </section>
 
@@ -372,8 +395,8 @@
       var(--primaryColor) 100%
     );
     margin-top: 0;
-    padding-top: 120px;
-    padding-bottom: 60px;
+    padding-top: 96px;
+    padding-bottom: 42px;
   }
   .admin-hero-text {
     opacity: 0.9;
@@ -423,6 +446,93 @@
   }
   [data-theme="dark"] .admin-note {
     border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+  }
+  .admin-chat-thread {
+    border: 1px solid var(--theme-border, #e7e7e7);
+    border-radius: 14px;
+    padding: 12px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+  .admin-chat-bubble {
+    max-width: 90%;
+    border-radius: 12px;
+    padding: 10px 12px;
+    font-size: 14px;
+    line-height: 1.4;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+  }
+  .admin-chat-bubble small {
+    color: #6c757d;
+    font-size: 12px;
+  }
+  .admin-chat-bubble.is-client {
+    align-self: flex-start;
+    background: rgba(37, 99, 235, 0.12);
+  }
+  .admin-chat-bubble.is-admin {
+    align-self: flex-end;
+    background: rgba(16, 185, 129, 0.14);
+  }
+  [data-theme="dark"] .admin-chat-bubble small {
+    color: #b8c2d1;
+  }
+  @media (max-width: 991.98px) {
+    .admin-hero {
+      padding-top: 82px;
+      padding-bottom: 34px;
+    }
+    .admin-hero .row {
+      padding-top: 12px !important;
+      padding-bottom: 12px !important;
+    }
+    .admin-hero-actions {
+      width: 100%;
+      justify-content: flex-start;
+    }
+    .admin-hero-actions .btn {
+      flex: 1 1 calc(50% - 8px);
+      min-width: 148px;
+    }
+  }
+  @media (max-width: 767.98px) {
+    .admin-chat-bubble {
+      max-width: 100%;
+    }
+    .admin-client-header,
+    .admin-communication-header {
+      display: block !important;
+    }
+    .admin-send-row {
+      justify-content: stretch !important;
+    }
+    .admin-send-row .btn {
+      width: 100%;
+    }
+    .admin-avatar {
+      width: 82px;
+      height: 82px;
+      border-radius: 18px;
+    }
+  }
+  @media (max-width: 575.98px) {
+    .admin-hero {
+      padding-top: 74px;
+      padding-bottom: 28px;
+    }
+    .admin-hero-actions .btn {
+      flex: 1 1 100%;
+      width: 100%;
+    }
+    .admin-chat-thread {
+      padding: 10px;
+    }
+    .admin-client-header .btn {
+      width: 100%;
+    }
   }
 </style>
 {% endblock %}

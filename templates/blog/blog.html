@@ -1,257 +1,213 @@
 {% extends "base.html" %} {% load static %} {% block title %}Blog - Cheche
 Coding{% endblock %} {% block content %}
 <!-- Blog Posts -->
-<section style="background-color: #f8f9fa; padding: 60px 0; min-height: 100vh">
+<section class="blog-section">
   <div class="container">
-    <h1 class="text-center mb-5" style="color: #333; font-weight: bold">
-      Blog Posts
-    </h1>
-    <div class="row g-4">
+    <header class="blog-section-header">
+      <h1>Blog Posts</h1>
+      <p class="lead">Insights on backend engineering, design, and web development.</p>
+    </header>
+    
+    <div class="blog-grid">
       <!-- Post 1 -->
-      <div class="col-md-6 col-lg-4">
-        <article class="card border-0 shadow-sm h-100">
-          <img
-            src="{% static 'images/project-img.jpg' %}"
-            alt="Blog cover"
-            class="card-img-top"
-          />
-          <div class="card-body">
-            <div class="d-flex align-items-center mb-2">
-              <img
-                src="{% static 'images/user-img.jpg' %}"
-                alt="Author"
-                class="rounded-circle me-2"
-                width="32"
-                height="32"
-              />
-              <div>
-                <p class="mb-0 fw-semibold">Cheche Developer</p>
-                <p class="small text-muted mb-0">Oct 15, 2024</p>
-              </div>
+      <article class="blog-card">
+        <img
+          src="{% static 'images/project-img.jpg' %}"
+          alt="Django performance optimization"
+          class="blog-card-image"
+        />
+        <div class="blog-card-content">
+          <div class="blog-card-meta">
+            <img
+              src="{% static 'images/user-img.jpg' %}"
+              alt=""
+              class="blog-card-author-avatar"
+            />
+            <div class="blog-card-author">
+              <strong>Cheche Developer</strong>
+              <time datetime="2024-10-15">Oct 15, 2024</time>
             </div>
-            <h3 class="h5 card-title">Designing fast Django APIs</h3>
-            <div class="mb-2">
-              <span class="badge bg-success me-1">Free</span>
-              <span class="badge bg-secondary">Backend</span>
-            </div>
-            <p class="small text-muted mb-2">6 min read</p>
-            <p class="mb-3">
-              Practical performance patterns for clean, scalable endpoints.
-            </p>
-            <a
-              href="{% url 'blog_detail' %}"
-              class="text-decoration-none"
-              style="color: var(--primaryColor, #9c07b6); font-weight: 500"
-              >Read more →</a
-            >
           </div>
-        </article>
-      </div>
+          <h3 class="blog-card-title">Designing fast Django APIs</h3>
+          <div class="blog-card-tags">
+            <span class="badge bg-success">Free</span>
+            <span class="badge bg-secondary">Backend</span>
+          </div>
+          <p class="blog-card-excerpt">
+            Practical performance patterns for clean, scalable endpoints.
+          </p>
+          <div class="blog-card-footer">
+            <span class="blog-card-read-time">6 min read</span>
+            <a href="{% url 'blog_detail' %}" class="blog-card-link">
+              Read more <i class="fas fa-arrow-right" aria-hidden="true"></i>
+            </a>
+          </div>
+        </div>
+      </article>
 
       <!-- Post 2 -->
-      <div class="col-md-6 col-lg-4">
-        <article class="card border-0 shadow-sm h-100">
-          <img
-            src="{% static 'images/project-img.jpg' %}"
-            alt="Blog cover"
-            class="card-img-top"
-          />
-          <div class="card-body">
-            <div class="d-flex align-items-center mb-2">
-              <img
-                src="{% static 'images/user-img.jpg' %}"
-                alt="Author"
-                class="rounded-circle me-2"
-                width="32"
-                height="32"
-              />
-              <div>
-                <p class="mb-0 fw-semibold">Cheche Developer</p>
-                <p class="small text-muted mb-0">Oct 12, 2024</p>
-              </div>
+      <article class="blog-card">
+        <img
+          src="{% static 'images/project-img.jpg' %}"
+          alt="Portfolio storytelling techniques"
+          class="blog-card-image"
+        />
+        <div class="blog-card-content">
+          <div class="blog-card-meta">
+            <img
+              src="{% static 'images/user-img.jpg' %}"
+              alt=""
+              class="blog-card-author-avatar"
+            />
+            <div class="blog-card-author">
+              <strong>Cheche Developer</strong>
+              <time datetime="2024-10-12">Oct 12, 2024</time>
             </div>
-            <h3 class="h5 card-title">Portfolio storytelling that converts</h3>
-            <div class="mb-2">
-              <span class="badge bg-warning text-dark me-1">Premium</span>
-              <span class="badge bg-secondary">Portfolio</span>
-            </div>
-            <p class="small text-muted mb-2">5 min read</p>
-            <p class="mb-3">
-              Showcase impact with a narrative that highlights results.
-            </p>
-            <a
-              href="{% url 'blog_detail' %}"
-              class="text-decoration-none"
-              style="color: var(--primaryColor, #9c07b6); font-weight: 500"
-              >Read more →</a
-            >
           </div>
-        </article>
-      </div>
+          <h3 class="blog-card-title">Portfolio storytelling that converts</h3>
+          <div class="blog-card-tags">
+            <span class="badge bg-warning text-dark">Premium</span>
+            <span class="badge bg-secondary">Portfolio</span>
+          </div>
+          <p class="blog-card-excerpt">
+            Showcase impact with a narrative that highlights results.
+          </p>
+          <div class="blog-card-footer">
+            <span class="blog-card-read-time">5 min read</span>
+            <a href="{% url 'blog_detail' %}" class="blog-card-link">
+              Read more <i class="fas fa-arrow-right" aria-hidden="true"></i>
+            </a>
+          </div>
+        </div>
+      </article>
 
       <!-- Post 3 -->
-      <div class="col-md-6 col-lg-4">
-        <article class="card border-0 shadow-sm h-100">
-          <img
-            src="{% static 'images/project-img.jpg' %}"
-            alt="Blog cover"
-            class="card-img-top"
-          />
-          <div class="card-body">
-            <div class="d-flex align-items-center mb-2">
-              <img
-                src="{% static 'images/user-img.jpg' %}"
-                alt="Author"
-                class="rounded-circle me-2"
-                width="32"
-                height="32"
-              />
-              <div>
-                <p class="mb-0 fw-semibold">Cheche Developer</p>
-                <p class="small text-muted mb-0">Oct 10, 2024</p>
-              </div>
+      <article class="blog-card">
+        <img
+          src="{% static 'images/project-img.jpg' %}"
+          alt="UI design timeline management"
+          class="blog-card-image"
+        />
+        <div class="blog-card-content">
+          <div class="blog-card-meta">
+            <img
+              src="{% static 'images/user-img.jpg' %}"
+              alt=""
+              class="blog-card-author-avatar"
+            />
+            <div class="blog-card-author">
+              <strong>Cheche Developer</strong>
+              <time datetime="2024-10-10">Oct 10, 2024</time>
             </div>
-            <h3 class="h5 card-title">Shipping UI with a tight timeline</h3>
-            <div class="mb-2">
-              <span class="badge bg-success me-1">Free</span>
-              <span class="badge bg-secondary">UI</span>
-            </div>
-            <p class="small text-muted mb-2">4 min read</p>
-            <p class="mb-3">
-              A checklist to keep quality high when time is tight.
-            </p>
-            <a
-              href="{% url 'blog_detail' %}"
-              class="text-decoration-none"
-              style="color: var(--primaryColor, #9c07b6); font-weight: 500"
-              >Read more →</a
-            >
           </div>
-        </article>
-      </div>
+          <h3 class="blog-card-title">Shipping UI with a tight timeline</h3>
+          <div class="blog-card-tags">
+            <span class="badge bg-success">Free</span>
+            <span class="badge bg-secondary">UI</span>
+          </div>
+          <p class="blog-card-excerpt">
+            A checklist to keep quality high when time is tight.
+          </p>
+          <div class="blog-card-footer">
+            <span class="blog-card-read-time">4 min read</span>
+            <a href="{% url 'blog_detail' %}" class="blog-card-link">
+              Read more <i class="fas fa-arrow-right" aria-hidden="true"></i>
+            </a>
+          </div>
+        </div>
+      </article>
 
       <!-- Post 4 -->
-      <div class="col-md-6 col-lg-4">
-        <article class="card border-0 shadow-sm h-100">
-          <img
-            src="{% static 'images/project-img.jpg' %}"
-            alt="Blog cover"
-            class="card-img-top"
-          />
-          <div class="card-body">
-            <div class="d-flex align-items-center mb-2">
-              <img
-                src="{% static 'images/user-img.jpg' %}"
-                alt="Author"
-                class="rounded-circle me-2"
-                width="32"
-                height="32"
-              />
-              <div>
-                <p class="mb-0 fw-semibold">Cheche Developer</p>
-                <p class="small text-muted mb-0">Oct 8, 2024</p>
-              </div>
+      <article class="blog-card">
+        <img
+          src="{% static 'images/project-img.jpg' %}"
+          alt="Stripe integration best practices"
+          class="blog-card-image"
+        />
+        <div class="blog-card-content">
+          <div class="blog-card-meta">
+            <img
+              src="{% static 'images/user-img.jpg' %}"
+              alt=""
+              class="blog-card-author-avatar"
+            />
+            <div class="blog-card-author">
+              <strong>Cheche Developer</strong>
+              <time datetime="2024-10-08">Oct 8, 2024</time>
             </div>
-            <h3 class="h5 card-title">Building with Stripe in Django</h3>
-            <div class="mb-2">
-              <span class="badge bg-warning text-dark me-1">Premium</span>
-              <span class="badge bg-secondary">Payments</span>
-            </div>
-            <p class="small text-muted mb-2">7 min read</p>
-            <p class="mb-3">
-              Key patterns for subscriptions and one-off payments.
-            </p>
-            <a
-              href="{% url 'blog_detail' %}"
-              class="text-decoration-none"
-              style="color: var(--primaryColor, #9c07b6); font-weight: 500"
-              >Read more →</a
-            >
           </div>
-        </article>
-      </div>
+          <h3 class="blog-card-title">Building with Stripe in Django</h3>
+          <div class="blog-card-tags">
+            <span class="badge bg-warning text-dark">Premium</span>
+            <span class="badge bg-secondary">Payments</span>
+          </div>
+          <p class="blog-card-excerpt">
+            Key patterns for subscriptions and one-off payments.
+          </p>
+          <div class="blog-card-footer">
+            <span class="blog-card-read-time">7 min read</span>
+            <a href="{% url 'blog_detail' %}" class="blog-card-link">
+              Read more <i class="fas fa-arrow-right" aria-hidden="true"></i>
+            </a>
+          </div>
+        </div>
+      </article>
 
       <!-- Post 5 -->
-      <div class="col-md-6 col-lg-4">
-        <article class="card border-0 shadow-sm h-100">
-          <img
-            src="{% static 'images/project-img.jpg' %}"
-            alt="Blog cover"
-            class="card-img-top"
-          />
-          <div class="card-body">
-            <div class="d-flex align-items-center mb-2">
-              <img
-                src="{% static 'images/user-img.jpg' %}"
-                alt="Author"
-                class="rounded-circle me-2"
-                width="32"
-                height="32"
-              />
-              <div>
-                <p class="mb-0 fw-semibold">Cheche Developer</p>
-                <p class="small text-muted mb-0">Oct 5, 2024</p>
-              </div>
+      <article class="blog-card">
+        <img src="{% static 'images/project-img.jpg' %}" alt="Content planning for newsletters" class="blog-card-image">
+        <div class="blog-card-content">
+          <div class="blog-card-meta">
+            <img src="{% static 'images/user-img.jpg' %}" alt="" class="blog-card-author-avatar">
+            <div class="blog-card-author">
+              <strong>Cheche Developer</strong>
+              <time datetime="2024-10-05">Oct 5, 2024</time>
             </div>
-            <h3 class="h5 card-title">Content planning for newsletters</h3>
-            <div class="mb-2">
-              <span class="badge bg-success me-1">Free</span>
-              <span class="badge bg-secondary">Growth</span>
-            </div>
-            <p class="small text-muted mb-2">3 min read</p>
-            <p class="mb-3">
-              A simple structure to keep newsletters consistent.
-            </p>
-            <a
-              href="{% url 'blog_detail' %}"
-              class="text-decoration-none"
-              style="color: var(--primaryColor, #9c07b6); font-weight: 500"
-              >Read more →</a
-            >
           </div>
-        </article>
-      </div>
+          <h3 class="blog-card-title">Content planning for newsletters</h3>
+          <div class="blog-card-tags">
+            <span class="badge bg-success">Free</span>
+            <span class="badge bg-secondary">Growth</span>
+          </div>
+          <p class="blog-card-excerpt">
+            A simple structure to keep newsletters consistent.
+          </p>
+          <div class="blog-card-footer">
+            <span class="blog-card-read-time">3 min read</span>
+            <a href="{% url 'blog_detail' %}" class="blog-card-link">
+              Read more <i class="fas fa-arrow-right" aria-hidden="true"></i>
+            </a>
+          </div>
+        </div>
+      </article>
 
       <!-- Post 6 -->
-      <div class="col-md-6 col-lg-4">
-        <article class="card border-0 shadow-sm h-100">
-          <img
-            src="{% static 'images/project-img.jpg' %}"
-            alt="Blog cover"
-            class="card-img-top"
-          />
-          <div class="card-body">
-            <div class="d-flex align-items-center mb-2">
-              <img
-                src="{% static 'images/user-img.jpg' %}"
-                alt="Author"
-                class="rounded-circle me-2"
-                width="32"
-                height="32"
-              />
-              <div>
-                <p class="mb-0 fw-semibold">Cheche Developer</p>
-                <p class="small text-muted mb-0">Oct 2, 2024</p>
-              </div>
+      <article class="blog-card">
+        <img src="{% static 'images/project-img.jpg' %}" alt="User research on a budget" class="blog-card-image">
+        <div class="blog-card-content">
+          <div class="blog-card-meta">
+            <img src="{% static 'images/user-img.jpg' %}" alt="" class="blog-card-author-avatar">
+            <div class="blog-card-author">
+              <strong>Cheche Developer</strong>
+              <time datetime="2024-10-02">Oct 2, 2024</time>
             </div>
-            <h3 class="h5 card-title">User research on a budget</h3>
-            <div class="mb-2">
-              <span class="badge bg-success me-1">Free</span>
-              <span class="badge bg-secondary">UX</span>
-            </div>
-            <p class="small text-muted mb-2">5 min read</p>
-            <p class="mb-3">
-              Lightweight research methods that still deliver insight.
-            </p>
-            <a
-              href="{% url 'blog_detail' %}"
-              class="text-decoration-none"
-              style="color: var(--primaryColor, #9c07b6); font-weight: 500"
-              >Read more →</a
-            >
           </div>
-        </article>
-      </div>
+          <h3 class="blog-card-title">User research on a budget</h3>
+          <div class="blog-card-tags">
+            <span class="badge bg-success">Free</span>
+            <span class="badge bg-secondary">UX</span>
+          </div>
+          <p class="blog-card-excerpt">
+            Lightweight research methods that still deliver insight.
+          </p>
+          <div class="blog-card-footer">
+            <span class="blog-card-read-time">5 min read</span>
+            <a href="{% url 'blog_detail' %}" class="blog-card-link">
+              Read more <i class="fas fa-arrow-right" aria-hidden="true"></i>
+            </a>
+          </div>
+        </div>
+      </article>
     </div>
   </div>
 </section>
