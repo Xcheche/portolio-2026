@@ -7,4 +7,6 @@ urlpatterns = [
     path('portfolio/', views.portfolio_detail, name='portfolio_detail'),
     path('dashboard/', views.dashboard, name='dashboard'),
     path('dashboard-v2/', views.dashboard_v2, name='dashboard_v2'),
+    #---------------------------Crud--------------------------------
+    path('delete/<int:portfolio_id>/', views.delete_portfolio, name='delete_portfolio'),    
 ]

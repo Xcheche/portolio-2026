@@ -1,0 +1,56 @@
+<div class="pagination mt-3 d-flex justify-content-center">
+    <span class="step-links d-inline-flex gap-2 align-items-center">
+        {% if page_obj.has_previous %}
+            <a href="?page=1" class="btn btn-sm btn-outline-secondary js-portfolio-page">&laquo; first</a>
+            <a href="?page={{ page_obj.previous_page_number }}" class="btn btn-sm btn-outline-secondary js-portfolio-page">previous</a>
+        {% endif %}
+
+        <span class="current small text-muted">
+            Page {{ page_obj.number }} of {{ page_obj.paginator.num_pages }}.
+        </span>
+
+        {% if page_obj.has_next %}
+                        <a href="?page={{ page_obj.next_page_number }}" class="btn btn-sm btn-outline-secondary js-portfolio-page">next</a>
+                        <a href="?page={{ page_obj.paginator.num_pages }}" class="btn btn-sm btn-outline-secondary js-portfolio-page">last &raquo;</a>
+        {% endif %}
+    </span>
+</div>
+
+
+<!---Ajax to Prevent Page Reload-->
+
+<script>
+    // Bind once to avoid duplicate listeners when paginator HTML is replaced.
+    if (!window.__portfolioPaginationAjaxBound) {
+        window.__portfolioPaginationAjaxBound = true;
+
+        // Use event delegation so new pagination links also work after DOM updates.
+        document.addEventListener('click', async function (e) {
+            //js-portfolio-page is the class we added to pagination links above in python code
+            const link = e.target.closest('.js-portfolio-page');
+            if (!link) return;
+
+            e.preventDefault();
+
+            try {
+                // Fetch the next page HTML and swap only the portfolio grid section.
+                const response = await fetch(link.href, {
+                    headers: { 'X-Requested-With': 'XMLHttpRequest' }
+                });
+                const html = await response.text();
+                const doc = new DOMParser().parseFromString(html, 'text/html');
+
+                const nextGrid = doc.querySelector('.portfolioRow');
+                const currentGrid = document.querySelector('.portfolioRow');
+                if (nextGrid && currentGrid) {
+                    currentGrid.replaceWith(nextGrid);
+                    window.history.pushState({}, '', link.href);
+                    window.scrollTo({ top: 0, behavior: 'smooth' });
+                }
+            } catch (err) {
+                // Fallback: continue with normal navigation if AJAX fails.
+                window.location.href = link.href;
+            }
+        });
+    }
+</script>

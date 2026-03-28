@@ -3,79 +3,175 @@
 
 {% block title %}Sign up{% endblock %}
 {% block content %}
-  <!-- ================================
-    Start Content
-    ================================= -->
-  <section>
-    <div class="innerPageBannerCol">
-      <div class="container">
-        <div class="row g-4 g-md-3 align-items-center">
-          <div class="col-md-6">
-            <div class="bannerContent">
-              <h1 class="xlTitle pb-md-3">Sign up below</h1>
+
+<div class="auth-page">
+  <div class="auth-container">
+    <!-- Brand Section -->
+    <div class="auth-brand-section">
+      <div class="auth-brand-content">
+        <div class="auth-brand-logo">Cheche Coding</div>
+        <h1>Professional Dashboard</h1>
+        <p>Create your account to access a comprehensive platform for managing your professional brand, services, and content.</p>
+        
+        <ul class="benefits-list">
+          <li><i class="fas fa-check"></i> Build & showcase your portfolio</li>
+          <li><i class="fas fa-check"></i> Manage services & digital products</li>
+          <li><i class="fas fa-check"></i> Professional analytics & reporting</li>
+          <li><i class="fas fa-check"></i> Enterprise security standards</li>
+        </ul>
+        
+        <div class="testimonial">
+          <p>"Take control of your professional presence with enterprise tools."</p>
+          <small>— Professional Standard</small>
+        </div>
+      </div>
+    </div>
+
+    <!-- Form Section -->
+    <div class="auth-form-section">
+      <div class="auth-card">
+        <!-- Card Header -->
+        <div class="auth-card-header">
+          <h2 class="auth-card-title">Create Account</h2>
+          <p class="auth-card-subtitle">Join us and start building</p>
+        </div>
+
+        <!-- Form -->
+        <form class="auth-form" action="{% url 'signup' %}" method="post" novalidate role="form">
+          {% csrf_token %}
+          
+          <!-- Name Fields Row -->
+          <div class="form-row">
+            <!-- First Name -->
+            <div class="form-group">
+              <label for="first_name">First Name</label>
+              <div class="input-with-icon user">
+                <input 
+                  type="text" 
+                  id="first_name" 
+                  name="first_name" 
+                  class="form-control" 
+                  placeholder="John"
+                  required 
+                  autocomplete="given-name"
+                >
+              </div>
+            </div>
+
+            <!-- Last Name -->
+            <div class="form-group">
+              <label for="last_name">Last Name</label>
+              <div class="input-with-icon user">
+                <input 
+                  type="text" 
+                  id="last_name" 
+                  name="last_name" 
+                  class="form-control" 
+                  placeholder="Doe"
+                  required 
+                  autocomplete="family-name"
+                >
+              </div>
             </div>
           </div>
-        </div>
-      </div>
-    </div>
-  </section>
 
-  <section>
-    <div class="lightBg">
-      <div class="container">
-        <div class="row justify-content-center">
-          <div class="col-md-6 col-lg-5 py-4">
-            <form id="signupForm" class="w-100 accounts-form" action="{% url 'signup' %}" method="post" novalidate role="form">
-              {% csrf_token %}
-              <div class="mb-3">
-                <label for="first_name" class="form-label visually-hidden">First name</label>
-                <input type="text" id="first_name" name="first_name" class="form-control text-center" placeholder="Your first name"
-                  required autocomplete="given-name">
-                <div class="invalid-feedback">Please enter your first name.</div>
-              </div>
+          <!-- Email Field -->
+          <div class="form-group">
+            <label for="signup-email">Email Address</label>
+            <div class="input-with-icon email">
+              <input 
+                type="email" 
+                id="signup-email" 
+                name="email" 
+                class="form-control" 
+                placeholder="you@example.com"
+                required 
+                autocomplete="email"
+              >
+            </div>
+            <small class="form-text">We'll use this to verify your account</small>
+          </div>
 
-              <div class="mb-3">
-                <label for="last_name" class="form-label visually-hidden">Last name</label>
-                <input type="text" id="last_name" name="last_name" class="form-control text-center" placeholder="Your last name"
-                  required autocomplete="family-name">
-                <div class="invalid-feedback">Please enter your last name.</div>
-              </div>
+          <!-- Password Field -->
+          <div class="form-group">
+            <label for="password1">Password</label>
+            <div class="input-with-icon password">
+              <input 
+                type="password" 
+                id="password1" 
+                name="password1" 
+                class="form-control" 
+                placeholder="Create a strong password"
+                required 
+                minlength="8" 
+                autocomplete="new-password"
+              >
+            </div>
+            <small class="form-text">Minimum 8 characters, mix of letters and numbers</small>
+          </div>
 
-              <div class="mb-3">
-                <label for="signup-email" class="form-label visually-hidden">Email</label>
-                <input type="email" id="signup-email" name="email" class="form-control text-center" placeholder="you@example.com"
-                  required autocomplete="email">
-                <div class="invalid-feedback">Please enter a valid email address.</div>
-              </div>
+          <!-- Confirm Password Field -->
+          <div class="form-group">
+            <label for="password2">Confirm Password</label>
+            <div class="input-with-icon password">
+              <input 
+                type="password" 
+                id="password2" 
+                name="password2" 
+                class="form-control" 
+                placeholder="Confirm your password"
+                required 
+                minlength="8" 
+                autocomplete="new-password"
+              >
+            </div>
+            <small class="form-text">Passwords must match</small>
+          </div>
 
-              <div class="mb-3">
-                <label for="password1" class="form-label visually-hidden">Password</label>
-                <input type="password" id="password1" name="password1" class="form-control text-center"
-                  placeholder="Create a password" required minlength="8" autocomplete="new-password">
-                <div class="form-text text-center">Minimum 8 characters.</div>
-                <div class="invalid-feedback">Please enter a password (at least 8 characters).</div>
-              </div>
+          <!-- Terms & Conditions -->
+          <div class="form-check mb-4">
+            <input 
+              class="form-check-input" 
+              type="checkbox" 
+              id="terms" 
+              required
+            >
+            <label class="form-check-label" for="terms">
+              I agree to the <a href="" class="forgot-password-link">Terms & Conditions</a>
+            </label>
+          </div>
 
-              <div class="mb-3">
-                <label for="password2" class="form-label visually-hidden">Repeat password</label>
-                <input type="password" id="password2" name="password2" class="form-control text-center"
-                  placeholder="Repeat your password" required minlength="8" autocomplete="new-password">
-                <div class="invalid-feedback">Please repeat the same password.</div>
-              </div>
+          <!-- Submit Button -->
+          <button type="submit" class="btn-primary-enterprise">
+            <span class="btn-text">Create Account</span>
+            <span class="btn-loader">
+              <span class="spinner"></span> Creating...
+            </span>
+          </button>
+        </form>
 
-              <button class="btn btnPrimary w-100" type="submit">Create account</button>
-            </form>
-
-            <p class="mt-4 text-center">
-              Already have an account? <a href="{% url 'login' %}">Sign in</a>
-            </p>
+        <!-- Social Signup -->
+        <div class="auth-form">
+          <div class="social-login-divider">or sign up with</div>
+          <div class="social-login-group">
+            <button type="button" class="btn-social" disabled title="Coming soon">
+              <i class="fab fa-github"></i>
+              <span>GitHub</span>
+            </button>
+            <button type="button" class="btn-social" disabled title="Coming soon">
+              <i class="fab fa-google"></i>
+              <span>Google</span>
+            </button>
           </div>
         </div>
+
+        <!-- Card Footer -->
+        <div class="auth-card-footer">
+          Already have an account? <a href="{% url 'login' %}">Sign in</a>
+        </div>
       </div>
     </div>
-  </section>
-  <!-- ================================
-    End Content
-    ================================= -->
+  </div>
+</div>
 
-{% endblock %}  
+{% endblock %}

@@ -1,15 +1,32 @@
 from django.shortcuts import render
+from django.db import transaction
+
+from portolio.models.portfolio import Portfolio
+from django.core.paginator import Paginator
 
 # Create your views here.
 
 #-------------------Home Page-------------------
 def home(request):
-    return render(request, 'portfolio/index.html')
+    all_portfolios = Portfolio.objects.published()  # Fetch only published portfolios
+
+    context = {
+        'all_portfolios': all_portfolios
+    }
+    return render(request, 'portfolio/index.html', context)
 
 
 #-------------------Portfolio Page-------------------
 def portfolio(request):
-    return render(request, 'portfolio/portfolio.html')
+    portfolios= Portfolio.objects.published()  # Fetch only published portfolios
+    paginator = Paginator(portfolios, 1)
+
+    page_number = request.GET.get("page")
+    page_obj = paginator.get_page(page_number)
+    context ={
+        'page_obj': page_obj
+    }
+    return render(request, 'portfolio/portfolio.html', context)
 
 
 
@@ -31,3 +48,13 @@ def dashboard(request):
 
 def dashboard_v2(request):
     return render(request, 'dashboard/dashboard-v2.html')
+
+
+
+#----------------------------Crud---------------------------
+#----------------Delete Portfolio-------------------
+def delete_portfolio(request, portfolio_id):
+    with transaction.atomic():
+        portfolio = Portfolio.objects.get(id=portfolio_id)
+        portfolio.delete()
+    return render(request, 'portfolio/index.html')

@@ -3,76 +3,124 @@
 {% block title %}Sign in{% endblock %}
 {% block content %}
 
-  <!-- ================================
-    Start Content
-    ================================= -->
-  <section>
-    <div class="innerPageBannerCol">
-      <div class="container">
-        <div class="row g-4 g-md-3 align-items-center">
-          <div class="col-md-6">
-            <div class="bannerContent">
-              <h1 class="xlTitle pb-md-3">Sign in below</h1>
+<div class="auth-page">
+  <div class="auth-container">
+    <!-- Brand Section -->
+    <div class="auth-brand-section">
+      <div class="auth-brand-content">
+        <div class="auth-brand-logo">Cheche Coding</div>
+        <h1>Welcome Back</h1>
+        <p>Manage your professional portfolio, services, and content with a modern enterprise platform designed for your success.</p>
+        
+        <ul class="benefits-list">
+          <li><i class="fas fa-check"></i> Professional portfolio showcase</li>
+          <li><i class="fas fa-check"></i> Service & product management</li>
+          <li><i class="fas fa-check"></i> Integrated analytics & insights</li>
+          <li><i class="fas fa-check"></i> Enterprise-grade security</li>
+        </ul>
+        
+        <div class="testimonial">
+          <p>"A premium platform crafted for professionals who demand excellence."</p>
+          <small>— Industry Professional</small>
+        </div>
+      </div>
+    </div>
+
+    <!-- Form Section -->
+    <div class="auth-form-section">
+      <div class="auth-card">
+        <!-- Card Header -->
+        <div class="auth-card-header">
+          <h2 class="auth-card-title">Sign in</h2>
+          <p class="auth-card-subtitle">Enter your credentials below</p>
+        </div>
+
+        <!-- Form -->
+        <form class="auth-form" action="{% url 'login' %}" method="post" novalidate role="form">
+          {% csrf_token %}
+          
+          <!-- Email Field -->
+          <div class="form-group">
+            <label for="signin-email">Email Address</label>
+            <div class="input-with-icon email">
+              <input 
+                type="email" 
+                id="signin-email" 
+                name="email" 
+                class="form-control" 
+                placeholder="you@example.com"
+                required 
+                autocomplete="email" 
+                autofocus
+              >
             </div>
+            <small class="form-text">We'll never share your email</small>
           </div>
+
+          <!-- Password Field -->
+          <div class="form-group">
+            <label for="signin-password">Password</label>
+            <div class="input-with-icon password">
+              <input 
+                type="password" 
+                id="signin-password" 
+                name="password" 
+                class="form-control" 
+                placeholder="Enter your password"
+                required 
+                minlength="8" 
+                autocomplete="current-password"
+              >
+            </div>
+            <small class="form-text">Minimum 8 characters</small>
+          </div>
+
+          <!-- Remember & Forgot Password -->
+          <div class="d-flex justify-content-between align-items-center mb-4">
+            <div class="form-check">
+              <input 
+                class="form-check-input" 
+                type="checkbox" 
+                value="1" 
+                id="remember" 
+                name="remember"
+              >
+              <label class="form-check-label" for="remember">Remember me</label>
+            </div>
+            <a href="#" class="forgot-password-link">Forgot password?</a>
+          </div>
+
+          <!-- Submit Button -->
+          <button type="submit" class="btn-primary-enterprise">
+            <span class="btn-text">Sign in</span>
+            <span class="btn-loader">
+              <span class="spinner"></span> Processing...
+            </span>
+          </button>
+        </form>
+
+        <!-- Social Login -->
+        <div class="auth-form">
+          <div class="social-login-divider">or continue with</div>
+          <div class="social-login-group">
+            <button type="button" class="btn-social" disabled title="Coming soon">
+              <i class="fab fa-github"></i>
+              <span>GitHub</span>
+            </button>
+            <button type="button" class="btn-social" disabled title="Coming soon">
+              <i class="fab fa-google"></i>
+              <span>Google</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- Card Footer -->
+        <div class="auth-card-footer">
+          Don't have an account? <a href="{% url 'signup' %}">Create one</a>
         </div>
       </div>
     </div>
-  </section>
-
-  <section>
-    <div class="lightBg">
-      <div class="container">
-        <div class="row justify-content-center">
-          <div class="col-md-6 col-lg-5 py-4">
-            <form class="w-100 accounts-form" id="signinForm" action="{% url 'login' %}" method="post" novalidate role="form">
-              {% csrf_token %}
-              <div class="mb-3">
-                <label for="signin-email" class="form-label visually-hidden">Email</label>
-                <input type="email" id="signin-email" name="email" class="form-control text-center" placeholder="you@example.com"
-                  required autocomplete="email" autofocus aria-describedby="emailHelp">
-                <div class="invalid-feedback">Please enter a valid email address.</div>
-              </div>
-
-              <div class="mb-3">
-                <label for="signin-password" class="form-label visually-hidden">Password</label>
-                <input type="password" id="signin-password" name="password" class="form-control text-center" placeholder="Password"
-                  required minlength="8" autocomplete="current-password" aria-describedby="passwordHelp">
-                <div id="passwordHelp" class="form-text text-center">Minimum 8 characters.</div>
-                <div class="invalid-feedback">Please enter your password.</div>
-              </div>
-
-              <div class="d-flex justify-content-between align-items-center mb-3">
-                <div class="form-check">
-                  <input class="form-check-input" type="checkbox" value="1" id="remember" name="remember">
-                  <label class="form-check-label" for="remember">Remember me</label>
-                </div>
-                <a href="#" class="small">Forgotten your password?</a>
-              </div>
-
-              <button type="submit" class="btn btnPrimary w-100">Sign in</button>
-
-              <div class="text-center socialLogin d-flex flex-column align-items-center mt-4">
-                <p class="mb-2 small text-muted">Or sign in with:</p>
-                <div class="d-flex gap-2 justify-content-center">
-                  <a href="javascript:void(0)" class="btn btn-outline-secondary btn-sm"
-                    aria-label="Sign in with GitHub" rel="nofollow">Github</a>
-                  <a href="javascript:void(0)" class="btn btn-outline-secondary btn-sm" aria-label="Sign in with Google"
-                    rel="nofollow">Google</a>
-                </div>
-              </div>
-            </form>
-
-            <p class="mt-4 text-center">
-              Don't have an account? <a href="{% url 'signup' %}">Sign up</a>
-            </p>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-  <!-- ================================
-    End Content
-    ================================= -->
+  </div>
+</div>
 
 {% endblock %}

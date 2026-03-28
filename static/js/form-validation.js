@@ -1,18 +1,28 @@
 /**
- * Form Validation & Submission Handler
+ * Enterprise Form Validation & Submission Handler
  * 
- * Provides real-time validation, loading states, and AJAX form submission
- * with success/error feedback for contact forms.
+ * Provides real-time validation, password strength meter, loading states,
+ * and form submission for authentication and contact forms.
  * 
- * Usage:
- * - Add id="contactForm" to your form element
- * - Add class="form-control" to inputs and textareas
- * - Include .invalid-feedback div for each field
- * - Include .form-status div for submission feedback
+ * Features:
+ * - Email validation with real-time feedback
+ * - Password strength indicator
+ * - Password visibility toggle
+ * - Loading states on submit
+ * - Responsive form handling
  */
 
-(function() {
-  'use strict';
+document.addEventListener('DOMContentLoaded', function() {
+  initializeAuthForms();
+  initializePasswordStrength();
+  initializePasswordToggle();
+});
+
+/**
+ * Initialize authentication forms with validation
+ */
+function initializeAuthForms() {
+  const forms = document.querySelectorAll('form[novalidate]');
 
   // Configuration
   const FORM_CONFIG = {
