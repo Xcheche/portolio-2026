@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import get_object_or_404, redirect, render
 from django.db import transaction
 
 from portolio.models.portfolio import Portfolio
@@ -54,7 +54,11 @@ def dashboard_v2(request):
 #----------------------------Crud---------------------------
 #----------------Delete Portfolio-------------------
 def delete_portfolio(request, portfolio_id):
-    with transaction.atomic():
-        portfolio = Portfolio.objects.get(id=portfolio_id)
-        portfolio.delete()
-    return render(request, 'portfolio/index.html')
+    portfolio = get_object_or_404(Portfolio, id=portfolio_id)
+
+    if request.method == 'POST':
+        with transaction.atomic():
+            portfolio.delete()
+        return redirect('home')
+
+    return render(request, 'portfolio/confirm_delete.html', {'portfolio': portfolio})
