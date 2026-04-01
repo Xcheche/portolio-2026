@@ -68,12 +68,15 @@
           <div class="row g-4 align-items-center">
             <div class="col-md-auto">
               <div class="portfolioImgCol">
-                <a href="" class="portfolio-img-link"><img src="{{ portfolio.image.url }}" alt="{{ portfolio.title }}" class="js-image-lightbox"></a>
+                <a href="{% url 'portfolio_detail' slug=portfolio.slug %}" class="portfolio-img-link"><img src="{{ portfolio.image.url }}" alt="{{ portfolio.title }}" class="js-image-lightbox"></a>
               </div>
             </div>
             <div class="col-md">
               <div class="portfolioContentCol">
-                <h4 class="lgTitle"><a href="">{{ portfolio.title }}</a> <small><a href="{% url 'delete_portfolio' portfolio_id=portfolio.id %}" class="btn btn-danger btn-sm" aria-label="Delete {{ portfolio.title }}"><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 16 16" fill="currentColor" aria-hidden="true" focusable="false"><path d="M5.5 5.5A.5.5 0 0 1 6 6v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm2.5 0A.5.5 0 0 1 8.5 6v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm3 .5a.5.5 0 0 0-1 0v6a.5.5 0 0 0 1 0V6z"/><path fill-rule="evenodd" d="M14.5 3a1 1 0 0 1-1 1H13v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V4h-.5a1 1 0 1 1 0-2H6a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1h3.5a1 1 0 0 1 1 1zM4 4v9a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1V4H4z"/></svg></a></small></h4>
+                <h4 class="lgTitle">
+                  <a href="{% url 'portfolio_detail' slug=portfolio.slug %}">{{ portfolio.title }}</a>
+                  <small><a href="{% url 'delete_portfolio' portfolio_id=portfolio.id %}" class="btn btn-danger btn-sm" aria-label="Delete {{ portfolio.title }}"><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 16 16" fill="currentColor" aria-hidden="true" focusable="false"><path d="M5.5 5.5A.5.5 0 0 1 6 6v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm2.5 0A.5.5 0 0 1 8.5 6v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm3 .5a.5.5 0 0 0-1 0v6a.5.5 0 0 0 1 0V6z"/><path fill-rule="evenodd" d="M14.5 3a1 1 0 0 1-1 1H13v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V4h-.5a1 1 0 1 1 0-2H6a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1h3.5a1 1 0 0 1 1 1zM4 4v9a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1V4H4z"/></svg></a></small>
+                </h4>
                 <ul class="portfolioOption">
                   <li><span class="dateLbl">{{ portfolio.created_at|date:"Y" }}</span></li>
                   <li>{{ portfolio.title }}</li>

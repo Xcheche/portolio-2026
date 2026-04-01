@@ -44,4 +44,8 @@ class Portfolio(CommonModel):
 
     @property
     def get_mode_display(self):
-        return dict(PROJECT_STATUS_CHOICES).get(self.project_mode, 'Unknown')    
+        return dict(PROJECT_STATUS_CHOICES).get(self.project_mode, 'Unknown')
+
+    @property
+    def tech_stack_list(self):
+        return [tech.strip() for tech in self.tech_stack.split(',') if tech.strip()]    

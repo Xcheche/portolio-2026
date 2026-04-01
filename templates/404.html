@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Oops! Page Not Found</title>
+  <style>
+    :root {
+      --bg: #111;
+      --panel: #1d1d1d;
+      --text: #f1f1f1;
+      --accent: #39d353;
+      --danger: #ff4d4f;
+    }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+      display: grid;
+      place-items: center;
+      text-align: center;
+      font-family: Verdana, sans-serif;
+      color: var(--text);
+      background: radial-gradient(circle at top, #2a2a2a 0%, var(--bg) 60%);
+      padding: 20px;
+      box-sizing: border-box;
+    }
+
+    .wrapper {
+      width: 100%;
+      max-width: 460px;
+      background: var(--panel);
+      border: 1px solid #333;
+      border-radius: 12px;
+      padding: 16px;
+      box-shadow: 0 12px 32px rgba(0, 0, 0, 0.35);
+    }
+
+    h1 {
+      margin: 4px 0 8px;
+      font-size: 28px;
+    }
+
+    p {
+      margin: 0 0 10px;
+      color: #c8c8c8;
+    }
+
+    #hud {
+      display: flex;
+      justify-content: space-between;
+      font-size: 14px;
+      margin: 8px auto;
+      width: 400px;
+      max-width: 100%;
+    }
+
+    canvas {
+      display: block;
+      margin: 0 auto;
+      background: #000;
+      border: 2px solid #333;
+      border-radius: 8px;
+      width: 400px;
+      max-width: 100%;
+      height: auto;
+    }
+
+    .hint {
+      font-size: 13px;
+      margin-top: 10px;
+      color: #b5b5b5;
+    }
+  </style>
+</head>
+<body>
+  <div class="wrapper">
+    <h1>404 - Page Not Found</h1>
+    <p>Play a simple jump game while you're here.</p>
+    <div id="hud">
+      <span id="score">Score: 0</span>
+      <span id="best">Best: 0</span>
+    </div>
+    <canvas id="game" width="400" height="400"></canvas>
+    <div class="hint">Jump: Space, Up, or Tap/Click. Restart: Enter.</div>
+  </div>
+
+  <script>
+    const canvas = document.getElementById('game');
+    const ctx = canvas.getContext('2d');
+
+    const scoreEl = document.getElementById('score');
+    const bestEl = document.getElementById('best');
+
+    const width = canvas.width;
+    const height = canvas.height;
+
+    const groundY = height - 60;
+    const gravity = 0.62;
+    const jumpForce = -11.8;
+
+    const player = {
+      x: 56,
+      y: groundY - 36,
+      w: 28,
+      h: 36,
+      vy: 0
+    };
+
+    let obstacles = [];
+    let score = 0;
+    let best = 0;
+    let gameOver = false;
+    let lastSpawn = 0;
+    let lastScoreTick = 0;
+    let jumpQueued = false;
+    let speed = 3.8;
+
+    function resetGame() {
+      obstacles = [];
+      score = 0;
+      gameOver = false;
+      speed = 3.8;
+      lastSpawn = 0;
+      lastScoreTick = 0;
+      player.y = groundY - player.h;
+      player.vy = 0;
+      updateHud();
+    }
+
+    function updateHud() {
+      scoreEl.textContent = `Score: ${score}`;
+      bestEl.textContent = `Best: ${best}`;
+    }
+
+    function jump() {
+      const onGround = player.y >= groundY - player.h - 0.1;
+      if (onGround && !gameOver) {
+        player.vy = jumpForce;
+      }
+      if (gameOver) {
+        resetGame();
+      }
+    }
+
+    document.addEventListener('keydown', (e) => {
+      const key = e.key.toLowerCase();
+
+      if (key === ' ' || key === 'spacebar' || key === 'arrowup' || key === 'w') {
+        e.preventDefault();
+        jumpQueued = true;
+      }
+
+      if (gameOver && e.key === 'Enter') {
+        resetGame();
+      }
+    });
+
+    canvas.addEventListener('pointerdown', () => {
+      jumpQueued = true;
+    });
+
+    function spawnObstacle() {
+      const w = 16 + Math.random() * 16;
+      const h = 20 + Math.random() * 28;
+      obstacles.push({
+        x: width + 10,
+        y: groundY - h,
+        w,
+        h,
+        passed: false
+      });
+    }
+
+    function intersects(a, b) {
+      return a.x < b.x + b.w &&
+             a.x + a.w > b.x &&
+             a.y < b.y + b.h &&
+             a.y + a.h > b.y;
+    }
+
+    function update(now) {
+      if (gameOver) {
+        return;
+      }
+
+      if (jumpQueued) {
+        jump();
+        jumpQueued = false;
+      }
+
+      player.vy += gravity;
+      player.y += player.vy;
+      if (player.y > groundY - player.h) {
+        player.y = groundY - player.h;
+        player.vy = 0;
+      }
+
+      if (now - lastSpawn > 900 - Math.min(350, score * 2)) {
+        spawnObstacle();
+        lastSpawn = now;
+      }
+
+      obstacles.forEach((obs) => {
+        obs.x -= speed;
+      });
+
+      obstacles = obstacles.filter((obs) => obs.x + obs.w > -5);
+      speed = Math.min(7, speed + 0.0007);
+
+      for (let i = 0; i < obstacles.length; i++) {
+        const obs = obstacles[i];
+        if (intersects(obs, player)) {
+          gameOver = true;
+          best = Math.max(best, score);
+          updateHud();
+          break;
+        }
+        if (!obs.passed && obs.x + obs.w < player.x) {
+          obs.passed = true;
+          score += 5;
+          best = Math.max(best, score);
+          updateHud();
+        }
+      }
+
+      if (now - lastScoreTick > 140) {
+        score += 1;
+        best = Math.max(best, score);
+        lastScoreTick = now;
+        updateHud();
+      }
+    }
+
+    function drawPlayer() {
+      ctx.fillStyle = '#39d353';
+      ctx.fillRect(player.x, player.y, player.w, player.h);
+      ctx.fillStyle = '#0b0b0b';
+      ctx.fillRect(player.x + 18, player.y + 10, 5, 5);
+    }
+
+    function drawGround() {
+      ctx.fillStyle = '#1f2937';
+      ctx.fillRect(0, groundY, width, height - groundY);
+
+      ctx.fillStyle = '#111827';
+      for (let i = 0; i < width; i += 28) {
+        ctx.fillRect((i - (performance.now() * 0.08) % 28), groundY + 18, 14, 3);
+      }
+    }
+
+    function drawObstacles() {
+      ctx.fillStyle = '#ff4d4f';
+      obstacles.forEach((obs) => {
+        ctx.fillRect(obs.x, obs.y, obs.w, obs.h);
+      });
+    }
+
+    function drawGameOver() {
+      ctx.fillStyle = 'rgba(0, 0, 0, 0.65)';
+      ctx.fillRect(0, 0, width, height);
+      ctx.fillStyle = '#ffffff';
+      ctx.font = 'bold 32px Verdana';
+      ctx.textAlign = 'center';
+      ctx.fillText('You Hit!', width / 2, height / 2 - 10);
+      ctx.font = '16px Verdana';
+      ctx.fillText('Press Enter or Tap to restart', width / 2, height / 2 + 22);
+    }
+
+    function draw(now) {
+      update(now);
+
+      ctx.fillStyle = '#000';
+      ctx.fillRect(0, 0, width, height);
+
+      drawGround();
+      drawPlayer();
+      drawObstacles();
+
+      if (gameOver) {
+        drawGameOver();
+      }
+
+      requestAnimationFrame(draw);
+    }
+
+    updateHud();
+    requestAnimationFrame(draw);
+  </script>
+</body>
+</html>

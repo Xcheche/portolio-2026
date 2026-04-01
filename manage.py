@@ -29,7 +29,9 @@ if __name__ == "__main__":
     main()
 #-----Portfolio--------------
 
-#TODO: Context processor for portfolio categories dropdown in portfolio page  
+
 # TODO: Add delete confirmation page for portfolio delete action   
 #TODO: Add search functionality to portfolio page
-#TODO: Add taggit to get featured portfolios in home page and custom template tag to get portfolio categories in dropdown in portfolio page
+#TODO:Review
+#TODO:Auth
+#TODO:Test portfolio and auth

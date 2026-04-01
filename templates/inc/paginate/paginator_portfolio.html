@@ -1,19 +1,29 @@
-<div class="pagination mt-3 d-flex justify-content-center">
-    <span class="step-links d-inline-flex gap-2 align-items-center">
+<div class="mt-3 d-flex justify-content-center">
+    <nav aria-label="Portfolio pages">
+    <ul class="pagination pagination-sm mb-0 align-items-center gap-1">
         {% if page_obj.has_previous %}
-            <a href="?page=1" class="btn btn-sm btn-outline-secondary js-portfolio-page">&laquo; first</a>
-            <a href="?page={{ page_obj.previous_page_number }}" class="btn btn-sm btn-outline-secondary js-portfolio-page">previous</a>
+            {% if selected_category_slug %}
+            <li class="page-item"><a href="{% url 'portfolio' %}?category={{ selected_category_slug }}&page=1" class="page-link js-portfolio-page">&laquo; first</a></li>
+            <li class="page-item"><a href="{% url 'portfolio' %}?category={{ selected_category_slug }}&page={{ page_obj.previous_page_number }}" class="page-link js-portfolio-page">previous</a></li>
+            {% else %}
+            <li class="page-item"><a href="{% url 'portfolio' %}?page=1" class="page-link js-portfolio-page">&laquo; first</a></li>
+            <li class="page-item"><a href="{% url 'portfolio' %}?page={{ page_obj.previous_page_number }}" class="page-link js-portfolio-page">previous</a></li>
+            {% endif %}
         {% endif %}
 
-        <span class="current small text-muted">
-            Page {{ page_obj.number }} of {{ page_obj.paginator.num_pages }}.
-        </span>
+        <li class="page-item disabled"><span class="page-link small">Page {{ page_obj.number }} of {{ page_obj.paginator.num_pages }}</span></li>
 
         {% if page_obj.has_next %}
-                        <a href="?page={{ page_obj.next_page_number }}" class="btn btn-sm btn-outline-secondary js-portfolio-page">next</a>
-                        <a href="?page={{ page_obj.paginator.num_pages }}" class="btn btn-sm btn-outline-secondary js-portfolio-page">last &raquo;</a>
+            {% if selected_category_slug %}
+            <li class="page-item"><a href="{% url 'portfolio' %}?category={{ selected_category_slug }}&page={{ page_obj.next_page_number }}" class="page-link js-portfolio-page">next</a></li>
+            <li class="page-item"><a href="{% url 'portfolio' %}?category={{ selected_category_slug }}&page={{ page_obj.paginator.num_pages }}" class="page-link js-portfolio-page">last &raquo;</a></li>
+            {% else %}
+            <li class="page-item"><a href="{% url 'portfolio' %}?page={{ page_obj.next_page_number }}" class="page-link js-portfolio-page">next</a></li>
+            <li class="page-item"><a href="{% url 'portfolio' %}?page={{ page_obj.paginator.num_pages }}" class="page-link js-portfolio-page">last &raquo;</a></li>
+            {% endif %}
         {% endif %}
-    </span>
+    </ul>
+    </nav>
 </div>
 
 
@@ -33,17 +43,17 @@
             e.preventDefault();
 
             try {
-                // Fetch the next page HTML and swap only the portfolio grid section.
+                // Fetch the next page HTML and swap both grid and paginator together.
                 const response = await fetch(link.href, {
                     headers: { 'X-Requested-With': 'XMLHttpRequest' }
                 });
                 const html = await response.text();
                 const doc = new DOMParser().parseFromString(html, 'text/html');
 
-                const nextGrid = doc.querySelector('.portfolioRow');
-                const currentGrid = document.querySelector('.portfolioRow');
-                if (nextGrid && currentGrid) {
-                    currentGrid.replaceWith(nextGrid);
+                const nextResults = doc.querySelector('.portfolioResults');
+                const currentResults = document.querySelector('.portfolioResults');
+                if (nextResults && currentResults) {
+                    currentResults.replaceWith(nextResults);
                     window.history.pushState({}, '', link.href);
                     window.scrollTo({ top: 0, behavior: 'smooth' });
                 }

@@ -53,9 +53,11 @@ PROJECT_APPS = [
 ]
 THIRD_PARTY_APPS = [
     "froala_editor",
+    "django_prometheus",
 ]
 INSTALLED_APPS = DJANGO_APPS + PROJECT_APPS + THIRD_PARTY_APPS
 MIDDLEWARE = [
+    "django_prometheus.middleware.PrometheusBeforeMiddleware",
     "django.middleware.security.SecurityMiddleware",
     "django.contrib.sessions.middleware.SessionMiddleware",
     "django.middleware.common.CommonMiddleware",
@@ -63,6 +65,7 @@ MIDDLEWARE = [
     "django.contrib.auth.middleware.AuthenticationMiddleware",
     "django.contrib.messages.middleware.MessageMiddleware",
     "django.middleware.clickjacking.XFrameOptionsMiddleware",
+    "django_prometheus.middleware.PrometheusAfterMiddleware",
 ]
 
 ROOT_URLCONF = "config.urls"
@@ -78,6 +81,8 @@ TEMPLATES = [
                 "django.template.context_processors.request",
                 "django.contrib.auth.context_processors.auth",
                 "django.contrib.messages.context_processors.messages",
+                "portolio.context_processor.category",  # Portfolio category context
+                "portolio.context_processor.footer_info",  # Footer info context
             ],
         },
     },
@@ -137,6 +142,40 @@ MEDIA_ROOT = BASE_DIR / "media"
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
+
+#-----------Monitoring & Observability Configuration-----------#
+
+# SENTRY CONFIGURATION
+SENTRY_DSN = os.getenv('SENTRY_DSN')
+SENTRY_ENABLED = os.getenv('SENTRY_ENABLED', 'False').lower() == 'true'
+
+if SENTRY_ENABLED and SENTRY_DSN:
+    import sentry_sdk
+    from sentry_sdk.integrations.django import DjangoIntegration
+    from sentry_sdk.integrations.celery import CeleryIntegration
+    
+    sentry_sdk.init(
+        dsn=SENTRY_DSN,
+        integrations=[
+            DjangoIntegration(),
+            CeleryIntegration(),
+        ],
+        traces_sample_rate=float(os.getenv('SENTRY_TRACES_SAMPLE_RATE', 0.1)),
+        send_default_pii=False,
+        environment=os.getenv('ENVIRONMENT', 'development'),
+    )
+
+# NEW RELIC CONFIGURATION
+NEW_RELIC_CONFIG_FILE = os.getenv('NEW_RELIC_CONFIG_FILE')
+NEW_RELIC_ENVIRONMENT = os.getenv('NEW_RELIC_ENVIRONMENT', 'development')
+###To run#####
+#NEW_RELIC_CONFIG_FILE=newrelic.ini newrelic-admin run-program python manage.py runserver
+
+
+# If you want to enable New Relic, set NEW_RELIC_LICENSE_KEY in .env
+# The newrelic agent should be initialized via newrelic-admin wrapper or environment variables
+
+# PROMETHEUS CONFIGURATION
 
 #-----------Froala Editor Configuration-----------#
 FROALA_EDITOR_PLUGINS = (    'align', 'char_counter', 'code_beautifier' ,'code_view', 'colors', 'draggable', 'emoticons',    'entities', 'file', 'font_family', 'font_size', 'fullscreen', 'image_manager', 'image', 'inline_style',    'line_breaker', 'link', 'lists', 'paragraph_format', 'paragraph_style', 'quick_insert', 'quote',     'save', 'table', 'url', 'video')
